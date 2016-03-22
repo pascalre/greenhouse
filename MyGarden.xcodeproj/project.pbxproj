@@ -16,6 +16,7 @@
 		2DDDF2B01CA164D30075674B /* MyGardenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2AF1CA164D30075674B /* MyGardenUITests.swift */; };
 		2DDDF2CA1CA16A800075674B /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */; };
 		2DDDF2D01CA184B50075674B /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2CF1CA184B50075674B /* Plant.swift */; };
+		2DDDF2D21CA188530075674B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2D11CA188530075674B /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		2DDDF2B11CA164D30075674B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		2DDDF2CF1CA184B50075674B /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		2DDDF2D11CA188530075674B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				2DDDF2931CA164D30075674B /* MyGarden.xcdatamodeld */,
 				2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */,
 				2DDDF2CF1CA184B50075674B /* Plant.swift */,
+				2DDDF2D11CA188530075674B /* DetailViewController.swift */,
 			);
 			path = MyGarden;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */,
 				2DDDF2D01CA184B50075674B /* Plant.swift in Sources */,
+				2DDDF2D21CA188530075674B /* DetailViewController.swift in Sources */,
 				2DDDF28D1CA164D30075674B /* AppDelegate.swift in Sources */,
 				2DDDF2CA1CA16A800075674B /* SearchTableViewController.swift in Sources */,
 			);

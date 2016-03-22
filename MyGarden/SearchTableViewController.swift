@@ -8,14 +8,27 @@
 
 import UIKit
 
-class SearchTableViewController: UITableViewController {
+class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
     
     // MARK: - Properties
+    var detailViewController: DetailViewController? = nil
     var plants = [Plant]()
     var filteredArray = [Plant]()
+    var searchController = UISearchController()
 
+    // MARK: View Setup
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Search Controller
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+    
+        // Setup the Scope Bar
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.scopeButtonTitles = ["Name", "Saison", "Herkunft"]
+        tableView.tableHeaderView = searchController.searchBar
         
         plants = [
             Plant(name: "Basilikum"),
@@ -23,7 +36,8 @@ class SearchTableViewController: UITableViewController {
             Plant(name: "Schnittlauch"),
             Plant(name: "Erdbeere")
         ]
-        self.tableView.reloadData()
+        
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,15 +52,38 @@ class SearchTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.active && searchController.searchBar.text != "" {
+            return filteredArray.count
+        }
         return plants.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell?
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let plant: Plant
         
-        let plant = plants[indexPath.row]
-        cell!.textLabel!.text = plant.name
-        return cell!
+        if searchController.active && searchController.searchBar.text != "" {
+            plant = filteredArray[indexPath.row]
+        } else {
+            plant = plants[indexPath.row]
+        }
+        cell.textLabel!.text = plant.name
+        
+        return cell
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredArray = plants.filter({( plant : Plant) -> Bool in
+            let categoryMatch = (scope == "Name") || (plant.name == scope)
+            return categoryMatch && plant.name.lowercaseString.containsString(searchText.lowercaseString)
+        })
+        tableView.reloadData()
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        filterContentForSearchText(searchController.searchBar.text!, scope: scope)
     }
 }
