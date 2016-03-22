@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2DDDF28D1CA164D30075674B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF28C1CA164D30075674B /* AppDelegate.swift */; };
-		2DDDF28F1CA164D30075674B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF28E1CA164D30075674B /* ViewController.swift */; };
 		2DDDF2921CA164D30075674B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DDDF2901CA164D30075674B /* Main.storyboard */; };
 		2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2931CA164D30075674B /* MyGarden.xcdatamodeld */; };
 		2DDDF2971CA164D30075674B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DDDF2961CA164D30075674B /* Assets.xcassets */; };
 		2DDDF29A1CA164D30075674B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DDDF2981CA164D30075674B /* LaunchScreen.storyboard */; };
 		2DDDF2A51CA164D30075674B /* MyGardenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2A41CA164D30075674B /* MyGardenTests.swift */; };
 		2DDDF2B01CA164D30075674B /* MyGardenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2AF1CA164D30075674B /* MyGardenUITests.swift */; };
+		2DDDF2CA1CA16A800075674B /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,6 @@
 /* Begin PBXFileReference section */
 		2DDDF2891CA164D30075674B /* MyGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DDDF28C1CA164D30075674B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2DDDF28E1CA164D30075674B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2DDDF2911CA164D30075674B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DDDF2941CA164D30075674B /* MyGarden.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyGarden.xcdatamodel; sourceTree = "<group>"; };
 		2DDDF2961CA164D30075674B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		2DDDF2AB1CA164D30075674B /* MyGardenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyGardenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DDDF2AF1CA164D30075674B /* MyGardenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenUITests.swift; sourceTree = "<group>"; };
 		2DDDF2B11CA164D30075674B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				2DDDF28C1CA164D30075674B /* AppDelegate.swift */,
-				2DDDF28E1CA164D30075674B /* ViewController.swift */,
 				2DDDF2901CA164D30075674B /* Main.storyboard */,
 				2DDDF2961CA164D30075674B /* Assets.xcassets */,
 				2DDDF2981CA164D30075674B /* LaunchScreen.storyboard */,
 				2DDDF29B1CA164D30075674B /* Info.plist */,
 				2DDDF2931CA164D30075674B /* MyGarden.xcdatamodeld */,
+				2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */,
 			);
 			path = MyGarden;
 			sourceTree = "<group>";
@@ -259,9 +259,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DDDF28F1CA164D30075674B /* ViewController.swift in Sources */,
 				2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */,
 				2DDDF28D1CA164D30075674B /* AppDelegate.swift in Sources */,
+				2DDDF2CA1CA16A800075674B /* SearchTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
