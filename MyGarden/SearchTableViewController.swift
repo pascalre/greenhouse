@@ -21,6 +21,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         self.resultSearchController.searchResultsUpdater = self
         self.resultSearchController.dimsBackgroundDuringPresentation = false
         self.resultSearchController.searchBar.sizeToFit()
+        self.resultSearchController.searchBar.placeholder = "Suche"
+        
         
         self.tableView.tableHeaderView = self.resultSearchController.searchBar
         self.tableView.reloadData()
