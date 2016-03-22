@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2DDDF2891CA164D30075674B /* MyGarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DDDF2891CA164D30075674B /* Greenhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Greenhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DDDF28C1CA164D30075674B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DDDF2911CA164D30075674B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DDDF2941CA164D30075674B /* MyGarden.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyGarden.xcdatamodel; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		2DDDF28A1CA164D30075674B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2DDDF2891CA164D30075674B /* MyGarden.app */,
+				2DDDF2891CA164D30075674B /* Greenhouse.app */,
 				2DDDF2A01CA164D30075674B /* MyGardenTests.xctest */,
 				2DDDF2AB1CA164D30075674B /* MyGardenUITests.xctest */,
 			);
@@ -151,7 +151,7 @@
 			);
 			name = MyGarden;
 			productName = MyGarden;
-			productReference = 2DDDF2891CA164D30075674B /* MyGarden.app */;
+			productReference = 2DDDF2891CA164D30075674B /* Greenhouse.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2DDDF29F1CA164D30075674B /* MyGardenTests */ = {
@@ -414,7 +414,7 @@
 				INFOPLIST_FILE = MyGarden/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.reitermann.MyGarden;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Greenhouse;
 			};
 			name = Debug;
 		};
@@ -425,7 +425,7 @@
 				INFOPLIST_FILE = MyGarden/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.reitermann.MyGarden;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Greenhouse;
 			};
 			name = Release;
 		};
