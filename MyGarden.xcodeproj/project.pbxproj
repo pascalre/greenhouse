@@ -15,6 +15,7 @@
 		2DDDF2A51CA164D30075674B /* MyGardenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2A41CA164D30075674B /* MyGardenTests.swift */; };
 		2DDDF2B01CA164D30075674B /* MyGardenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2AF1CA164D30075674B /* MyGardenUITests.swift */; };
 		2DDDF2CA1CA16A800075674B /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */; };
+		2DDDF2D01CA184B50075674B /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2CF1CA184B50075674B /* Plant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		2DDDF2AF1CA164D30075674B /* MyGardenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenUITests.swift; sourceTree = "<group>"; };
 		2DDDF2B11CA164D30075674B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		2DDDF2CF1CA184B50075674B /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				2DDDF29B1CA164D30075674B /* Info.plist */,
 				2DDDF2931CA164D30075674B /* MyGarden.xcdatamodeld */,
 				2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */,
+				2DDDF2CF1CA184B50075674B /* Plant.swift */,
 			);
 			path = MyGarden;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */,
+				2DDDF2D01CA184B50075674B /* Plant.swift in Sources */,
 				2DDDF28D1CA164D30075674B /* AppDelegate.swift in Sources */,
 				2DDDF2CA1CA16A800075674B /* SearchTableViewController.swift in Sources */,
 			);
@@ -488,6 +492,7 @@
 				2DDDF2B61CA164D30075674B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2DDDF2B71CA164D30075674B /* Build configuration list for PBXNativeTarget "MyGardenTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +501,7 @@
 				2DDDF2B91CA164D30075674B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2DDDF2BA1CA164D30075674B /* Build configuration list for PBXNativeTarget "MyGardenUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +510,7 @@
 				2DDDF2BC1CA164D30075674B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -38,6 +38,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Suche" id="SGU-WQ-GBA"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33x-W0-9fg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

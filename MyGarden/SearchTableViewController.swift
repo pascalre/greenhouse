@@ -8,23 +8,21 @@
 
 import UIKit
 
-class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
+class SearchTableViewController: UITableViewController {
     
-    let plants = ["Basilikum", "Petersile", "Schnittlauch", "Erdbeeren"]
-    var filteredArray = [String]()
-    var resultSearchController = UISearchController()
+    // MARK: - Properties
+    var plants = [Plant]()
+    var filteredArray = [Plant]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.resultSearchController = UISearchController(searchResultsController: nil)
-        self.resultSearchController.searchResultsUpdater = self
-        self.resultSearchController.dimsBackgroundDuringPresentation = false
-        self.resultSearchController.searchBar.sizeToFit()
-        self.resultSearchController.searchBar.placeholder = "Suche"
         
-        
-        self.tableView.tableHeaderView = self.resultSearchController.searchBar
+        plants = [
+            Plant(name: "Basilikum"),
+            Plant(name: "Petersilie"),
+            Plant(name: "Schnittlauch"),
+            Plant(name: "Erdbeere")
+        ]
         self.tableView.reloadData()
     }
 
@@ -40,40 +38,15 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if self.resultSearchController.active
-        {
-            return self.filteredArray.count
-        } else {
-            return self.plants.count
-        }
+        return plants.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell?
         
-        if self.resultSearchController.active
-        {
-            cell!.textLabel?.text = self.filteredArray[indexPath.row]
-        } else {
-            cell!.textLabel?.text = self.plants[indexPath.row]
-        }
-        
+        let plant = plants[indexPath.row]
+        cell!.textLabel!.text = plant.name
         return cell!
     }
-    
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        self.filteredArray.removeAll(keepCapacity: false)
-        
-        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
-        
-        let array = (self.plants as NSArray).filteredArrayUsingPredicate(searchPredicate)
-        
-        self.filteredArray = array as! [String]
-        
-        self.tableView.reloadData()
-        
-    }
-    
 }
