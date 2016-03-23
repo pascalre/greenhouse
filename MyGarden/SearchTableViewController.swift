@@ -112,4 +112,22 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
         filterContentForSearchText(searchController.searchBar.text!, scope: scope)
     }
+    
+    // MARK: - Segues
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let plant: Plant
+                if searchController.active && searchController.searchBar.text != "" {
+                    plant = filteredArray[indexPath.row] as! Plant
+                } else {
+                    plant = plants[indexPath.row] as! Plant
+                }
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+                controller.detailPlant = plant
+                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
+                controller.navigationItem.leftItemsSupplementBackButton = true
+            }
+        }
+    }
 }

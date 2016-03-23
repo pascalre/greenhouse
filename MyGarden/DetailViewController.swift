@@ -9,27 +9,32 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBOutlet weak var plantImageView: UIImageView!
+    
+    var detailPlant: Plant? {
+        didSet {
+            configureView()
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func configureView() {
+        if let detailPlant = detailPlant {
+            if let plantImageView = plantImageView {
+                let name = (detailPlant.valueForKey("name") as? String)!
+                plantImageView.image = UIImage(named: name)
+                title = name
+                print(name)
+            }
+        }
     }
-    */
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureView()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 
 }
