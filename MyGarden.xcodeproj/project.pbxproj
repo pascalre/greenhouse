@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D1C1A8D1CA27F9B00019FDB /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C1A8B1CA27F9B00019FDB /* Plant+CoreDataProperties.swift */; };
+		2D1C1A8E1CA27F9B00019FDB /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C1A8C1CA27F9B00019FDB /* Plant.swift */; };
 		2DDDF28D1CA164D30075674B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF28C1CA164D30075674B /* AppDelegate.swift */; };
 		2DDDF2921CA164D30075674B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DDDF2901CA164D30075674B /* Main.storyboard */; };
 		2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2931CA164D30075674B /* MyGarden.xcdatamodeld */; };
@@ -15,7 +17,6 @@
 		2DDDF2A51CA164D30075674B /* MyGardenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2A41CA164D30075674B /* MyGardenTests.swift */; };
 		2DDDF2B01CA164D30075674B /* MyGardenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2AF1CA164D30075674B /* MyGardenUITests.swift */; };
 		2DDDF2CA1CA16A800075674B /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */; };
-		2DDDF2D01CA184B50075674B /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2CF1CA184B50075674B /* Plant.swift */; };
 		2DDDF2D21CA188530075674B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2D11CA188530075674B /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D1C1A8B1CA27F9B00019FDB /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2D1C1A8C1CA27F9B00019FDB /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		2DDDF2891CA164D30075674B /* Greenhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Greenhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DDDF28C1CA164D30075674B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DDDF2911CA164D30075674B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,7 +54,6 @@
 		2DDDF2AF1CA164D30075674B /* MyGardenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenUITests.swift; sourceTree = "<group>"; };
 		2DDDF2B11CA164D30075674B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
-		2DDDF2CF1CA184B50075674B /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		2DDDF2D11CA188530075674B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,8 @@
 		2DDDF2801CA164D30075674B = {
 			isa = PBXGroup;
 			children = (
+				2D1C1A8B1CA27F9B00019FDB /* Plant+CoreDataProperties.swift */,
+				2D1C1A8C1CA27F9B00019FDB /* Plant.swift */,
 				2DDDF28B1CA164D30075674B /* MyGarden */,
 				2DDDF2A31CA164D30075674B /* MyGardenTests */,
 				2DDDF2AE1CA164D30075674B /* MyGardenUITests */,
@@ -110,7 +114,6 @@
 				2DDDF29B1CA164D30075674B /* Info.plist */,
 				2DDDF2931CA164D30075674B /* MyGarden.xcdatamodeld */,
 				2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */,
-				2DDDF2CF1CA184B50075674B /* Plant.swift */,
 				2DDDF2D11CA188530075674B /* DetailViewController.swift */,
 			);
 			path = MyGarden;
@@ -266,8 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */,
-				2DDDF2D01CA184B50075674B /* Plant.swift in Sources */,
 				2DDDF2D21CA188530075674B /* DetailViewController.swift in Sources */,
+				2D1C1A8D1CA27F9B00019FDB /* Plant+CoreDataProperties.swift in Sources */,
+				2D1C1A8E1CA27F9B00019FDB /* Plant.swift in Sources */,
 				2DDDF28D1CA164D30075674B /* AppDelegate.swift in Sources */,
 				2DDDF2CA1CA16A800075674B /* SearchTableViewController.swift in Sources */,
 			);

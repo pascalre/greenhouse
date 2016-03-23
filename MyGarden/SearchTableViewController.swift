@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
     
     // MARK: - Properties
     var detailViewController: DetailViewController? = nil
-    var plants = [Plant]()
-    var filteredArray = [Plant]()
+    var plants = [NSManagedObject]()
+    var filteredArray = [NSManagedObject]()
     var searchController = UISearchController()
 
     // MARK: View Setup
@@ -27,17 +28,43 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
         // Setup the Scope Bar
         searchController.searchBar.sizeToFit()
+        searchController.searchBar.placeholder = "Suche"
         searchController.searchBar.scopeButtonTitles = ["Name", "Saison", "Herkunft"]
         tableView.tableHeaderView = searchController.searchBar
         
-        plants = [
-            Plant(name: "Basilikum"),
-            Plant(name: "Petersilie"),
-            Plant(name: "Schnittlauch"),
-            Plant(name: "Erdbeere")
-        ]
+        savePlant("Basilikum")
+        savePlant("Petersilie")
+        savePlant("Schnittlauch")
+        savePlant("Erdbeere")
         
         tableView.reloadData()
+    }
+    
+    func savePlant(name: String) {
+        //1
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let entity =  NSEntityDescription.entityForName("Plant",
+            inManagedObjectContext:managedContext)
+        
+        let plant = NSManagedObject(entity: entity!,
+            insertIntoManagedObjectContext: managedContext)
+        
+        //3
+        plant.setValue(name, forKey: "name")
+        
+        //4
+        do {
+            try managedContext.save()
+            //5
+            plants.append(plant)
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,24 +86,23 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        let plant: Plant
+        let plant: NSManagedObject
         
         if searchController.active && searchController.searchBar.text != "" {
             plant = filteredArray[indexPath.row]
         } else {
             plant = plants[indexPath.row]
         }
-        cell.textLabel!.text = plant.name
+        cell.textLabel!.text = plant.valueForKey("name") as? String
         
         return cell
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredArray = plants.filter({( plant : Plant) -> Bool in
-            let categoryMatch = (scope == "Name") || (plant.name == scope)
-            return categoryMatch && plant.name.lowercaseString.containsString(searchText.lowercaseString)
+        filteredArray = plants.filter({( plant : NSManagedObject) -> Bool in
+            let categoryMatch = (scope == "Name") || (plant.valueForKey("name") as? String == scope)
+            return categoryMatch && (plant.valueForKey("name") as? String)!.lowercaseString.containsString(searchText.lowercaseString)
         })
         tableView.reloadData()
     }

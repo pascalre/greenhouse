@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2DDDF2881CA164D30075674B"
-               BuildableName = "MyGarden.app"
+               BuildableName = "Greenhouse.app"
                BlueprintName = "MyGarden"
                ReferencedContainer = "container:MyGarden.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2DDDF2881CA164D30075674B"
-            BuildableName = "MyGarden.app"
+            BuildableName = "Greenhouse.app"
             BlueprintName = "MyGarden"
             ReferencedContainer = "container:MyGarden.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2DDDF2881CA164D30075674B"
-            BuildableName = "MyGarden.app"
+            BuildableName = "Greenhouse.app"
             BlueprintName = "MyGarden"
             ReferencedContainer = "container:MyGarden.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2DDDF2881CA164D30075674B"
-            BuildableName = "MyGarden.app"
+            BuildableName = "Greenhouse.app"
             BlueprintName = "MyGarden"
             ReferencedContainer = "container:MyGarden.xcodeproj">
          </BuildableReference>

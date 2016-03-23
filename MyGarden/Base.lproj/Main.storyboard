@@ -8,7 +8,7 @@
         <!--Suche-->
         <scene sceneID="vMf-Qh-j7I">
             <objects>
-                <tableViewController id="J8u-Xs-Ydd" customClass="SearchTableViewController" customModule="MyGarden" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="J8u-Xs-Ydd" customClass="SearchTableViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hZz-P4-MoD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,11 +25,14 @@
                                             <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="HkX-P6-G6e" kind="show" id="UKe-QM-aUE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -44,6 +47,26 @@
             </objects>
             <point key="canvasLocation" x="3575" y="603"/>
         </scene>
+        <!--Info-->
+        <scene sceneID="l1w-Ed-ltZ">
+            <objects>
+                <viewController id="HkX-P6-G6e" customClass="DetailViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hcL-1p-99g"/>
+                        <viewControllerLayoutGuide type="bottom" id="bY6-k6-lXy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KfM-bk-oCA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Info" id="Aig-r9-Aln"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GdP-WP-KG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4320" y="603"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="eDQ-Bh-hjw">
             <objects>
@@ -54,7 +77,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ICy-wX-3oS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.20392156859999999" green="0.7843137255" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.2627450980392157" green="0.80392156862745101" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
