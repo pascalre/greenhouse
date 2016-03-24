@@ -13,8 +13,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     // MARK: - Properties
     var detailViewController: DetailViewController? = nil
-    var plants = [NSManagedObject]()
-    var filteredArray = [NSManagedObject]()
+    var plants = [Plant]()
+    var filteredArray = [Plant]()
     var searchController = UISearchController()
 
     // MARK: View Setup
@@ -51,7 +51,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         let entity =  NSEntityDescription.entityForName("Plant",
             inManagedObjectContext:managedContext)
         
-        let plant = NSManagedObject(entity: entity!,
+        let plant = Plant(entity: entity!,
             insertIntoManagedObjectContext: managedContext)
         
         //3
@@ -116,18 +116,12 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let plant: Plant
-                if searchController.active && searchController.searchBar.text != "" {
-                    plant = filteredArray[indexPath.row] as! Plant
-                } else {
-                    plant = plants[indexPath.row] as! Plant
-                }
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailPlant = plant
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
-            }
+            let cell = sender as! UITableViewCell
+            let indexPath = self.tableView.indexPathForCell(cell)!
+            let plant = plants[indexPath.row]
+            
+            let controller = segue.destinationViewController as! DetailViewController
+            controller.detailPlant = plant
         }
     }
 }

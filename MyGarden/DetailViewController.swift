@@ -13,28 +13,25 @@ class DetailViewController: UIViewController {
     
     var detailPlant: Plant? {
         didSet {
-            configureView()
+            updateView()
         }
     }
     
-    func configureView() {
-        if let detailPlant = detailPlant {
-            if let plantImageView = plantImageView {
-                let name = (detailPlant.valueForKey("name") as? String)!
-                plantImageView.image = UIImage(named: name)
-                title = name
-                print(name)
-            }
+    func updateView() {
+        if isViewLoaded() {
+            let name = (detailPlant!.valueForKey("name") as? String)!
+            plantImageView.image = UIImage(named: name)
+            title = name
+            print(name)
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
+        updateView()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
 }
