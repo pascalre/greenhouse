@@ -25,6 +25,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        
+        // hide searchbar in different VC
+        self.definesPresentationContext = true
     
         // Setup the Scope Bar
         searchController.searchBar.sizeToFit()
