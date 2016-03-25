@@ -121,7 +121,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         if segue.identifier == "showDetail" {
             let cell = sender as! UITableViewCell
             let indexPath = self.tableView.indexPathForCell(cell)!
-            let plant = plants[indexPath.row]
+            
+            
+            let plant: Plant
+            if searchController.active && searchController.searchBar.text != "" {
+                plant = filteredArray[indexPath.row]
+            } else {
+                plant = plants[indexPath.row]
+            }
             
             let controller = segue.destinationViewController as! DetailViewController
             controller.detailPlant = plant

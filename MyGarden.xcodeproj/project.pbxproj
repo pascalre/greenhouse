@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D1C1A8D1CA27F9B00019FDB /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C1A8B1CA27F9B00019FDB /* Plant+CoreDataProperties.swift */; };
 		2D1C1A8E1CA27F9B00019FDB /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1C1A8C1CA27F9B00019FDB /* Plant.swift */; };
+		2D1EC8911CA59B8600CCE76B /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1EC8901CA59B8600CCE76B /* DetailTableViewController.swift */; };
 		2DDDF28D1CA164D30075674B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF28C1CA164D30075674B /* AppDelegate.swift */; };
 		2DDDF2921CA164D30075674B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DDDF2901CA164D30075674B /* Main.storyboard */; };
 		2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2931CA164D30075674B /* MyGarden.xcdatamodeld */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		2D1C1A8B1CA27F9B00019FDB /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2D1C1A8C1CA27F9B00019FDB /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		2D1EC8901CA59B8600CCE76B /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		2DDDF2891CA164D30075674B /* Greenhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Greenhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DDDF28C1CA164D30075674B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DDDF2911CA164D30075674B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				2DDDF28C1CA164D30075674B /* AppDelegate.swift */,
 				2DDDF2901CA164D30075674B /* Main.storyboard */,
+				2D1EC8901CA59B8600CCE76B /* DetailTableViewController.swift */,
 				2DDDF2961CA164D30075674B /* Assets.xcassets */,
 				2DDDF2981CA164D30075674B /* LaunchScreen.storyboard */,
 				2DDDF29B1CA164D30075674B /* Info.plist */,
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D1EC8911CA59B8600CCE76B /* DetailTableViewController.swift in Sources */,
 				2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */,
 				2DDDF2D21CA188530075674B /* DetailViewController.swift in Sources */,
 				2D1C1A8D1CA27F9B00019FDB /* Plant+CoreDataProperties.swift in Sources */,
