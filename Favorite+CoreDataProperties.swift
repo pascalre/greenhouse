@@ -1,5 +1,5 @@
 //
-//  Plant+CoreDataProperties.swift
+//  Favorite+CoreDataProperties.swift
 //  MyGarden
 //
 //  Created by Pascal Reitermann on 25.03.16.
@@ -12,9 +12,8 @@
 import Foundation
 import CoreData
 
-extension Plant {
+extension Favorite {
 
-    @NSManaged var name: String?
-    @NSManaged var id: NSNumber?
+    @NSManaged var pflanze_ID: NSNumber?
 
 }

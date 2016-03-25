@@ -7,9 +7,29 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailViewController: UIViewController {
+    
+    // MARK: Properties
     @IBOutlet weak var plantImageView: UIImageView!
+    @IBAction func markAsFavorite(sender: AnyObject) {
+        let appDelegate =
+            UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        let entity =  NSEntityDescription.entityForName("Favorite", inManagedObjectContext:managedContext)
+        let favorite = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        
+        let id = (detailPlant!.valueForKey("id") as? Int)!
+        favorite.setValue(id, forKey: "pflanze_ID")
+
+        do {
+            try managedContext.save()
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
     
     var detailPlant: Plant? {
         didSet {

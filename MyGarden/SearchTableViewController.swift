@@ -35,15 +35,15 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         searchController.searchBar.scopeButtonTitles = ["Name", "Saison", "Herkunft"]
         tableView.tableHeaderView = searchController.searchBar
         
-        savePlant("Basilikum")
-        savePlant("Petersilie")
-        savePlant("Schnittlauch")
-        savePlant("Erdbeere")
+        savePlant("Basilikum", id: 1)
+        savePlant("Petersilie", id: 2)
+        savePlant("Schnittlauch", id: 3)
+        savePlant("Erdbeere", id: 4)
         
         tableView.reloadData()
     }
     
-    func savePlant(name: String) {
+    func savePlant(name: String, id: Int) {
         //1
         let appDelegate =
         UIApplication.sharedApplication().delegate as! AppDelegate
@@ -59,6 +59,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         
         //3
         plant.setValue(name, forKey: "name")
+        plant.setValue(id, forKey: "id")
+        
         
         //4
         do {
