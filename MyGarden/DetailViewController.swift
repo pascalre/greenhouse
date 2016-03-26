@@ -13,21 +13,24 @@ class DetailViewController: UIViewController {
     
     // MARK: Properties
     @IBOutlet weak var plantImageView: UIImageView!
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
+    
     @IBAction func markAsFavorite(sender: AnyObject) {
-        let appDelegate =
-            UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext
-        let entity =  NSEntityDescription.entityForName("Favorite", inManagedObjectContext:managedContext)
-        let favorite = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        let batchRequest = NSBatchUpdateRequest(entityName: "Plant")
+        batchRequest.predicate = NSPredicate(format: "name == %@", (detailPlant?.name)!)
+        batchRequest.propertiesToUpdate = ["isFavorite": NSNumber(bool: true)]
         
-        let id = (detailPlant!.valueForKey("id") as? Int)!
-        favorite.setValue(id, forKey: "pflanze_ID")
-
         do {
-            try managedContext.save()
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
+            // Execute Batch Request
+            try managedContext.executeRequest(batchRequest) as! NSBatchUpdateResult
+            favoriteButton.image = UIImage(named: "Star Filled")
+        } catch {
+            let updateError = error as NSError
+            print("\(updateError), \(updateError.userInfo)")
         }
     }
     

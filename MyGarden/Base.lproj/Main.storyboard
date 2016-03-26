@@ -205,6 +205,7 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="favoriteButton" destination="OkA-Y0-ghr" id="8Qo-0V-lfB"/>
                         <outlet property="plantImageView" destination="vKM-OZ-Kb4" id="jCJ-a0-nPd"/>
                     </connections>
                 </viewController>

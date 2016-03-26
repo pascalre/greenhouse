@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
-    <entity name="Favorite" representedClassName=".Favorite" syncable="YES">
-        <attribute name="pflanze_ID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plant" inverseName="newRelationship" inverseEntity="Plant" syncable="YES"/>
-    </entity>
     <entity name="Plant" representedClassName=".Plant" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Favorite" inverseName="newRelationship" inverseEntity="Favorite" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Favorite" positionX="-54" positionY="9" width="128" height="73"/>
         <element name="Plant" positionX="-236" positionY="15" width="128" height="88"/>
     </elements>
 </model>

@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D1EC8911CA59B8600CCE76B /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1EC8901CA59B8600CCE76B /* DetailTableViewController.swift */; };
-		2D1EC8A61CA5C78B00CCE76B /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1EC8A21CA5C78B00CCE76B /* Plant+CoreDataProperties.swift */; };
-		2D1EC8A71CA5C78B00CCE76B /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1EC8A31CA5C78B00CCE76B /* Plant.swift */; };
-		2D1EC8B01CA5C94500CCE76B /* Favorite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1EC8AE1CA5C94500CCE76B /* Favorite+CoreDataProperties.swift */; };
-		2D1EC8B11CA5C94500CCE76B /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1EC8AF1CA5C94500CCE76B /* Favorite.swift */; };
 		2D1EC8B51CA5D65200CCE76B /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1EC8B41CA5D65200CCE76B /* FavoritesTableViewController.swift */; };
+		2D2404971CA7194600054CFE /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2404951CA7194600054CFE /* Plant+CoreDataProperties.swift */; };
+		2D2404981CA7194600054CFE /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2404961CA7194600054CFE /* Plant.swift */; };
 		2DDDF28D1CA164D30075674B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF28C1CA164D30075674B /* AppDelegate.swift */; };
 		2DDDF2921CA164D30075674B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DDDF2901CA164D30075674B /* Main.storyboard */; };
 		2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2931CA164D30075674B /* MyGarden.xcdatamodeld */; };
@@ -42,12 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2D1EC8901CA59B8600CCE76B /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
-		2D1EC8A21CA5C78B00CCE76B /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2D1EC8A31CA5C78B00CCE76B /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
-		2D1EC8AE1CA5C94500CCE76B /* Favorite+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Favorite+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2D1EC8AF1CA5C94500CCE76B /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		2D1EC8B41CA5D65200CCE76B /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		2D2404951CA7194600054CFE /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2D2404961CA7194600054CFE /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		2DDDF2891CA164D30075674B /* Greenhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Greenhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DDDF28C1CA164D30075674B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DDDF2911CA164D30075674B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -93,7 +87,6 @@
 		2D1EC89E1CA5B93200CCE76B /* Suche */ = {
 			isa = PBXGroup;
 			children = (
-				2D1EC8901CA59B8600CCE76B /* DetailTableViewController.swift */,
 				2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */,
 				2DDDF2D11CA188530075674B /* DetailViewController.swift */,
 			);
@@ -111,10 +104,8 @@
 		2DDDF2801CA164D30075674B = {
 			isa = PBXGroup;
 			children = (
-				2D1EC8AE1CA5C94500CCE76B /* Favorite+CoreDataProperties.swift */,
-				2D1EC8AF1CA5C94500CCE76B /* Favorite.swift */,
-				2D1EC8A21CA5C78B00CCE76B /* Plant+CoreDataProperties.swift */,
-				2D1EC8A31CA5C78B00CCE76B /* Plant.swift */,
+				2D2404951CA7194600054CFE /* Plant+CoreDataProperties.swift */,
+				2D2404961CA7194600054CFE /* Plant.swift */,
 				2DDDF28B1CA164D30075674B /* MyGarden */,
 				2DDDF2A31CA164D30075674B /* MyGardenTests */,
 				2DDDF2AE1CA164D30075674B /* MyGardenUITests */,
@@ -296,16 +287,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D1EC8911CA59B8600CCE76B /* DetailTableViewController.swift in Sources */,
 				2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */,
 				2DDDF2D21CA188530075674B /* DetailViewController.swift in Sources */,
 				2DDDF28D1CA164D30075674B /* AppDelegate.swift in Sources */,
+				2D2404971CA7194600054CFE /* Plant+CoreDataProperties.swift in Sources */,
+				2D2404981CA7194600054CFE /* Plant.swift in Sources */,
 				2D1EC8B51CA5D65200CCE76B /* FavoritesTableViewController.swift in Sources */,
-				2D1EC8B11CA5C94500CCE76B /* Favorite.swift in Sources */,
-				2D1EC8B01CA5C94500CCE76B /* Favorite+CoreDataProperties.swift in Sources */,
-				2D1EC8A71CA5C78B00CCE76B /* Plant.swift in Sources */,
 				2DDDF2CA1CA16A800075674B /* SearchTableViewController.swift in Sources */,
-				2D1EC8A61CA5C78B00CCE76B /* Plant+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
