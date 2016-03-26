@@ -13,27 +13,25 @@ class FavoritesTableViewController: UITableViewController {
     
     // MARK: Properties
     var favorites = [Favorite]()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    
+    override func viewWillAppear(animated: Bool) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "Favorite")
+        var fetchRequest = NSFetchRequest(entityName: "Favorite")
         
-        //3
         do {
-            let results =
-                try managedContext.executeFetchRequest(fetchRequest)
+            let results = try managedContext.executeFetchRequest(fetchRequest)
             favorites = results as! [Favorite]
-            for f in favorites {
-                print(f.pflanze_ID!)
-            }
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
+        
         tableView.reloadData()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()        
     }
 
     override func didReceiveMemoryWarning() {
