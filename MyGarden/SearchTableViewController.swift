@@ -16,6 +16,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     var plants = [Plant]()
     var filteredArray = [Plant]()
     var searchController = UISearchController()
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
     // MARK: View Setup
     override func viewDidLoad() {
@@ -34,42 +35,18 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         searchController.searchBar.placeholder = "Suche"
         searchController.searchBar.scopeButtonTitles = ["Name", "Saison", "Herkunft"]
         tableView.tableHeaderView = searchController.searchBar
-        
-        savePlant("Basilikum", id: 1)
-        savePlant("Petersilie", id: 2)
-        savePlant("Schnittlauch", id: 3)
-        savePlant("Erdbeere", id: 4)
-        
-        tableView.reloadData()
     }
     
-    func savePlant(name: String, id: Int) {
-        //1
-        let appDelegate =
-        UIApplication.sharedApplication().delegate as! AppDelegate
+    override func viewWillAppear(animated: Bool) {
+        let fetchRequest = NSFetchRequest(entityName: "Plant")
         
-        let managedContext = appDelegate.managedObjectContext
-        
-        //2
-        let entity =  NSEntityDescription.entityForName("Plant",
-            inManagedObjectContext:managedContext)
-        
-        let plant = Plant(entity: entity!,
-            insertIntoManagedObjectContext: managedContext)
-        
-        //3
-        plant.setValue(name, forKey: "name")
-        plant.setValue(id, forKey: "id")
-        
-        
-        //4
         do {
-            try managedContext.save()
-            //5
-            plants.append(plant)
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
+            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
+            plants = results as! [Plant]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
         }
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -123,7 +100,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         if segue.identifier == "showDetail" {
             let cell = sender as! UITableViewCell
             let indexPath = self.tableView.indexPathForCell(cell)!
-            
             
             let plant: Plant
             if searchController.active && searchController.searchBar.text != "" {

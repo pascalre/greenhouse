@@ -14,20 +14,28 @@ class DetailViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var plantImageView: UIImageView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     @IBAction func markAsFavorite(sender: AnyObject) {
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext
+    
+        let isFavorite = (detailPlant!.valueForKey("isFavorite") as? Bool)!
         let batchRequest = NSBatchUpdateRequest(entityName: "Plant")
-        batchRequest.predicate = NSPredicate(format: "name == %@", (detailPlant?.name)!)
-        batchRequest.propertiesToUpdate = ["isFavorite": NSNumber(bool: true)]
+        batchRequest.predicate = NSPredicate(format: "name == %@", (detailPlant?.name)! as String)
+        batchRequest.resultType = .UpdatedObjectsCountResultType
+        
+        if (isFavorite == false){
+            batchRequest.propertiesToUpdate = ["isFavorite": true]
+            detailPlant?.isFavorite = true;
+            favoriteButton.image = UIImage(named: "Star Filled")
+        } else {
+            batchRequest.propertiesToUpdate = ["isFavorite": false]
+            detailPlant?.isFavorite = false;
+            favoriteButton.image = UIImage(named: "Star")
+        }
         
         do {
             // Execute Batch Request
-            try managedContext.executeRequest(batchRequest) as! NSBatchUpdateResult
-            favoriteButton.image = UIImage(named: "Star Filled")
+            try managedObjectContext.executeRequest(batchRequest)
         } catch {
             let updateError = error as NSError
             print("\(updateError), \(updateError.userInfo)")
@@ -44,13 +52,19 @@ class DetailViewController: UIViewController {
         if isViewLoaded() {
             let name = (detailPlant!.valueForKey("name") as? String)!
             plantImageView.image = UIImage(named: name)
+            let isFavorite = (detailPlant!.valueForKey("isFavorite") as? Bool)!
+            if (isFavorite == true){
+                favoriteButton.image = UIImage(named: "Star Filled")
+            }
             title = name
-            print(name)
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         updateView()
     }
     

@@ -12,17 +12,17 @@ import CoreData
 class FavoritesTableViewController: UITableViewController {
     
     // MARK: Properties
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
+    // Array where the Favorite Plants are stored
     var favorites = [Plant]()
     
     override func viewWillAppear(animated: Bool) {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "Plant")
         fetchRequest.predicate = NSPredicate(format: "isFavorite == %@", true)
         
         do {
-            let results = try managedContext.executeFetchRequest(fetchRequest)
+            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
             favorites = results as! [Plant]
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
@@ -55,7 +55,6 @@ class FavoritesTableViewController: UITableViewController {
         
         let favorite = favorites[indexPath.row]
         cell.textLabel!.text = String(favorite.name!)
-        
         return cell
     }
     

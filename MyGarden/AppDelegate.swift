@@ -12,13 +12,40 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    let defaults = NSUserDefaults.standardUserDefaults()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UISearchBar.appearance().barTintColor = UIColor.candyGreen()
         UISearchBar.appearance().tintColor = UIColor.whiteColor()
         UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.candyGreen()
+        
+        if !(defaults.boolForKey("databaseIsFilled")) {
+            savePlant("Basilikum", id: 1, isFavorite: false)
+            savePlant("Petersilie", id: 2, isFavorite: false)
+            savePlant("Schnittlauch", id: 3, isFavorite: false)
+            savePlant("Erdbeere", id: 4, isFavorite: false)
+            defaults.setBool(true, forKey: "databaseIsFilled")
+        }
+        
         return true
+    }
+    
+    func savePlant(name: String, id: Int, isFavorite: Bool) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let entity =  NSEntityDescription.entityForName("Plant", inManagedObjectContext:managedContext)
+        let plant = Plant(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        
+        plant.setValue(name, forKey: "name")
+        plant.setValue(id, forKey: "id")
+        plant.setValue(isFavorite, forKey: "isFavorite")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
