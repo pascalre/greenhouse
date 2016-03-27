@@ -21,17 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.candyGreen()
         
         if !(defaults.boolForKey("databaseIsFilled")) {
-            savePlant("Basilikum", id: 1, isFavorite: false)
-            savePlant("Petersilie", id: 2, isFavorite: false)
-            savePlant("Schnittlauch", id: 3, isFavorite: false)
-            savePlant("Erdbeere", id: 4, isFavorite: false)
+            savePlant("Basilikum", id: 1, isFavorite: false, latinName: "Ocimum basilicum")
+            savePlant("Petersilie", id: 2, isFavorite: false, latinName: "Petroselinum crispum")
+            savePlant("Schnittlauch", id: 3, isFavorite: false, latinName: "Allium schoenoprasum")
+            savePlant("Erdbeere", id: 4, isFavorite: false, latinName: "Fragaria ananassa")
             defaults.setBool(true, forKey: "databaseIsFilled")
         }
         
         return true
     }
     
-    func savePlant(name: String, id: Int, isFavorite: Bool) {
+    func savePlant(name: String, id: Int, isFavorite: Bool, latinName: String) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         let entity =  NSEntityDescription.entityForName("Plant", inManagedObjectContext:managedContext)
@@ -40,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         plant.setValue(name, forKey: "name")
         plant.setValue(id, forKey: "id")
         plant.setValue(isFavorite, forKey: "isFavorite")
+        plant.setValue(latinName, forKey: "latinName")
         
         do {
             try managedContext.save()

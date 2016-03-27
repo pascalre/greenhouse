@@ -35,9 +35,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         searchController.searchBar.placeholder = "Suche"
         searchController.searchBar.scopeButtonTitles = ["Name", "Saison", "Herkunft"]
         tableView.tableHeaderView = searchController.searchBar
-    }
-    
-    override func viewWillAppear(animated: Bool) {
+
         let fetchRequest = NSFetchRequest(entityName: "Plant")
         
         do {
@@ -47,6 +45,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             print("Could not fetch \(error), \(error.userInfo)")
         }
         tableView.reloadData()
+
     }
 
     override func didReceiveMemoryWarning() {

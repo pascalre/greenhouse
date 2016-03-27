@@ -2,7 +2,7 @@
 //  Plant.swift
 //  MyGarden
 //
-//  Created by Pascal Reitermann on 26.03.16.
+//  Created by Pascal Reitermann on 27.03.16.
 //  Copyright © 2016 Pascal Reitermann. All rights reserved.
 //
 

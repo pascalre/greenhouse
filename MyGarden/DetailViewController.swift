@@ -17,7 +17,6 @@ class DetailViewController: UIViewController {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     @IBAction func markAsFavorite(sender: AnyObject) {
-    
         let isFavorite = (detailPlant!.valueForKey("isFavorite") as? Bool)!
         let batchRequest = NSBatchUpdateRequest(entityName: "Plant")
         batchRequest.predicate = NSPredicate(format: "name == %@", (detailPlant?.name)! as String)
@@ -70,5 +69,27 @@ class DetailViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // DataSource
+    func numberOfSectionsInTableView(tableview: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! DetailTableViewCell
+        
+        cell.attributeName.text = "Lat. Name"
+        cell.attributeValue.text = detailPlant!.valueForKey("latinName") as? String
+        return cell
+    }
+    
+    // Delegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
 }
