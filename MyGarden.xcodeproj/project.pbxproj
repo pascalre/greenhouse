@@ -92,8 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */,
-				2DDDF2D11CA188530075674B /* DetailViewController.swift */,
-				2D7562E71CA877DF00487F60 /* DetailTableViewCell.swift */,
 			);
 			name = Suche;
 			sourceTree = "<group>";
@@ -112,6 +110,15 @@
 				2D7562E31CA85BF600487F60 /* SowViewController.swift */,
 			);
 			name = Garten;
+			sourceTree = "<group>";
+		};
+		2D7562E91CA88BAA00487F60 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				2DDDF2D11CA188530075674B /* DetailViewController.swift */,
+				2D7562E71CA877DF00487F60 /* DetailTableViewCell.swift */,
+			);
+			name = Detail;
 			sourceTree = "<group>";
 		};
 		2DDDF2801CA164D30075674B = {
@@ -139,6 +146,7 @@
 		2DDDF28B1CA164D30075674B /* MyGarden */ = {
 			isa = PBXGroup;
 			children = (
+				2D7562E91CA88BAA00487F60 /* Detail */,
 				2D7562E21CA85BC300487F60 /* Garten */,
 				2D1EC89F1CA5B93F00CCE76B /* Favoriten */,
 				2D1EC89E1CA5B93200CCE76B /* Suche */,

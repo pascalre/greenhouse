@@ -113,23 +113,30 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="MTq-TO-ZfC">
                                 <rect key="frame" x="20" y="10" width="560" height="531"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Aussaat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKh-JA-FEa">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cji-2b-GII">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="61"/>
+                                        <string key="text">Hier kannst Du Deine selbst ausgesähten Pflanzen eintragen. Wählen einfache Die Art der Saat und das Datum aus und lass Greenhouse den Rest erledigen!</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fpF-xe-sdv">
-                                        <rect key="frame" x="0.0" y="27" width="560" height="255"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Art der Saat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKh-JA-FEa">
+                                        <rect key="frame" x="0.0" y="67" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.26274511218070984" green="0.80392158031463623" blue="0.38431373238563538" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fpF-xe-sdv">
+                                        <rect key="frame" x="0.0" y="94" width="560" height="216"/>
                                     </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Datum der Aussaat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAh-Q8-Z7F">
-                                        <rect key="frame" x="0.0" y="288" width="560" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Datum der Aussaat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAh-Q8-Z7F">
+                                        <rect key="frame" x="0.0" y="316" width="560" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.26274511218070984" green="0.80392158031463623" blue="0.38431373238563538" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oyg-0v-ZNj">
-                                        <rect key="frame" x="0.0" y="315" width="560" height="216"/>
+                                    <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oyg-0v-ZNj">
+                                        <rect key="frame" x="0.0" y="343" width="560" height="188"/>
                                         <date key="date" timeIntervalSinceReferenceDate="480621959.71742499">
                                             <!--2016-03-25 18:05:59 +0000-->
                                         </date>
@@ -139,10 +146,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MTq-TO-ZfC" firstAttribute="leading" secondItem="52j-Ug-CS5" secondAttribute="leadingMargin" id="40Y-PH-oUb"/>
-                            <constraint firstItem="MTq-TO-ZfC" firstAttribute="top" secondItem="52j-Ug-CS5" secondAttribute="topMargin" constant="10" id="Eqj-Nc-NS1"/>
-                            <constraint firstItem="cK4-bf-bgp" firstAttribute="top" secondItem="MTq-TO-ZfC" secondAttribute="bottom" constant="10" id="jso-AX-7Tf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MTq-TO-ZfC" secondAttribute="trailing" id="pjp-AX-2Xf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MTq-TO-ZfC" secondAttribute="trailing" id="AZk-x3-Xmo"/>
+                            <constraint firstItem="MTq-TO-ZfC" firstAttribute="leading" secondItem="52j-Ug-CS5" secondAttribute="leadingMargin" id="PKh-zB-Zih"/>
+                            <constraint firstItem="MTq-TO-ZfC" firstAttribute="top" secondItem="52j-Ug-CS5" secondAttribute="topMargin" constant="10" id="ZtA-Z3-Fer"/>
+                            <constraint firstItem="cK4-bf-bgp" firstAttribute="top" secondItem="MTq-TO-ZfC" secondAttribute="bottom" constant="10" id="pcS-10-dTf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Aussähen" id="BM3-2I-1pG">
@@ -186,16 +193,16 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvP-MN-AmJ">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvP-MN-AmJ">
                                                             <rect key="frame" x="18" y="8" width="564" height="27"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63D-RZ-loK">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63D-RZ-loK">
                                                                     <rect key="frame" x="0.0" y="0.0" width="522" height="27"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.26274511218070984" green="0.80392158031463623" blue="0.38431373238563538" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biw-OZ-TNd">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biw-OZ-TNd">
                                                                     <rect key="frame" x="522" y="0.0" width="42" height="27"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
