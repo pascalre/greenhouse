@@ -22,6 +22,8 @@
 		2DBE76191CABC28A00C6EF6D /* SowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE76181CABC28A00C6EF6D /* SowTableViewController.swift */; };
 		2DBE76271CABCFFA00C6EF6D /* GardenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE76261CABCFFA00C6EF6D /* GardenTableViewController.swift */; };
 		2DBE76291CABD00C00C6EF6D /* GardenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE76281CABD00C00C6EF6D /* GardenTableViewCell.swift */; };
+		2DC0EAEE1CAC731500F08203 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC0EAE71CAC72DC00F08203 /* Charts.framework */; };
+		2DC0EAEF1CAC731500F08203 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC0EAE71CAC72DC00F08203 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2DDDF28D1CA164D30075674B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF28C1CA164D30075674B /* AppDelegate.swift */; };
 		2DDDF2921CA164D30075674B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DDDF2901CA164D30075674B /* Main.storyboard */; };
 		2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2931CA164D30075674B /* MyGarden.xcdatamodeld */; };
@@ -33,6 +35,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2DC0EAE61CAC72DC00F08203 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DC0EADF1CAC72DC00F08203 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		2DC0EAE81CAC72DC00F08203 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DC0EADF1CAC72DC00F08203 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		2DC0EAEA1CAC72DC00F08203 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DC0EADF1CAC72DC00F08203 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		2DC0EAEC1CAC72DC00F08203 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DC0EADF1CAC72DC00F08203 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		2DC0EAF01CAC731500F08203 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DC0EADF1CAC72DC00F08203 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
 		2DDDF2A11CA164D30075674B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2DDDF2811CA164D30075674B /* Project object */;
@@ -48,6 +85,20 @@
 			remoteInfo = MyGarden;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2DC0EAF21CAC731600F08203 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2DC0EAEF1CAC731500F08203 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2D1EC8B41CA5D65200CCE76B /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +116,7 @@
 		2DBE76181CABC28A00C6EF6D /* SowTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SowTableViewController.swift; path = ../SowTableViewController.swift; sourceTree = "<group>"; };
 		2DBE76261CABCFFA00C6EF6D /* GardenTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenTableViewController.swift; sourceTree = "<group>"; };
 		2DBE76281CABD00C00C6EF6D /* GardenTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GardenTableViewCell.swift; path = ../GardenTableViewCell.swift; sourceTree = "<group>"; };
+		2DC0EADF1CAC72DC00F08203 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		2DDDF2891CA164D30075674B /* Greenhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Greenhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DDDF28C1CA164D30075674B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DDDF2911CA164D30075674B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DC0EAEE1CAC731500F08203 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,9 +195,21 @@
 			name = Detail;
 			sourceTree = "<group>";
 		};
+		2DC0EAE01CAC72DC00F08203 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DC0EAE71CAC72DC00F08203 /* Charts.framework */,
+				2DC0EAE91CAC72DC00F08203 /* Charts.framework */,
+				2DC0EAEB1CAC72DC00F08203 /* Charts.framework */,
+				2DC0EAED1CAC72DC00F08203 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2DDDF2801CA164D30075674B = {
 			isa = PBXGroup;
 			children = (
+				2DC0EADF1CAC72DC00F08203 /* Charts.xcodeproj */,
 				2D3E9DAF1CAC052900353E61 /* Plant+CoreDataProperties.swift */,
 				2D3E9DB01CAC052900353E61 /* Plant.swift */,
 				2D3E9DB11CAC052900353E61 /* Sowed+CoreDataProperties.swift */,
@@ -215,10 +280,12 @@
 				2DDDF2851CA164D30075674B /* Sources */,
 				2DDDF2861CA164D30075674B /* Frameworks */,
 				2DDDF2871CA164D30075674B /* Resources */,
+				2DC0EAF21CAC731600F08203 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2DC0EAF11CAC731500F08203 /* PBXTargetDependency */,
 			);
 			name = MyGarden;
 			productName = MyGarden;
@@ -295,6 +362,12 @@
 			mainGroup = 2DDDF2801CA164D30075674B;
 			productRefGroup = 2DDDF28A1CA164D30075674B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2DC0EAE01CAC72DC00F08203 /* Products */;
+					ProjectRef = 2DC0EADF1CAC72DC00F08203 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2DDDF2881CA164D30075674B /* MyGarden */,
@@ -303,6 +376,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2DC0EAE71CAC72DC00F08203 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 2DC0EAE61CAC72DC00F08203 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2DC0EAE91CAC72DC00F08203 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 2DC0EAE81CAC72DC00F08203 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2DC0EAEB1CAC72DC00F08203 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 2DC0EAEA1CAC72DC00F08203 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2DC0EAED1CAC72DC00F08203 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 2DC0EAEC1CAC72DC00F08203 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2DDDF2871CA164D30075674B /* Resources */ = {
@@ -376,6 +480,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2DC0EAF11CAC731500F08203 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 2DC0EAF01CAC731500F08203 /* PBXContainerItemProxy */;
+		};
 		2DDDF2A21CA164D30075674B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2DDDF2881CA164D30075674B /* MyGarden */;
@@ -495,6 +604,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MyGarden/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.reitermann.MyGarden;
@@ -506,6 +616,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MyGarden/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.reitermann.MyGarden;
