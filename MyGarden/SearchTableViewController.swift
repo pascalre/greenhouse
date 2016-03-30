@@ -12,7 +12,7 @@ import CoreData
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
     
     // MARK: - Properties
-    var detailViewController: DetailViewController? = nil
+    var detailViewController: DetailTableViewController? = nil
     var plants = [Plant]()
     var filteredArray = [Plant]()
     var searchController = UISearchController()
@@ -32,7 +32,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
         // Setup the Scope Bar
         searchController.searchBar.sizeToFit()
-        searchController.searchBar.placeholder = "Suche"
         searchController.searchBar.scopeButtonTitles = ["Name", "Saison", "Herkunft"]
         tableView.tableHeaderView = searchController.searchBar
 
@@ -107,7 +106,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
                 plant = plants[indexPath.row]
             }
             
-            let controller = segue.destinationViewController as! DetailViewController
+            let controller = segue.destinationViewController as! DetailTableViewController
             controller.detailPlant = plant
         }
     }

@@ -9,9 +9,10 @@
 import UIKit
 
 class DetailTableViewCell: UITableViewCell {
-    @IBOutlet weak var attributeName: UILabel!
-    @IBOutlet weak var attributeValue: UILabel!
 
+    @IBOutlet weak var attributName: UILabel!
+    @IBOutlet weak var attributValue: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

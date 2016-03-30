@@ -67,7 +67,7 @@ class FavoritesTableViewController: UITableViewController {
             let plant: Plant
             plant = favorites[indexPath.row]
             
-            let controller = segue.destinationViewController as! DetailViewController
+            let controller = segue.destinationViewController as! DetailTableViewController
             controller.detailPlant = plant
         }
     }

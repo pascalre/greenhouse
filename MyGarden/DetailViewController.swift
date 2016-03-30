@@ -85,8 +85,8 @@ class DetailViewController: UIViewController {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! DetailTableViewCell
         
-        cell.attributeName.text = "Lat. Name"
-        cell.attributeValue.text = detailPlant!.valueForKey("latinName") as? String
+        cell.attributName.text = "Lat. Name"
+        cell.attributValue.text = detailPlant!.valueForKey("latinName") as? String
         return cell
     }
     
