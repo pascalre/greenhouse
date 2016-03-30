@@ -1,5 +1,5 @@
 //
-//  GardenTableViewController.swift
+//  MySowTableViewController.swift
 //  MyGarden
 //
 //  Created by Pascal Reitermann on 30.03.16.
@@ -7,15 +7,31 @@
 //
 
 import UIKit
-import CoreData
 
-class GardenTableViewController: UITableViewController {
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-
-    var garden = [Sowed]()
+class MySowTableViewController: UITableViewController {
+    @IBOutlet weak var plantImageView: UIImageView!
+    var sow: Sowed? {
+        didSet {
+            updateView()
+        }
+    }
     
+    func updateView() {
+        if isViewLoaded() {
+            let name = (sow!.pflanze?.name!)!
+            plantImageView.image = UIImage(named: name)
+            title = name
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,50 +42,40 @@ class GardenTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return garden.count
+        return 3
     }
 
+    override func viewWillAppear(animated: Bool) {
+        updateView()
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! GardenTableViewCell
-        let name: String = String(UTF8String: (garden[indexPath.row].pflanze?.name!)!)!
-        cell.nameLabel!.text = name
-        cell.plantImageView!.image = UIImage(named: name)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+
+        // Configure the cell...
+
         return cell
     }
+
     
-    override func viewWillAppear(animated: Bool) {
-        let fetchRequest = NSFetchRequest(entityName: "Sowed")
-
-        do {
-            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
-            garden = results as! [Sowed]
-        } catch {
-            print("error \(error)")
-        }
-        
-        
-        tableView.reloadData()
-    }
-
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showSow" {
-            let cell = sender as! UITableViewCell
-            let indexPath = self.tableView.indexPathForCell(cell)!
+        if segue.identifier == "showDetail" {
+            let plant: Plant
+            plant = (sow?.pflanze)!
             
-            let sow = garden[indexPath.row]
-            
-            let controller = segue.destinationViewController as! MySowTableViewController
-            controller.sow = sow
+            let controller = segue.destinationViewController as! DetailTableViewController
+            controller.detailPlant = plant
         }
     }
 
-    
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
