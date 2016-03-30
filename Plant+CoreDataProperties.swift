@@ -28,6 +28,7 @@ extension Plant {
     @NSManaged var latinName: String?
     @NSManaged var name: String?
     @NSManaged var temperatur: NSNumber?
-    @NSManaged var id: NSNumber?
+    @NSManaged var ausgesaet: NSSet?
+    @NSManaged var herkunft: NSSet?
 
 }

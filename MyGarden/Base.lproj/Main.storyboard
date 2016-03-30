@@ -343,7 +343,14 @@
                             <outlet property="delegate" destination="7O0-3L-EXN" id="vnd-92-8TS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="oRe-Wy-0tT"/>
+                    <navigationItem key="navigationItem" title="Title" id="oRe-Wy-0tT">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="sI2-3W-bed">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="rSR-8o-P1f">
+                                <rect key="frame" x="558" y="11" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zlp-LG-Cpz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

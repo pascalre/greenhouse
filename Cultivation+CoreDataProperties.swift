@@ -14,8 +14,9 @@ import CoreData
 
 extension Cultivation {
 
-    @NSManaged var sowedID: NSNumber?
-    @NSManaged var gewaessertAm: NSDate?
     @NSManaged var geduengtAm: NSDate?
+    @NSManaged var gewaessertAm: NSDate?
+    @NSManaged var sowedID: NSNumber?
+    @NSManaged var aussaat: Sowed?
 
 }

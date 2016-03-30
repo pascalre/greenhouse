@@ -14,8 +14,10 @@ import CoreData
 
 extension Sowed {
 
-    @NSManaged var plantID: NSNumber?
     @NSManaged var gesaetAm: NSDate?
+    @NSManaged var plantID: NSNumber?
     @NSManaged var id: NSNumber?
+    @NSManaged var pflanze: Plant?
+    @NSManaged var pflege: NSSet?
 
 }

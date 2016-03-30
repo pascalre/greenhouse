@@ -40,12 +40,11 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
         
         let sowed = NSEntityDescription.insertNewObjectForEntityForName("Sowed", inManagedObjectContext: self.managedObjectContext) as! Sowed
 
-        let plantID = plants[pickerView.selectedRowInComponent(0)].valueForKey("id")!;
-        print(plantID)
+        let plant = plants[pickerView.selectedRowInComponent(0)];
         let gesaetAm = datePicker.date;
         print(gesaetAm)
         
-        sowed.setValue(plantID, forKey: "plantID")
+        sowed.setValue(plant, forKey: "pflanze")
         sowed.setValue(gesaetAm, forKey: "gesaetAm")
         sowed.setValue(1, forKey: "id")
 

@@ -14,7 +14,8 @@ import CoreData
 
 extension Origin {
 
-    @NSManaged var plantID: NSNumber?
     @NSManaged var land: String?
+    @NSManaged var plantID: NSNumber?
+    @NSManaged var pflanze: Plant?
 
 }

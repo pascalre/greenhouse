@@ -36,7 +36,7 @@ class GardenTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! GardenTableViewCell
-        let name: String = String(garden[indexPath.row].id!)
+        let name: String = String(UTF8String: (garden[indexPath.row].pflanze?.name!)!)!
         cell.nameLabel!.text = name
         return cell
     }

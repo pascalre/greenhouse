@@ -4,10 +4,12 @@
         <attribute name="geduengtAm" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="gewaessertAm" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="sowedID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="aussaat" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sowed" inverseName="pflege" inverseEntity="Sowed" syncable="YES"/>
     </entity>
     <entity name="Origin" representedClassName=".Origin" syncable="YES">
         <attribute name="land" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="plantID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="pflanze" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plant" inverseName="herkunft" inverseEntity="Plant" syncable="YES"/>
     </entity>
     <entity name="Plant" representedClassName=".Plant" syncable="YES">
         <attribute name="art" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,23 +20,26 @@
         <attribute name="dauerKeimung" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="dauerWachsen" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="duenger" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="infosSaat" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="infosSchaedlinge" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="latinName" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="temperatur" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="ausgesaet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sowed" inverseName="pflanze" inverseEntity="Sowed" syncable="YES"/>
+        <relationship name="herkunft" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Origin" inverseName="pflanze" inverseEntity="Origin" syncable="YES"/>
     </entity>
     <entity name="Sowed" representedClassName=".Sowed" syncable="YES">
         <attribute name="gesaetAm" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="plantID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="pflanze" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plant" inverseName="ausgesaet" inverseEntity="Plant" syncable="YES"/>
+        <relationship name="pflege" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Cultivation" inverseName="aussaat" inverseEntity="Cultivation" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Cultivation" positionX="-216" positionY="63" width="128" height="90"/>
-        <element name="Origin" positionX="-225" positionY="45" width="128" height="75"/>
-        <element name="Plant" positionX="-236" positionY="15" width="128" height="270"/>
-        <element name="Sowed" positionX="-234" positionY="9" width="128" height="90"/>
+        <element name="Cultivation" positionX="34" positionY="-81" width="128" height="103"/>
+        <element name="Origin" positionX="-155" positionY="123" width="128" height="88"/>
+        <element name="Plant" positionX="-387" positionY="-79" width="128" height="283"/>
+        <element name="Sowed" positionX="-155" positionY="-82" width="128" height="118"/>
     </elements>
 </model>
