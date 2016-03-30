@@ -8,11 +8,13 @@
 
 import UIKit
 import CoreData
+import MapKit
 
 class DetailViewController: UIViewController {
     
     // MARK: Properties
     @IBOutlet weak var plantImageView: UIImageView!
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     

@@ -90,82 +90,107 @@
             <point key="canvasLocation" x="2841" y="1771"/>
         </scene>
         <!--Aussähen-->
-        <scene sceneID="rCF-CS-u8H">
+        <scene sceneID="4Yg-hi-vsa">
             <objects>
-                <viewController id="KAR-Rc-RVQ" customClass="SowViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="E65-Yt-Cbl"/>
-                        <viewControllerLayoutGuide type="bottom" id="cK4-bf-bgp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="52j-Ug-CS5">
+                <tableViewController title="Aussähen" id="WOS-Z4-bsE" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="BWk-4X-n1M">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="Vds-4V-g49">
-                                <rect key="frame" x="0.0" y="64" width="600" height="687"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="MTq-TO-ZfC">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="539"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cji-2b-GII">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="41"/>
-                                                <string key="text">Hier kannst Du Deine selbst ausgesähten Pflanzen eintragen. Wählen einfache Die Art der Saat und das Datum aus und lass Greenhouse den Rest erledigen!</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Art der Saat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKh-JA-FEa">
-                                                <rect key="frame" x="0.0" y="47" width="600" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.26274511218070984" green="0.80392158031463623" blue="0.38431373238563538" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpF-xe-sdv">
-                                                <rect key="frame" x="0.0" y="74" width="600" height="216"/>
-                                            </pickerView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datum der Aussaat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAh-Q8-Z7F">
-                                                <rect key="frame" x="0.0" y="296" width="600" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.26274511218070984" green="0.80392158031463623" blue="0.38431373238563538" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oyg-0v-ZNj">
-                                                <rect key="frame" x="0.0" y="323" width="600" height="216"/>
-                                                <date key="date" timeIntervalSinceReferenceDate="480621959.71742499">
-                                                    <!--2016-03-25 18:05:59 +0000-->
-                                                </date>
-                                            </datePicker>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="MTq-TO-ZfC" firstAttribute="top" secondItem="Vds-4V-g49" secondAttribute="top" id="KLz-z4-XpA"/>
-                                    <constraint firstAttribute="bottom" secondItem="MTq-TO-ZfC" secondAttribute="bottom" id="cpZ-Qz-7wb"/>
-                                    <constraint firstAttribute="trailing" secondItem="MTq-TO-ZfC" secondAttribute="trailing" id="sQs-Y4-1zo"/>
-                                    <constraint firstItem="MTq-TO-ZfC" firstAttribute="leading" secondItem="Vds-4V-g49" secondAttribute="leading" id="v9b-xP-feG"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Vds-4V-g49" secondAttribute="trailing" id="5wJ-Qq-p2o"/>
-                            <constraint firstItem="Vds-4V-g49" firstAttribute="top" secondItem="E65-Yt-Cbl" secondAttribute="bottom" id="9qW-rp-dIB"/>
-                            <constraint firstItem="cK4-bf-bgp" firstAttribute="top" secondItem="Vds-4V-g49" secondAttribute="bottom" id="Oqo-my-e29"/>
-                            <constraint firstItem="Vds-4V-g49" firstAttribute="leading" secondItem="52j-Ug-CS5" secondAttribute="leading" id="RWc-p9-7KD"/>
-                            <constraint firstItem="MTq-TO-ZfC" firstAttribute="width" secondItem="52j-Ug-CS5" secondAttribute="width" id="oZf-gG-Mjq"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Aussähen" id="BM3-2I-1pG">
-                        <barButtonItem key="rightBarButtonItem" title="Speichern" id="n0D-7K-njq"/>
-                    </navigationItem>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Art der Saat" footerTitle="Was hast Du ausgesäht?" id="qFP-63-Pfi">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="Xom-dA-e05">
+                                        <rect key="frame" x="0.0" y="114" width="600" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xom-dA-e05" id="cGm-mf-g7Q">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1e3-BA-aXf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
+                                                </pickerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="1e3-BA-aXf" secondAttribute="trailing" id="7xi-hw-e6h"/>
+                                                <constraint firstItem="1e3-BA-aXf" firstAttribute="top" secondItem="cGm-mf-g7Q" secondAttribute="top" id="C68-W4-l8K"/>
+                                                <constraint firstAttribute="bottom" secondItem="1e3-BA-aXf" secondAttribute="bottom" id="aX5-dN-UQs"/>
+                                                <constraint firstItem="1e3-BA-aXf" firstAttribute="leading" secondItem="cGm-mf-g7Q" secondAttribute="leading" id="fz9-NG-Efo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Datum der Aussaat" footerTitle="Wann hast Du ausgesäht?" id="pNY-sY-d3D">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="bJm-H8-Wc0">
+                                        <rect key="frame" x="0.0" y="381" width="600" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bJm-H8-Wc0" id="1RY-he-xAn">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3cB-lh-5Fx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="481013493.47922701">
+                                                        <!--2016-03-30 06:51:33 +0000-->
+                                                    </date>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="3cB-lh-5Fx" secondAttribute="trailing" id="Li8-v4-nu9"/>
+                                                <constraint firstItem="3cB-lh-5Fx" firstAttribute="leading" secondItem="1RY-he-xAn" secondAttribute="leading" id="S1P-7j-W1c"/>
+                                                <constraint firstAttribute="bottom" secondItem="3cB-lh-5Fx" secondAttribute="bottom" id="TOR-se-sPH"/>
+                                                <constraint firstItem="3cB-lh-5Fx" firstAttribute="top" secondItem="1RY-he-xAn" secondAttribute="top" id="lKk-w8-NdY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Benachrichtigungen" footerTitle="Willst Du zum Wässern oder Düngen benachrichtigt werden?" id="QHW-mt-lwU">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Yxe-a3-jUC">
+                                        <rect key="frame" x="0.0" y="648" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yxe-a3-jUC" id="kgX-Nd-oGU">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iR6-gj-jd0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COs-BR-34o">
+                                                            <rect key="frame" x="0.0" y="0.0" width="551" height="43"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wrn-IU-Amb">
+                                                            <rect key="frame" x="551" y="0.0" width="51" height="43"/>
+                                                        </switch>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iR6-gj-jd0" firstAttribute="leading" secondItem="kgX-Nd-oGU" secondAttribute="leading" id="CFN-RK-w0P"/>
+                                                <constraint firstAttribute="bottom" secondItem="iR6-gj-jd0" secondAttribute="bottom" id="tmG-ag-C94"/>
+                                                <constraint firstAttribute="trailing" secondItem="iR6-gj-jd0" secondAttribute="trailing" id="z5T-cQ-Ale"/>
+                                                <constraint firstItem="iR6-gj-jd0" firstAttribute="top" secondItem="kgX-Nd-oGU" secondAttribute="top" id="zjV-zb-LxH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="WOS-Z4-bsE" id="bAn-L1-BhX"/>
+                            <outlet property="delegate" destination="WOS-Z4-bsE" id="E1u-An-7mm"/>
+                        </connections>
+                    </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="800"/>
-                    <connections>
-                        <outlet property="datePicker" destination="Oyg-0v-ZNj" id="5KI-zi-FTO"/>
-                        <outlet property="pickerView" destination="fpF-xe-sdv" id="OiF-dg-63K"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VPp-y3-XEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JsP-5W-kcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3556" y="294"/>
         </scene>
@@ -187,12 +212,16 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vKM-OZ-Kb4">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="128"/>
                                     </imageView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Jc-dJ-iaX">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="8Jc-dJ-iaX">
                                         <rect key="frame" x="0.0" y="128" width="600" height="359"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <mapView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="XSB-9F-qai">
+                                            <rect key="frame" x="0.0" y="112" width="600" height="250"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </mapView>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="cxb-XY-5RF" customClass="DetailTableViewCell" customModule="Greenhouse" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                                <rect key="frame" x="0.0" y="50" width="600" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxb-XY-5RF" id="20h-2r-QWR">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -231,6 +260,7 @@
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <sections/>
                                         <connections>
                                             <outlet property="dataSource" destination="HkX-P6-G6e" id="Pku-zi-i98"/>
                                             <outlet property="delegate" destination="HkX-P6-G6e" id="cUQ-Nm-Xhd"/>
@@ -257,6 +287,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="favoriteButton" destination="OkA-Y0-ghr" id="8Qo-0V-lfB"/>
+                        <outlet property="mapView" destination="XSB-9F-qai" id="e9F-aM-3im"/>
                         <outlet property="plantImageView" destination="vKM-OZ-Kb4" id="jCJ-a0-nPd"/>
                     </connections>
                 </viewController>
@@ -311,7 +342,7 @@
                     <navigationItem key="navigationItem" title="Garten" id="NDb-gU-aHx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yaf-Mm-GZp">
                             <connections>
-                                <segue destination="KAR-Rc-RVQ" kind="show" id="g1V-ik-qTy"/>
+                                <segue destination="WOS-Z4-bsE" kind="show" id="eK1-ot-TxN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
