@@ -92,13 +92,13 @@
         <!--Aussähen-->
         <scene sceneID="4Yg-hi-vsa">
             <objects>
-                <tableViewController title="Aussähen" id="WOS-Z4-bsE" sceneMemberID="viewController">
+                <tableViewController title="Aussähen" id="WOS-Z4-bsE" customClass="SowTableViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="BWk-4X-n1M">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Art des Saatguts" footerTitle="Was hast Du ausgesäht?" id="qFP-63-Pfi">
+                            <tableViewSection headerTitle="Art des Saatguts" footerTitle="Was hast Du ausgesät?" id="qFP-63-Pfi">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="Xom-dA-e05">
                                         <rect key="frame" x="0.0" y="114" width="600" height="200"/>
@@ -121,7 +121,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Datum der Aussaat" footerTitle="Wann hast Du ausgesäht?" id="pNY-sY-d3D">
+                            <tableViewSection headerTitle="Datum der Aussaat" footerTitle="Wann hast Du ausgesät?" id="pNY-sY-d3D">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="bJm-H8-Wc0">
                                         <rect key="frame" x="0.0" y="381" width="600" height="200"/>
@@ -147,51 +147,20 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Benachrichtigungen" footerTitle="Willst Du zum Wässern oder Düngen benachrichtigt werden?" id="QHW-mt-lwU">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Yxe-a3-jUC">
-                                        <rect key="frame" x="0.0" y="648" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yxe-a3-jUC" id="kgX-Nd-oGU">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iR6-gj-jd0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COs-BR-34o">
-                                                            <rect key="frame" x="0.0" y="0.0" width="551" height="43"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wrn-IU-Amb">
-                                                            <rect key="frame" x="551" y="0.0" width="51" height="43"/>
-                                                        </switch>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="iR6-gj-jd0" firstAttribute="leading" secondItem="kgX-Nd-oGU" secondAttribute="leading" id="CFN-RK-w0P"/>
-                                                <constraint firstAttribute="bottom" secondItem="iR6-gj-jd0" secondAttribute="bottom" id="tmG-ag-C94"/>
-                                                <constraint firstAttribute="trailing" secondItem="iR6-gj-jd0" secondAttribute="trailing" id="z5T-cQ-Ale"/>
-                                                <constraint firstItem="iR6-gj-jd0" firstAttribute="top" secondItem="kgX-Nd-oGU" secondAttribute="top" id="zjV-zb-LxH"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="WOS-Z4-bsE" id="bAn-L1-BhX"/>
                             <outlet property="delegate" destination="WOS-Z4-bsE" id="E1u-An-7mm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Aussähen" id="Mzz-vP-cgx">
+                    <navigationItem key="navigationItem" title="Aussäen" id="Mzz-vP-cgx">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="e7o-jQ-Sur"/>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="800"/>
+                    <connections>
+                        <outlet property="pickerView" destination="1e3-BA-aXf" id="xvm-vb-Y3l"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JsP-5W-kcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

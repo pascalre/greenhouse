@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+    <entity name="Cultivation" syncable="YES">
+        <attribute name="geduengtAm" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="gewaessertAm" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sowedID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Origin" syncable="YES">
+        <attribute name="land" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plantID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="Plant" representedClassName=".Plant" syncable="YES">
         <attribute name="art" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="artKeimung" optional="YES" attributeType="String" syncable="YES"/>
@@ -17,7 +26,15 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="temperatur" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
+    <entity name="Sowed" syncable="YES">
+        <attribute name="gesaetAm" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="plantID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Plant" positionX="-236" positionY="15" width="128" height="30"/>
+        <element name="Sowed" positionX="-234" positionY="9" width="128" height="90"/>
+        <element name="Origin" positionX="-225" positionY="45" width="128" height="75"/>
+        <element name="Cultivation" positionX="-216" positionY="63" width="128" height="90"/>
     </elements>
 </model>
