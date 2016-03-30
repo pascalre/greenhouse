@@ -58,6 +58,20 @@ class FavoritesTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Segues
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            let cell = sender as! UITableViewCell
+            let indexPath = self.tableView.indexPathForCell(cell)!
+
+            let plant: Plant
+            plant = favorites[indexPath.row]
+            
+            let controller = segue.destinationViewController as! DetailViewController
+            controller.detailPlant = plant
+        }
+    }
+    
     
     /*
      // Override to support conditional editing of the table view.

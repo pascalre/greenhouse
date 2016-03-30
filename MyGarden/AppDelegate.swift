@@ -21,17 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.candyGreen()
         
         if !(defaults.boolForKey("databaseIsFilled")) {
-            savePlant("Basilikum", id: 1, isFavorite: false, latinName: "Ocimum basilicum")
-            savePlant("Petersilie", id: 2, isFavorite: false, latinName: "Petroselinum crispum")
-            savePlant("Schnittlauch", id: 3, isFavorite: false, latinName: "Allium schoenoprasum")
-            savePlant("Erdbeere", id: 4, isFavorite: false, latinName: "Fragaria ananassa")
+            savePlant("Basilikum", id: 1, isFavorite: false, latinName: "Ocimum basilicum", art: "Kräuter", artKeimung: "Lichtkeimer", aussatAb: "Februar", aussatBis: "April", dauerKeimung: 14, dauerWachsen: 21, dauerErnte: 30, duenger: "Bio-Kräuterdünger", infosSaat: "blablabla", infosSchaedlinge: "Pilze", temperatur: 20.0)
+            savePlant("Petersilie", id: 2, isFavorite: false, latinName: "Petroselinum crispum", art: "Kräuter", artKeimung: "Lichtkeimer", aussatAb: "Februar", aussatBis: "April", dauerKeimung: 14, dauerWachsen: 21, dauerErnte: 30, duenger: "Bio-Kräuterdünger", infosSaat: "blablabla", infosSchaedlinge: "Pilze", temperatur: 20.0)
+            savePlant("Schnittlauch", id: 3, isFavorite: false, latinName: "Allium schoenoprasum", art: "Kräuter", artKeimung: "Lichtkeimer", aussatAb: "Februar", aussatBis: "April", dauerKeimung: 14, dauerWachsen: 21, dauerErnte: 30, duenger: "Bio-Kräuterdünger", infosSaat: "blablabla", infosSchaedlinge: "Pilze", temperatur: 20.0)
+            savePlant("Erdbeere", id: 4, isFavorite: false, latinName: "Fragaria ananassa", art: "Kräuter", artKeimung: "Lichtkeimer", aussatAb: "Februar", aussatBis: "April", dauerKeimung: 14, dauerWachsen: 21, dauerErnte: 30, duenger: "Bio-Kräuterdünger", infosSaat: "blablabla", infosSchaedlinge: "Pilze", temperatur: 20.0)
             defaults.setBool(true, forKey: "databaseIsFilled")
         }
         
         return true
     }
     
-    func savePlant(name: String, id: Int, isFavorite: Bool, latinName: String) {
+    func savePlant(name: String, id: Int, isFavorite: Bool, latinName: String, art: String, artKeimung: String, aussatAb: String, aussatBis: String,  dauerKeimung: Int, dauerWachsen: Int, dauerErnte: Int, duenger: String, infosSaat: String, infosSchaedlinge: String, temperatur: Double) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         let entity =  NSEntityDescription.entityForName("Plant", inManagedObjectContext:managedContext)
@@ -41,6 +41,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         plant.setValue(id, forKey: "id")
         plant.setValue(isFavorite, forKey: "isFavorite")
         plant.setValue(latinName, forKey: "latinName")
+        
+        plant.setValue(art, forKey: "art")
+        plant.setValue(artKeimung, forKey: "artKeimung")
+        plant.setValue(aussatAb, forKey: "aussatAb")
+        plant.setValue(aussatBis, forKey: "aussatBis")
+        plant.setValue(dauerErnte, forKey: "dauerErnte")
+        plant.setValue(dauerKeimung, forKey: "dauerKeimung")
+        plant.setValue(dauerWachsen, forKey: "dauerWachsen")
+        plant.setValue(duenger, forKey: "duenger")
+        plant.setValue(infosSaat, forKey: "infosSaat")
+        plant.setValue(infosSchaedlinge, forKey: "infosSchaedlinge")
+        plant.setValue(temperatur, forKey: "temperatur")
         
         do {
             try managedContext.save()

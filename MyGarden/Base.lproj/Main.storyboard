@@ -57,15 +57,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="pXV-mU-vl5">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="jzO-iv-vYO" style="IBUITableViewCellStyleDefault" id="pXV-mU-vl5">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pXV-mU-vl5" id="0V4-WX-g5u">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jzO-iv-vYO">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="7R8-c7-Iog" kind="show" id="NKI-MW-UfW"/>
+                                    <segue destination="HkX-P6-G6e" kind="show" identifier="showDetail" id="moy-RA-aW4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -80,24 +89,6 @@
             </objects>
             <point key="canvasLocation" x="2841" y="1771"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="6BO-W1-IAE">
-            <objects>
-                <viewController id="7R8-c7-Iog" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Zrp-KQ-Nao"/>
-                        <viewControllerLayoutGuide type="bottom" id="fBz-Gh-c9S"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Sob-yd-lVD">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="18P-Hx-cZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3556" y="1771"/>
-        </scene>
         <!--Aussähen-->
         <scene sceneID="rCF-CS-u8H">
             <objects>
@@ -107,54 +98,68 @@
                         <viewControllerLayoutGuide type="bottom" id="cK4-bf-bgp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="52j-Ug-CS5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="MTq-TO-ZfC">
-                                <rect key="frame" x="20" y="10" width="560" height="531"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="Vds-4V-g49">
+                                <rect key="frame" x="0.0" y="64" width="600" height="687"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cji-2b-GII">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="61"/>
-                                        <string key="text">Hier kannst Du Deine selbst ausgesähten Pflanzen eintragen. Wählen einfache Die Art der Saat und das Datum aus und lass Greenhouse den Rest erledigen!</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Art der Saat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKh-JA-FEa">
-                                        <rect key="frame" x="0.0" y="67" width="560" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.26274511218070984" green="0.80392158031463623" blue="0.38431373238563538" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fpF-xe-sdv">
-                                        <rect key="frame" x="0.0" y="94" width="560" height="216"/>
-                                    </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Datum der Aussaat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAh-Q8-Z7F">
-                                        <rect key="frame" x="0.0" y="316" width="560" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.26274511218070984" green="0.80392158031463623" blue="0.38431373238563538" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oyg-0v-ZNj">
-                                        <rect key="frame" x="0.0" y="343" width="560" height="188"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="480621959.71742499">
-                                            <!--2016-03-25 18:05:59 +0000-->
-                                        </date>
-                                    </datePicker>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="MTq-TO-ZfC">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="539"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cji-2b-GII">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="41"/>
+                                                <string key="text">Hier kannst Du Deine selbst ausgesähten Pflanzen eintragen. Wählen einfache Die Art der Saat und das Datum aus und lass Greenhouse den Rest erledigen!</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Art der Saat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKh-JA-FEa">
+                                                <rect key="frame" x="0.0" y="47" width="600" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.26274511218070984" green="0.80392158031463623" blue="0.38431373238563538" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpF-xe-sdv">
+                                                <rect key="frame" x="0.0" y="74" width="600" height="216"/>
+                                            </pickerView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datum der Aussaat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAh-Q8-Z7F">
+                                                <rect key="frame" x="0.0" y="296" width="600" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.26274511218070984" green="0.80392158031463623" blue="0.38431373238563538" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oyg-0v-ZNj">
+                                                <rect key="frame" x="0.0" y="323" width="600" height="216"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="480621959.71742499">
+                                                    <!--2016-03-25 18:05:59 +0000-->
+                                                </date>
+                                            </datePicker>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstItem="MTq-TO-ZfC" firstAttribute="top" secondItem="Vds-4V-g49" secondAttribute="top" id="KLz-z4-XpA"/>
+                                    <constraint firstAttribute="bottom" secondItem="MTq-TO-ZfC" secondAttribute="bottom" id="cpZ-Qz-7wb"/>
+                                    <constraint firstAttribute="trailing" secondItem="MTq-TO-ZfC" secondAttribute="trailing" id="sQs-Y4-1zo"/>
+                                    <constraint firstItem="MTq-TO-ZfC" firstAttribute="leading" secondItem="Vds-4V-g49" secondAttribute="leading" id="v9b-xP-feG"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="MTq-TO-ZfC" secondAttribute="trailing" id="AZk-x3-Xmo"/>
-                            <constraint firstItem="MTq-TO-ZfC" firstAttribute="leading" secondItem="52j-Ug-CS5" secondAttribute="leadingMargin" id="PKh-zB-Zih"/>
-                            <constraint firstItem="MTq-TO-ZfC" firstAttribute="top" secondItem="52j-Ug-CS5" secondAttribute="topMargin" constant="10" id="ZtA-Z3-Fer"/>
-                            <constraint firstItem="cK4-bf-bgp" firstAttribute="top" secondItem="MTq-TO-ZfC" secondAttribute="bottom" constant="10" id="pcS-10-dTf"/>
+                            <constraint firstAttribute="trailing" secondItem="Vds-4V-g49" secondAttribute="trailing" id="5wJ-Qq-p2o"/>
+                            <constraint firstItem="Vds-4V-g49" firstAttribute="top" secondItem="E65-Yt-Cbl" secondAttribute="bottom" id="9qW-rp-dIB"/>
+                            <constraint firstItem="cK4-bf-bgp" firstAttribute="top" secondItem="Vds-4V-g49" secondAttribute="bottom" id="Oqo-my-e29"/>
+                            <constraint firstItem="Vds-4V-g49" firstAttribute="leading" secondItem="52j-Ug-CS5" secondAttribute="leading" id="RWc-p9-7KD"/>
+                            <constraint firstItem="MTq-TO-ZfC" firstAttribute="width" secondItem="52j-Ug-CS5" secondAttribute="width" id="oZf-gG-Mjq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Aussähen" id="BM3-2I-1pG">
                         <barButtonItem key="rightBarButtonItem" title="Speichern" id="n0D-7K-njq"/>
                     </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="800"/>
                     <connections>
                         <outlet property="datePicker" destination="Oyg-0v-ZNj" id="5KI-zi-FTO"/>
                         <outlet property="pickerView" destination="fpF-xe-sdv" id="OiF-dg-63K"/>
@@ -257,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GdP-WP-KG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3556" y="993"/>
+            <point key="canvasLocation" x="3556" y="1369"/>
         </scene>
         <!--Garten-->
         <scene sceneID="h75-i3-jIc">
@@ -455,5 +460,8 @@
         <image name="Search" width="25" height="25"/>
         <image name="Star" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="RiM-NS-0xx"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
