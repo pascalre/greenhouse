@@ -32,16 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func savePlant(name: String, id: Int, isFavorite: Bool, latinName: String, art: String, artKeimung: String, aussatAb: String, aussatBis: String,  dauerKeimung: Int, dauerWachsen: Int, dauerErnte: Int, duenger: String, infosSaat: String, infosSchaedlinge: String, temperatur: Double) {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
+        let managedContext = self.managedObjectContext
         let entity =  NSEntityDescription.entityForName("Plant", inManagedObjectContext:managedContext)
         let plant = Plant(entity: entity!, insertIntoManagedObjectContext: managedContext)
         
         plant.setValue(name, forKey: "name")
-        plant.setValue(id, forKey: "id")
         plant.setValue(isFavorite, forKey: "isFavorite")
         plant.setValue(latinName, forKey: "latinName")
-        
+        plant.setValue(id, forKey: "id")
         plant.setValue(art, forKey: "art")
         plant.setValue(artKeimung, forKey: "artKeimung")
         plant.setValue(aussatAb, forKey: "aussatAb")

@@ -154,17 +154,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Aussäen" id="Mzz-vP-cgx">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="e7o-jQ-Sur"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="e7o-jQ-Sur">
+                            <connections>
+                                <action selector="sowPlant:" destination="WOS-Z4-bsE" id="ms8-cs-jpc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="800"/>
                     <connections>
+                        <outlet property="datePicker" destination="3cB-lh-5Fx" id="Ta2-gq-Y3x"/>
                         <outlet property="pickerView" destination="1e3-BA-aXf" id="xvm-vb-Y3l"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JsP-5W-kcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3556" y="294"/>
+            <point key="canvasLocation" x="3556" y="-242"/>
         </scene>
         <!--Info-->
         <scene sceneID="5xd-l7-XdW">
@@ -246,13 +251,13 @@
         <!--Garten-->
         <scene sceneID="h75-i3-jIc">
             <objects>
-                <tableViewController id="PsV-HP-tSB" sceneMemberID="viewController">
+                <tableViewController id="PsV-HP-tSB" customClass="GardenTableViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zw5-JZ-glj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="XYb-Vq-NuD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="90" id="XYb-Vq-NuD" customClass="GardenTableViewCell" customModule="Greenhouse" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XYb-Vq-NuD" id="HnL-Ko-ysL">
@@ -280,6 +285,13 @@
                                         </view>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="fertilizeIcon" destination="Dt9-nz-e2Y" id="nly-Wg-YqV"/>
+                                    <outlet property="nameLabel" destination="e69-k3-KP0" id="aYT-oT-Ue2"/>
+                                    <outlet property="plantImageView" destination="LI6-K4-UyI" id="b8N-3t-rFq"/>
+                                    <outlet property="waterIcon" destination="ODW-wr-JY4" id="K1P-wf-X2z"/>
+                                    <segue destination="7O0-3L-EXN" kind="show" id="u4J-7P-L0i"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -298,6 +310,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r42-8A-GWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2841" y="294"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="aCL-TV-how">
+            <objects>
+                <tableViewController id="7O0-3L-EXN" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cCf-lA-1tL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oEw-KD-3kS">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="pde-ws-xH4">
+                            <rect key="frame" x="0.0" y="180" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vEO-Tf-P05">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vEO-Tf-P05" id="6VS-1E-7NG">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7O0-3L-EXN" id="HEH-nA-rlH"/>
+                            <outlet property="delegate" destination="7O0-3L-EXN" id="vnd-92-8TS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="oRe-Wy-0tT"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zlp-LG-Cpz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3556" y="563"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eDQ-Bh-hjw">

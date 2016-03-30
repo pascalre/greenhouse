@@ -44,7 +44,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             print("Could not fetch \(error), \(error.userInfo)")
         }
         tableView.reloadData()
-
     }
 
     override func didReceiveMemoryWarning() {

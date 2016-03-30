@@ -1,5 +1,5 @@
 //
-//  SowTableViewController.swift
+//  GardenTableViewController.swift
 //  MyGarden
 //
 //  Created by Pascal Reitermann on 30.03.16.
@@ -9,53 +9,15 @@
 import UIKit
 import CoreData
 
-class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    // MARK: Properties
-    @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    
-    var plants = [Plant]()
+class GardenTableViewController: UITableViewController {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+
+    var garden = [Sowed]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Connect data:
-        self.pickerView.delegate = self
-        self.pickerView.dataSource = self
-        
-        let fetchRequest = NSFetchRequest(entityName: "Plant")
-        
-        do {
-            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
-            plants = results as! [Plant]
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
-        
     }
 
-    @IBAction func sowPlant(sender: AnyObject) {
-        
-        let sowed = NSEntityDescription.insertNewObjectForEntityForName("Sowed", inManagedObjectContext: self.managedObjectContext) as! Sowed
-
-        let plantID = plants[pickerView.selectedRowInComponent(0)].valueForKey("id")!;
-        print(plantID)
-        let gesaetAm = datePicker.date;
-        print(gesaetAm)
-        
-        sowed.setValue(plantID, forKey: "plantID")
-        sowed.setValue(gesaetAm, forKey: "gesaetAm")
-        sowed.setValue(1, forKey: "id")
-
-        do {
-            try managedObjectContext.save()
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        }
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -64,40 +26,34 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return garden.count
     }
 
-    
-    // The number of columns of data
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    // The number of rows of data
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return plants.count
-    }
-    
-    // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return plants[row].valueForKey("name") as? String
-    }
-    
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! GardenTableViewCell
+        let name: String = String(garden[indexPath.row].id!)
+        cell.nameLabel!.text = name
         return cell
     }
-    */
+    
+    override func viewWillAppear(animated: Bool) {
+        let fetchRequest = NSFetchRequest(entityName: "Sowed")
+
+        do {
+            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
+            garden = results as! [Sowed]
+        } catch {
+            print("error \(error)")
+        }
+        
+        
+        tableView.reloadData()
+    }
 
     /*
     // Override to support conditional editing of the table view.
