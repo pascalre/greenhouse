@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D15C03D1CAE794500A62B4A /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D15C0361CAE792900A62B4A /* Charts.framework */; };
+		2D15C03E1CAE794500A62B4A /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D15C0361CAE792900A62B4A /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2D1EC8B51CA5D65200CCE76B /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1EC8B41CA5D65200CCE76B /* FavoritesTableViewController.swift */; };
 		2D3E9DB71CAC052900353E61 /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3E9DAF1CAC052900353E61 /* Plant+CoreDataProperties.swift */; };
 		2D3E9DB81CAC052900353E61 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3E9DB01CAC052900353E61 /* Plant.swift */; };
@@ -33,6 +35,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2D15C0351CAE792900A62B4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		2D15C0371CAE792900A62B4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		2D15C0391CAE792900A62B4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		2D15C03B1CAE792900A62B4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		2D15C03F1CAE794500A62B4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
 		2DDDF2A11CA164D30075674B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2DDDF2811CA164D30075674B /* Project object */;
@@ -49,7 +86,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2D15C0411CAE794600A62B4A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2D15C03E1CAE794500A62B4A /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		2D1EC8B41CA5D65200CCE76B /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		2D3E9DAF1CAC052900353E61 /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2D3E9DB01CAC052900353E61 /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
@@ -86,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D15C03D1CAE794500A62B4A /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +159,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D15C02F1CAE792900A62B4A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D15C0361CAE792900A62B4A /* Charts.framework */,
+				2D15C0381CAE792900A62B4A /* Charts.framework */,
+				2D15C03A1CAE792900A62B4A /* Charts.framework */,
+				2D15C03C1CAE792900A62B4A /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2D1EC89E1CA5B93200CCE76B /* Suche */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +209,7 @@
 		2DDDF2801CA164D30075674B = {
 			isa = PBXGroup;
 			children = (
+				2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */,
 				2D3E9DAF1CAC052900353E61 /* Plant+CoreDataProperties.swift */,
 				2D3E9DB01CAC052900353E61 /* Plant.swift */,
 				2D3E9DB11CAC052900353E61 /* Sowed+CoreDataProperties.swift */,
@@ -215,10 +280,12 @@
 				2DDDF2851CA164D30075674B /* Sources */,
 				2DDDF2861CA164D30075674B /* Frameworks */,
 				2DDDF2871CA164D30075674B /* Resources */,
+				2D15C0411CAE794600A62B4A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2D15C0401CAE794500A62B4A /* PBXTargetDependency */,
 			);
 			name = MyGarden;
 			productName = MyGarden;
@@ -295,6 +362,12 @@
 			mainGroup = 2DDDF2801CA164D30075674B;
 			productRefGroup = 2DDDF28A1CA164D30075674B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2D15C02F1CAE792900A62B4A /* Products */;
+					ProjectRef = 2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2DDDF2881CA164D30075674B /* MyGarden */,
@@ -303,6 +376,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2D15C0361CAE792900A62B4A /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 2D15C0351CAE792900A62B4A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2D15C0381CAE792900A62B4A /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 2D15C0371CAE792900A62B4A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2D15C03A1CAE792900A62B4A /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 2D15C0391CAE792900A62B4A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2D15C03C1CAE792900A62B4A /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 2D15C03B1CAE792900A62B4A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2DDDF2871CA164D30075674B /* Resources */ = {
@@ -376,6 +480,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2D15C0401CAE794500A62B4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 2D15C03F1CAE794500A62B4A /* PBXContainerItemProxy */;
+		};
 		2DDDF2A21CA164D30075674B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2DDDF2881CA164D30075674B /* MyGarden */;
@@ -495,6 +604,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MyGarden/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.reitermann.MyGarden;
@@ -506,6 +616,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MyGarden/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.reitermann.MyGarden;
