@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Charts
 
 class MySowTableViewController: UITableViewController {
     @IBOutlet weak var plantImageView: UIImageView!
+    
+    @IBOutlet weak var pieChartView: PieChartView!
+    
+    
     var sow: Sowed? {
         didSet {
             updateView()
@@ -27,11 +32,33 @@ class MySowTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let months = ["Keimen", "Wachsen", "Ernte"]
+        let unitsSold = [20.0, 4.0, 6.0]
+        
+        setChart(months, values: unitsSold)
+    }
+    
+    func setChart(dataPoints: [String], values: [Double]) {
+        
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        
+        let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Units Sold")
+        let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
+        pieChartView.data = pieChartData
+        
+        var colors: [UIColor] = []
+    
+        colors.append(UIColor.brownColor())
+        colors.append(UIColor.yellowColor())
+        colors.append(UIColor.greenColor())
+        
+        pieChartDataSet.colors = colors
+        
     }
 
     override func didReceiveMemoryWarning() {

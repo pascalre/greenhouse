@@ -323,8 +323,8 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="130"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="pde-ws-xH4">
-                            <rect key="frame" x="0.0" y="306" width="600" height="44"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="pde-ws-xH4" customClass="PieChartView" customModule="Charts">
+                            <rect key="frame" x="0.0" y="306" width="600" height="600"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -355,6 +355,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="pieChartView" destination="pde-ws-xH4" id="O6H-uP-elF"/>
                         <outlet property="plantImageView" destination="oEw-KD-3kS" id="YO6-FE-ikt"/>
                     </connections>
                 </tableViewController>
