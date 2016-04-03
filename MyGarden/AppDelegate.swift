@@ -21,35 +21,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.candyGreen()
         
         if !(defaults.boolForKey("databaseIsFilled")) {
-            savePlant("Basilikum", isFavorite: false, latinName: "Ocimum basilicum", art: "Kräuter", artKeimung: "Lichtkeimer", aussatAb: "Februar", aussatBis: "April", dauerKeimung: 14, dauerWachsen: 21, dauerErnte: 30, duenger: "Bio-Kräuterdünger", infosSaat: "blablabla", infosSchaedlinge: "Pilze", temperatur: 20.0)
-            savePlant("Petersilie", isFavorite: false, latinName: "Petroselinum crispum", art: "Kräuter", artKeimung: "Lichtkeimer", aussatAb: "Februar", aussatBis: "April", dauerKeimung: 14, dauerWachsen: 21, dauerErnte: 30, duenger: "Bio-Kräuterdünger", infosSaat: "blablabla", infosSchaedlinge: "Pilze", temperatur: 20.0)
-            savePlant("Schnittlauch", isFavorite: false, latinName: "Allium schoenoprasum", art: "Kräuter", artKeimung: "Lichtkeimer", aussatAb: "Februar", aussatBis: "April", dauerKeimung: 14, dauerWachsen: 21, dauerErnte: 30, duenger: "Bio-Kräuterdünger", infosSaat: "blablabla", infosSchaedlinge: "Pilze", temperatur: 20.0)
-            savePlant("Erdbeere", isFavorite: false, latinName: "Fragaria ananassa", art: "Kräuter", artKeimung: "Lichtkeimer", aussatAb: "Februar", aussatBis: "April", dauerKeimung: 14, dauerWachsen: 21, dauerErnte: 30, duenger: "Bio-Kräuterdünger", infosSaat: "blablabla", infosSchaedlinge: "Pilze", temperatur: 20.0)
+            savePlant("Basilikum", isFavorite: false, latinName: "Ocimum basilicum", anzahlArten: 60, art: "Kräuter", artKeimung: "Lichtkeimer", aussatAbFrei: "März", aussatBisFrei: "", aussatAbTopf: "Januar", aussatBisTopf: "Dezember", blaetter: "saftgrün, kelchförmig", dauerErnte: 24, dauerKeimung: 7, dauerWachsen: 24, duenger: "Bio-Kräuterdünger", familie: "Lippenblüter", gattung: "Basilikum", infosSaat: "", infosSchaedlinge: "", standort: "warm, sonnig", wuchshoehe: "15 - 60 cm")
             defaults.setBool(true, forKey: "databaseIsFilled")
         }
         
         return true
     }
     
-    func savePlant(name: String, isFavorite: Bool, latinName: String, art: String, artKeimung: String, aussatAb: String, aussatBis: String,  dauerKeimung: Int, dauerWachsen: Int, dauerErnte: Int, duenger: String, infosSaat: String, infosSchaedlinge: String, temperatur: Double) {
+    func savePlant(name: String, isFavorite: Bool, latinName: String, anzahlArten: Int, art: String, artKeimung: String, aussatAbFrei: String, aussatBisFrei: String, aussatAbTopf: String, aussatBisTopf: String, blaetter: String, dauerErnte: Int, dauerKeimung: Int, dauerWachsen: Int, duenger: String, familie: String, gattung: String, infosSaat: String, infosSchaedlinge: String, standort: String, wuchshoehe: String) {
         let managedContext = self.managedObjectContext
         let entity =  NSEntityDescription.entityForName("Plant", inManagedObjectContext:managedContext)
         let plant = Plant(entity: entity!, insertIntoManagedObjectContext: managedContext)
         
-        plant.setValue(name, forKey: "name")
-        plant.setValue(isFavorite, forKey: "isFavorite")
-        plant.setValue(latinName, forKey: "latinName")
-        plant.setValue(art, forKey: "art")
-        plant.setValue(artKeimung, forKey: "artKeimung")
-        plant.setValue(aussatAb, forKey: "aussatAb")
-        plant.setValue(aussatBis, forKey: "aussatBis")
-        plant.setValue(dauerErnte, forKey: "dauerErnte")
-        plant.setValue(dauerKeimung, forKey: "dauerKeimung")
-        plant.setValue(dauerWachsen, forKey: "dauerWachsen")
-        plant.setValue(duenger, forKey: "duenger")
-        plant.setValue(infosSaat, forKey: "infosSaat")
-        plant.setValue(infosSchaedlinge, forKey: "infosSchaedlinge")
-        plant.setValue(temperatur, forKey: "temperatur")
+        plant.anzahlArten = anzahlArten
+        plant.art = art
+        plant.artKeimung = artKeimung
+        plant.aussatAbFrei = aussatAbFrei
+        plant.aussatBisFrei = aussatBisFrei
+        plant.aussatAbTopf = aussatAbTopf
+        plant.aussatBisTopf = aussatBisTopf
+        plant.blaetter = blaetter
+        plant.dauerErnte = dauerErnte
+        plant.dauerKeimung = dauerKeimung
+        plant.dauerWachsen = dauerWachsen
+        plant.duenger = duenger
+        plant.familie = familie
+        plant.gattung = gattung
+        plant.infosSaat = infosSaat
+        plant.infosSchaedlinge = infosSchaedlinge
+        plant.isFavorite = isFavorite
+        plant.latinName = latinName
+        plant.name = name
+        plant.standort = standort
+        plant.wuchshoehe = wuchshoehe
         
         do {
             try managedContext.save()

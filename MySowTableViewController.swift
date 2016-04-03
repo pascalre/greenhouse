@@ -32,8 +32,11 @@ class MySowTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let months = ["Keimen", "Wachsen", "Ernte"]
-        let unitsSold = [20.0, 4.0, 6.0]
+        let months = ["Keimen", "Wachsen", "Ernte", ""]
+        
+        var days = (sow?.gesaetAm!.timeIntervalSinceNow)! / 60.0 / 60.0 / 24.0 * -1
+        
+        let unitsSold = [14.0, 28.0, 28.0, 7.0]
         
         setChart(months, values: unitsSold)
     }
@@ -47,15 +50,19 @@ class MySowTableViewController: UITableViewController {
             dataEntries.append(dataEntry)
         }
         
-        let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Units Sold")
+        let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "vergangene Tage")
         let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
         pieChartView.data = pieChartData
+        pieChartView.descriptionText = "Fortschritt deiner Pflanze"
         
         var colors: [UIColor] = []
     
         colors.append(UIColor.brownColor())
-        colors.append(UIColor.yellowColor())
-        colors.append(UIColor.greenColor())
+        colors.append(UIColor.orangeColor())
+        colors.append(UIColor(red: 67/255.0, green: 205/255.0, blue: 98/255.0, alpha: 1))
+        colors.append(UIColor(red: 67/255.0, green: 205/255.0, blue: 98/255.0, alpha: 0.3))
+        
+        pieChartView.animate(xAxisDuration: 0.2, yAxisDuration: 0.7, easingOption: .EaseInOutSine)
         
         pieChartDataSet.colors = colors
         
@@ -83,10 +90,25 @@ class MySowTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! DetailTableViewCell
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+       
+        switch indexPath.row {
+        case 0 :
+            cell.attributName.text = "Ausgesät am"
+            cell.attributValue.text = dateFormatter.stringFromDate((sow?.gesaetAm)!)
+        case 1 :
+            cell.attributName.text = "vsl. Wachstum ab"
+            let keimDauer : Double = (sow?.pflanze?.dauerKeimung!)! as Double
+            cell.attributValue.text = dateFormatter.stringFromDate(NSDate().dateByAddingTimeInterval(60.0*60.0*24.0*keimDauer))
+        case 2 :
+            cell.attributName.text = "vsl. Ernte ab"
+            cell.attributValue.text = dateFormatter.stringFromDate((sow?.gesaetAm)!)
+        default:
+            cell.attributName.text = ""
+        }
         return cell
     }
 

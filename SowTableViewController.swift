@@ -14,6 +14,8 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
     // MARK: Properties
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var commentsTextView: UITextView!
+    
     
     var plants = [Plant]()
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -42,14 +44,15 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
 
         let plant = plants[pickerView.selectedRowInComponent(0)];
         let gesaetAm = datePicker.date;
-        print(gesaetAm)
         
         sowed.setValue(plant, forKey: "pflanze")
         sowed.setValue(gesaetAm, forKey: "gesaetAm")
         sowed.setValue(1, forKey: "id")
+        sowed.comments = commentsTextView.text
 
         do {
             try managedObjectContext.save()
+            NSLog("New Entry in 'Sowed': %@", plant.name!)
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
         }
@@ -64,7 +67,7 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

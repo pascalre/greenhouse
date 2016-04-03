@@ -2,7 +2,7 @@
 //  Plant+CoreDataProperties.swift
 //  MyGarden
 //
-//  Created by Pascal Reitermann on 30.03.16.
+//  Created by Pascal Reitermann on 03.04.16.
 //  Copyright © 2016 Pascal Reitermann. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,8 +16,8 @@ extension Plant {
 
     @NSManaged var art: String?
     @NSManaged var artKeimung: String?
-    @NSManaged var aussatAb: String?
-    @NSManaged var aussatBis: String?
+    @NSManaged var aussatAbFrei: String?
+    @NSManaged var aussatBisFrei: String?
     @NSManaged var dauerErnte: NSNumber?
     @NSManaged var dauerKeimung: NSNumber?
     @NSManaged var dauerWachsen: NSNumber?
@@ -27,7 +27,14 @@ extension Plant {
     @NSManaged var isFavorite: NSNumber?
     @NSManaged var latinName: String?
     @NSManaged var name: String?
-    @NSManaged var temperatur: NSNumber?
+    @NSManaged var familie: String?
+    @NSManaged var gattung: String?
+    @NSManaged var anzahlArten: NSNumber?
+    @NSManaged var standort: String?
+    @NSManaged var blaetter: String?
+    @NSManaged var wuchshoehe: String?
+    @NSManaged var aussatAbTopf: String?
+    @NSManaged var aussatBisTopf: String?
     @NSManaged var ausgesaet: NSSet?
     @NSManaged var herkunft: NSSet?
 

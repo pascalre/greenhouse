@@ -12,24 +12,32 @@
         <relationship name="pflanze" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plant" inverseName="herkunft" inverseEntity="Plant" syncable="YES"/>
     </entity>
     <entity name="Plant" representedClassName=".Plant" syncable="YES">
+        <attribute name="anzahlArten" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="art" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="artKeimung" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="aussatAb" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="aussatBis" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aussatAbFrei" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aussatAbTopf" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aussatBisFrei" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aussatBisTopf" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="blaetter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dauerErnte" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="dauerKeimung" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="dauerWachsen" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="duenger" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="familie" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gattung" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="infosSaat" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="infosSchaedlinge" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="latinName" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="temperatur" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="standort" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wuchshoehe" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="ausgesaet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sowed" inverseName="pflanze" inverseEntity="Sowed" syncable="YES"/>
         <relationship name="herkunft" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Origin" inverseName="pflanze" inverseEntity="Origin" syncable="YES"/>
     </entity>
     <entity name="Sowed" representedClassName=".Sowed" syncable="YES">
+        <attribute name="comments" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gesaetAm" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="plantID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -39,7 +47,7 @@
     <elements>
         <element name="Cultivation" positionX="34" positionY="-81" width="128" height="103"/>
         <element name="Origin" positionX="-155" positionY="123" width="128" height="88"/>
-        <element name="Plant" positionX="-387" positionY="-79" width="128" height="283"/>
-        <element name="Sowed" positionX="-155" positionY="-82" width="128" height="118"/>
+        <element name="Plant" positionX="-387" positionY="-79" width="128" height="388"/>
+        <element name="Sowed" positionX="-155" positionY="-82" width="128" height="133"/>
     </elements>
 </model>
