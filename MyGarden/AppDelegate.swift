@@ -21,23 +21,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.candyGreen()
         
         if !(defaults.boolForKey("databaseIsFilled")) {
-            savePlant("Basilikum", isFavorite: false, latinName: "Ocimum basilicum", anzahlArten: 60, art: "Kräuter", artKeimung: "Lichtkeimer", aussatAbFrei: "März", aussatBisFrei: "", aussatAbTopf: "Januar", aussatBisTopf: "Dezember", blaetter: "saftgrün, kelchförmig", dauerErnte: 24, dauerKeimung: 7, dauerWachsen: 24, duenger: "Bio-Kräuterdünger", familie: "Lippenblüter", gattung: "Basilikum", infosSaat: "", infosSchaedlinge: "", standort: "warm, sonnig", wuchshoehe: "15 - 60 cm")
+            savePlant("Basilikum", isFavorite: false, latinName: "Ocimum basilicum", anzahlArten: "ca. 60", artKeimung: "Lichtkeimer", aussatAbFrei: "März", aussatAbTopf: "Januar", aussatBisTopf: "Dezember", blaetter: "saftgrün, kelchförmig", dauerErnte: 24, dauerKeimung: 7, dauerWachsen: 24, duenger: "Bio-Kräuterdünger", familie: "Lippenblüter", infosSaat: "", infosSchaedlinge: "", standort: "warm, sonnig", wuchshoehe: "15 - 60 cm", herkunftName: "Nordwest-Indien", latitude: 26.135583, longitude: 75.910403)
+            savePlant("Petersilie", isFavorite: false, latinName: "Petroselinum crispum", anzahlArten: "4", artKeimung: "Dunkelkeimer", aussatAbFrei: "März", aussatAbTopf: "Februar", aussatBisTopf: "August", blaetter: "dunkelgrün, fiedrig", dauerErnte: 24, dauerKeimung: 7, dauerWachsen: 24, duenger: "Bio-Kräuterdünger", familie: "Doldenblütler", infosSaat: "", infosSchaedlinge: "", standort: "halbschatten", wuchshoehe: "30 - 80 cm", herkunftName: "Mittelmeerraum", latitude: 39.486973, longitude: 13.552005)
             defaults.setBool(true, forKey: "databaseIsFilled")
         }
         
         return true
     }
     
-    func savePlant(name: String, isFavorite: Bool, latinName: String, anzahlArten: Int, art: String, artKeimung: String, aussatAbFrei: String, aussatBisFrei: String, aussatAbTopf: String, aussatBisTopf: String, blaetter: String, dauerErnte: Int, dauerKeimung: Int, dauerWachsen: Int, duenger: String, familie: String, gattung: String, infosSaat: String, infosSchaedlinge: String, standort: String, wuchshoehe: String) {
+    func savePlant(name: String, isFavorite: Bool, latinName: String, anzahlArten: String, artKeimung: String, aussatAbFrei: String,aussatAbTopf: String, aussatBisTopf: String, blaetter: String, dauerErnte: Int, dauerKeimung: Int, dauerWachsen: Int, duenger: String, familie: String, infosSaat: String, infosSchaedlinge: String, standort: String, wuchshoehe: String, herkunftName: String, latitude: Double, longitude: Double) {
         let managedContext = self.managedObjectContext
         let entity =  NSEntityDescription.entityForName("Plant", inManagedObjectContext:managedContext)
         let plant = Plant(entity: entity!, insertIntoManagedObjectContext: managedContext)
         
         plant.anzahlArten = anzahlArten
-        plant.art = art
         plant.artKeimung = artKeimung
         plant.aussatAbFrei = aussatAbFrei
-        plant.aussatBisFrei = aussatBisFrei
         plant.aussatAbTopf = aussatAbTopf
         plant.aussatBisTopf = aussatBisTopf
         plant.blaetter = blaetter
@@ -46,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         plant.dauerWachsen = dauerWachsen
         plant.duenger = duenger
         plant.familie = familie
-        plant.gattung = gattung
         plant.infosSaat = infosSaat
         plant.infosSchaedlinge = infosSchaedlinge
         plant.isFavorite = isFavorite
@@ -54,6 +52,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         plant.name = name
         plant.standort = standort
         plant.wuchshoehe = wuchshoehe
+        
+        let originEntity = NSEntityDescription.entityForName("Origin", inManagedObjectContext: managedContext)
+        let origin = Origin(entity: originEntity!, insertIntoManagedObjectContext: managedContext)
+        
+        origin.name = herkunftName
+        origin.latitude = latitude
+        origin.longitude = longitude
+        origin.pflanze = plant
         
         do {
             try managedContext.save()

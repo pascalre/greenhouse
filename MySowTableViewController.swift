@@ -94,18 +94,21 @@ class MySowTableViewController: UITableViewController {
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        let gesaet : NSDate = (sow?.gesaetAm)!
        
         switch indexPath.row {
         case 0 :
             cell.attributName.text = "Ausgesät am"
-            cell.attributValue.text = dateFormatter.stringFromDate((sow?.gesaetAm)!)
+            cell.attributValue.text = dateFormatter.stringFromDate(gesaet)
         case 1 :
             cell.attributName.text = "vsl. Wachstum ab"
             let keimDauer : Double = (sow?.pflanze?.dauerKeimung!)! as Double
-            cell.attributValue.text = dateFormatter.stringFromDate(NSDate().dateByAddingTimeInterval(60.0*60.0*24.0*keimDauer))
+            cell.attributValue.text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*keimDauer))
         case 2 :
             cell.attributName.text = "vsl. Ernte ab"
-            cell.attributValue.text = dateFormatter.stringFromDate((sow?.gesaetAm)!)
+            let keimDauer : Double = (sow?.pflanze?.dauerKeimung!)! as Double
+            let wuchsDauer : Double = (sow?.pflanze?.dauerWachsen!)! as Double
+            cell.attributValue.text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*(keimDauer+wuchsDauer)))
         default:
             cell.attributName.text = ""
         }

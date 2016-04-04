@@ -58,6 +58,13 @@ class DetailTableViewController: UITableViewController {
                 favoriteButton.image = UIImage(named: "Star Filled")
             }
             title = name
+            
+            let origin: Origin = (detailPlant?.herkunft!)! as Origin
+            let point = MKPointAnnotation()
+            point.coordinate = CLLocationCoordinate2D.init(latitude: origin.latitude as! Double, longitude: origin.longitude as! Double)
+            point.title = origin.name
+            mapView.addAnnotation(point)
+            mapView.setCenterCoordinate(point.coordinate, animated: false)
         }
     }
     
@@ -83,7 +90,7 @@ class DetailTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 12
+        return 11
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -97,33 +104,30 @@ class DetailTableViewController: UITableViewController {
             cell.attributName.text = "Familie"
             cell.attributValue.text = detailPlant?.familie
         case 2:
-            cell.attributName.text = "Gattung"
-            cell.attributValue.text = detailPlant?.gattung
-        case 3:
             cell.attributName.text = "Anzahl an Arten"
-            cell.attributValue.text = "ca. " + String((detailPlant?.anzahlArten)!)
-        case 4:
+            cell.attributValue.text = detailPlant?.anzahlArten
+        case 3:
             cell.attributName.text = "Blätter"
             cell.attributValue.text = detailPlant?.blaetter
-        case 5:
+        case 4:
             cell.attributName.text = "Wuchshöhe"
             cell.attributValue.text = detailPlant?.wuchshoehe
-        case 6:
+        case 5:
             cell.attributName.text = "Aussaat im Topf"
             cell.attributValue.text = (detailPlant?.aussatAbTopf)! + " - " + (detailPlant?.aussatBisTopf)!
-        case 7:
+        case 6:
             cell.attributName.text = "Aussaat im Garten"
-            cell.attributValue.text = (detailPlant?.aussatAbFrei)! + " - " + (detailPlant?.aussatBisFrei)!
-        case 8:
+            cell.attributValue.text = "ab " + (detailPlant?.aussatAbFrei)!
+        case 7:
             cell.attributName.text = "Keimdauer"
             cell.attributValue.text = String((detailPlant?.dauerKeimung)!) + " Tage"
-        case 9:
-            cell.attributName.text = "Wuchsdauer"
+        case 8:
+            cell.attributName.text = "Erste Ernte"
             cell.attributValue.text = String((detailPlant?.dauerWachsen)!) + " Tage"
-        case 10:
+        case 9:
             cell.attributName.text = "Standort"
             cell.attributValue.text = detailPlant?.standort
-        case 11:
+        case 10:
             cell.attributName.text = "Dünger"
             cell.attributValue.text = detailPlant?.duenger
         default:
