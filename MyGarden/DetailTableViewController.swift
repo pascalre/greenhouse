@@ -63,6 +63,7 @@ class DetailTableViewController: UITableViewController {
             let point = MKPointAnnotation()
             point.coordinate = CLLocationCoordinate2D.init(latitude: origin.latitude as! Double, longitude: origin.longitude as! Double)
             point.title = origin.name
+            point.subtitle = "Herkunft"
             mapView.addAnnotation(point)
             mapView.setCenterCoordinate(point.coordinate, animated: false)
         }

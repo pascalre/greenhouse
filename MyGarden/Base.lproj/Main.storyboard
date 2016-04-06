@@ -278,6 +278,7 @@
         <!--Garten-->
         <scene sceneID="h75-i3-jIc">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r42-8A-GWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="PsV-HP-tSB" customClass="GardenTableViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="zw5-JZ-glj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -291,26 +292,51 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LI6-K4-UyI">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LI6-K4-UyI">
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="90" id="BCP-wn-dTS"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e69-k3-KP0">
-                                            <rect key="frame" x="97" y="8" width="495" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e69-k3-KP0">
+                                            <rect key="frame" x="97" y="8" width="452" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Watering Can" translatesAutoresizingMaskIntoConstraints="NO" id="ODW-wr-JY4">
-                                            <rect key="frame" x="548" y="37" width="44" height="44"/>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sweetener" translatesAutoresizingMaskIntoConstraints="NO" id="Dt9-nz-e2Y">
-                                            <rect key="frame" x="496" y="37" width="44" height="44"/>
-                                        </imageView>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="usF-FM-RPr">
-                                            <rect key="frame" x="97" y="37" width="391" height="44"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usF-FM-RPr">
+                                            <rect key="frame" x="97" y="37" width="452" height="44"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sweetener" translatesAutoresizingMaskIntoConstraints="NO" id="Dt9-nz-e2Y">
+                                            <rect key="frame" x="557" y="8" width="35" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="17f-mC-iPL"/>
+                                                <constraint firstAttribute="width" constant="35" id="jim-nb-1XW"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Watering Can" translatesAutoresizingMaskIntoConstraints="NO" id="ODW-wr-JY4">
+                                            <rect key="frame" x="557" y="46" width="35" height="35"/>
+                                        </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Dt9-nz-e2Y" firstAttribute="leading" secondItem="e69-k3-KP0" secondAttribute="trailing" constant="8" symbolic="YES" id="0SK-rT-tt4"/>
+                                        <constraint firstItem="LI6-K4-UyI" firstAttribute="centerY" secondItem="HnL-Ko-ysL" secondAttribute="centerY" id="FJD-GT-f6x"/>
+                                        <constraint firstItem="ODW-wr-JY4" firstAttribute="top" secondItem="Dt9-nz-e2Y" secondAttribute="bottom" constant="3" id="HtB-3O-eCH"/>
+                                        <constraint firstItem="usF-FM-RPr" firstAttribute="bottom" secondItem="HnL-Ko-ysL" secondAttribute="bottomMargin" id="Ims-Gd-FGS"/>
+                                        <constraint firstItem="e69-k3-KP0" firstAttribute="top" secondItem="Dt9-nz-e2Y" secondAttribute="top" id="LwH-CM-uNH"/>
+                                        <constraint firstItem="Dt9-nz-e2Y" firstAttribute="leading" secondItem="usF-FM-RPr" secondAttribute="trailing" constant="8" symbolic="YES" id="QuL-uh-V9P"/>
+                                        <constraint firstItem="e69-k3-KP0" firstAttribute="leading" secondItem="usF-FM-RPr" secondAttribute="leading" id="Xiz-Sh-rtj"/>
+                                        <constraint firstItem="usF-FM-RPr" firstAttribute="top" secondItem="e69-k3-KP0" secondAttribute="bottom" constant="8" symbolic="YES" id="ZR7-Nt-RMU"/>
+                                        <constraint firstItem="Dt9-nz-e2Y" firstAttribute="trailing" secondItem="ODW-wr-JY4" secondAttribute="trailing" id="eF5-Hl-l5r"/>
+                                        <constraint firstItem="usF-FM-RPr" firstAttribute="bottom" secondItem="ODW-wr-JY4" secondAttribute="bottom" id="fgl-Nq-JjD"/>
+                                        <constraint firstItem="LI6-K4-UyI" firstAttribute="leading" secondItem="HnL-Ko-ysL" secondAttribute="leading" id="gbf-mm-Tyu"/>
+                                        <constraint firstItem="Dt9-nz-e2Y" firstAttribute="leading" secondItem="ODW-wr-JY4" secondAttribute="leading" id="pe4-Wb-7tu"/>
+                                        <constraint firstItem="e69-k3-KP0" firstAttribute="top" secondItem="HnL-Ko-ysL" secondAttribute="topMargin" id="qxx-mL-mvJ"/>
+                                        <constraint firstItem="Dt9-nz-e2Y" firstAttribute="trailing" secondItem="HnL-Ko-ysL" secondAttribute="trailingMargin" id="sMg-3Q-nXi"/>
+                                        <constraint firstItem="e69-k3-KP0" firstAttribute="leading" secondItem="LI6-K4-UyI" secondAttribute="trailing" constant="7" id="xn8-ep-WoY"/>
+                                        <constraint firstItem="LI6-K4-UyI" firstAttribute="top" secondItem="HnL-Ko-ysL" secondAttribute="top" id="z9I-aQ-UPV"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="fertilizeIcon" destination="Dt9-nz-e2Y" id="nly-Wg-YqV"/>
@@ -334,13 +360,13 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r42-8A-GWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2841" y="294"/>
         </scene>
         <!--Title-->
         <scene sceneID="aCL-TV-how">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zlp-LG-Cpz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="7O0-3L-EXN" customClass="MySowTableViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="cCf-lA-1tL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -424,7 +450,6 @@
                         <outlet property="plantImageView" destination="oEw-KD-3kS" id="YO6-FE-ikt"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zlp-LG-Cpz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3556" y="563"/>
         </scene>
@@ -475,6 +500,7 @@
         <!--Garten-->
         <scene sceneID="YeD-50-Tl7">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dGc-gV-Uwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="igw-vS-WPc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Garten" image="Carot" id="MQH-sI-scN"/>
                     <toolbarItems/>
@@ -491,7 +517,6 @@
                         <segue destination="PsV-HP-tSB" kind="relationship" relationship="rootViewController" id="GM9-wh-qba"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dGc-gV-Uwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2115" y="294"/>
         </scene>
@@ -570,7 +595,7 @@
         <image name="Watering Can" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QjQ-l2-1Md"/>
+        <segue reference="d2X-dc-XHo"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
