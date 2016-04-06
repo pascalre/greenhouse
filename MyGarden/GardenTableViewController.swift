@@ -14,6 +14,16 @@ import Charts
 class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate  {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBAction func editTable(sender: AnyObject) {
+        if tableView.editing == false {
+            tableView.setEditing(true, animated: true)
+        } else {
+            tableView.setEditing(false, animated: true)
+        }
+        
+    }
+    
     var garden = [Sowed]()
     
     override func viewDidLoad() {
@@ -45,8 +55,8 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         cell.nameLabel!.text = name
         cell.plantImageView!.image = UIImage(named: name)
         
-        let months = ["Progress"]
-        let unitsSold = [20.0]
+        let months = ["Start","Aktuell", "Ende"]
+        let unitsSold = [0, 2.0, 20.0]
         
         var dataEntries: [BarChartDataEntry] = []
         
@@ -55,15 +65,18 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
+        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Fortschritt")
         chartDataSet.drawValuesEnabled = false
+        chartDataSet.colors = [UIColor.brownColor()]
         let chartData = BarChartData(xVals: months, dataSet: chartDataSet)
         chartData.setDrawValues(false)
         cell.barChartView.legend.enabled = false
         cell.barChartView.xAxis.drawLabelsEnabled = false
         cell.barChartView.leftAxis.enabled = false
-        cell.barChartView.descriptionText = ""
+        cell.barChartView.rightAxis.enabled = false
+        cell.barChartView.descriptionText = "Fortschritt"
         cell.barChartView.data = chartData
+        cell.barChartView.animate(xAxisDuration: 0, yAxisDuration: 0.8, easingOption: .EaseInOutSine)
         
         return cell
     }
@@ -77,6 +90,15 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         } catch {
             print("error \(error)")
         }
+        tableView.setEditing(false, animated: false)
+        
+        
+        if (garden.count == 0) {
+            editButton.title = ""
+        } else {
+            editButton.title = "Bearbeiten"
+        }
+        
         tableView.reloadData()
     }
 
@@ -89,6 +111,7 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
             } catch {
                 print("error \(error)")
             }
+            editButton.title = ""
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             tableView.reloadData()
         } 

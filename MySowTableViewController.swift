@@ -111,8 +111,10 @@ class MySowTableViewController: UITableViewController {
             let wuchsDauer : Double = (sow?.pflanze?.dauerWachsen!)! as Double
             cell.attributValue.text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*(keimDauer+wuchsDauer)))
         case 3 :
-            cell.attributName.text = "nächste Wässerung"
-            cell.attributName.text = dateFormatter.stringFromDate(NSDate())
+            cell.attributName.text = "Nächste Wässerung"
+            cell.attributValue.text = dateFormatter.stringFromDate(NSDate())
+        case 4 :
+            cell.attributName.text = "Nächste Düngung"
         default:
             cell.attributName.text = ""
         }

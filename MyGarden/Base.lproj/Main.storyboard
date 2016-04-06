@@ -83,7 +83,16 @@
                             <outlet property="delegate" destination="fLN-85-SUE" id="4fq-d7-IfD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favoriten" id="tYc-O9-YpK"/>
+                    <navigationItem key="navigationItem" title="Favoriten" id="tYc-O9-YpK">
+                        <barButtonItem key="leftBarButtonItem" title="Bearbeiten" id="drM-Sq-dQd">
+                            <connections>
+                                <action selector="editTable:" destination="fLN-85-SUE" id="XCi-hX-PZM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="drM-Sq-dQd" id="seB-bl-7BC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVu-Cb-j0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -203,7 +212,7 @@
             <objects>
                 <tableViewController id="FeU-cj-egd" customClass="DetailTableViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="dah-2L-TFX">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mnF-XT-elZ">
@@ -307,14 +316,14 @@
                                             <rect key="frame" x="97" y="37" width="452" height="44"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sweetener" translatesAutoresizingMaskIntoConstraints="NO" id="Dt9-nz-e2Y">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sweetener Filled" translatesAutoresizingMaskIntoConstraints="NO" id="Dt9-nz-e2Y">
                                             <rect key="frame" x="557" y="8" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="17f-mC-iPL"/>
                                                 <constraint firstAttribute="width" constant="35" id="jim-nb-1XW"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Watering Can" translatesAutoresizingMaskIntoConstraints="NO" id="ODW-wr-JY4">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Watering Can Filled" translatesAutoresizingMaskIntoConstraints="NO" id="ODW-wr-JY4">
                                             <rect key="frame" x="557" y="46" width="35" height="35"/>
                                         </imageView>
                                     </subviews>
@@ -353,12 +362,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Garten" id="NDb-gU-aHx">
+                        <barButtonItem key="leftBarButtonItem" title="Bearbeiten" id="SQ3-Jg-Tz8">
+                            <connections>
+                                <action selector="editTable:" destination="PsV-HP-tSB" id="UDS-ZQ-3W4"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yaf-Mm-GZp">
                             <connections>
                                 <segue destination="WOS-Z4-bsE" kind="show" id="eK1-ot-TxN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="SQ3-Jg-Tz8" id="G7a-Nz-s3x"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r42-8A-GWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -594,11 +611,11 @@
         <image name="Calendar" width="25" height="25"/>
         <image name="Carot" width="25" height="25"/>
         <image name="Star" width="25" height="25"/>
-        <image name="Sweetener" width="25" height="25"/>
-        <image name="Watering Can" width="25" height="25"/>
+        <image name="Sweetener Filled" width="25" height="25"/>
+        <image name="Watering Can Filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QjQ-l2-1Md"/>
+        <segue reference="d2X-dc-XHo"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

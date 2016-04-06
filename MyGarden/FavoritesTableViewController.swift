@@ -13,7 +13,16 @@ import DZNEmptyDataSet
 class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     // MARK: Properties
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    @IBAction func editTable(sender: AnyObject) {
+        if tableView.editing == false {
+            tableView.setEditing(true, animated: true)
+        } else {
+            tableView.setEditing(false, animated: true)
+        }
+    }
     
     // Array where the Favorite Plants are stored
     var favorites = [Plant]()
@@ -28,6 +37,13 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
+        
+        if (favorites.count == 0) {
+            editButton.title = ""
+        } else {
+            editButton.title = "Bearbeiten"
+        }
+        
         tableView.reloadData()
     }
     
@@ -76,6 +92,23 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
         let favorite = favorites[indexPath.row]
         cell.textLabel!.text = String(favorite.name!)
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let batchRequest = NSBatchUpdateRequest(entityName: "Plant")
+            batchRequest.predicate = NSPredicate(format: "name == %@", (favorites[indexPath.row].name)! as String)
+            batchRequest.resultType = .UpdatedObjectsCountResultType
+            
+            batchRequest.propertiesToUpdate = ["isFavorite": true]
+            favorites[indexPath.row].isFavorite = false
+            print("Updated %@ 's attribute 'isFavorite' to true.", favorites[indexPath.row].name!)
+            
+            favorites.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            editButton.title = ""
+            tableView.reloadData()
+        }
     }
     
     // MARK: - Segues
