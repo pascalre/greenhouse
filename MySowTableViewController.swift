@@ -53,7 +53,8 @@ class MySowTableViewController: UITableViewController {
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "vergangene Tage")
         let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
         pieChartView.data = pieChartData
-        pieChartView.descriptionText = "Fortschritt deiner Pflanze"
+        pieChartView.legend.enabled = false
+        pieChartView.descriptionText = "Fortschritt Deiner Pflanze"
         
         var colors: [UIColor] = []
     
@@ -82,7 +83,7 @@ class MySowTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return 5
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -109,6 +110,9 @@ class MySowTableViewController: UITableViewController {
             let keimDauer : Double = (sow?.pflanze?.dauerKeimung!)! as Double
             let wuchsDauer : Double = (sow?.pflanze?.dauerWachsen!)! as Double
             cell.attributValue.text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*(keimDauer+wuchsDauer)))
+        case 3 :
+            cell.attributName.text = "nächste Wässerung"
+            cell.attributName.text = dateFormatter.stringFromDate(NSDate())
         default:
             cell.attributName.text = ""
         }

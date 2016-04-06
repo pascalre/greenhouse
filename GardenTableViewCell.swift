@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class GardenTableViewCell: UITableViewCell {
 
@@ -14,6 +15,7 @@ class GardenTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var fertilizeIcon: UIImageView!
     @IBOutlet weak var waterIcon: UIImageView!
+    @IBOutlet weak var barChartView: HorizontalBarChartView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -196,14 +196,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JsP-5W-kcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3556" y="-242"/>
+            <point key="canvasLocation" x="3556" y="-884"/>
         </scene>
         <!--Info-->
         <scene sceneID="5xd-l7-XdW">
             <objects>
                 <tableViewController id="FeU-cj-egd" customClass="DetailTableViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="dah-2L-TFX">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mnF-XT-elZ">
@@ -278,7 +278,6 @@
         <!--Garten-->
         <scene sceneID="h75-i3-jIc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r42-8A-GWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="PsV-HP-tSB" customClass="GardenTableViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="zw5-JZ-glj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -304,7 +303,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usF-FM-RPr">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usF-FM-RPr" customClass="HorizontalBarChartView" customModule="Charts">
                                             <rect key="frame" x="97" y="37" width="452" height="44"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
@@ -339,6 +338,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="barChartView" destination="usF-FM-RPr" id="kvw-uh-zXH"/>
                                     <outlet property="fertilizeIcon" destination="Dt9-nz-e2Y" id="nly-Wg-YqV"/>
                                     <outlet property="nameLabel" destination="e69-k3-KP0" id="aYT-oT-Ue2"/>
                                     <outlet property="plantImageView" destination="LI6-K4-UyI" id="b8N-3t-rFq"/>
@@ -360,16 +360,16 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r42-8A-GWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2841" y="294"/>
         </scene>
         <!--Title-->
         <scene sceneID="aCL-TV-how">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zlp-LG-Cpz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="7O0-3L-EXN" customClass="MySowTableViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="cCf-lA-1tL">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oEw-KD-3kS">
@@ -445,13 +445,16 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="1000"/>
                     <connections>
                         <outlet property="pieChartView" destination="pde-ws-xH4" id="O6H-uP-elF"/>
                         <outlet property="plantImageView" destination="oEw-KD-3kS" id="YO6-FE-ikt"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zlp-LG-Cpz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3556" y="563"/>
+            <point key="canvasLocation" x="3556" y="94"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eDQ-Bh-hjw">
@@ -500,7 +503,6 @@
         <!--Garten-->
         <scene sceneID="YeD-50-Tl7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dGc-gV-Uwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="igw-vS-WPc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Garten" image="Carot" id="MQH-sI-scN"/>
                     <toolbarItems/>
@@ -517,6 +519,7 @@
                         <segue destination="PsV-HP-tSB" kind="relationship" relationship="rootViewController" id="GM9-wh-qba"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dGc-gV-Uwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2115" y="294"/>
         </scene>
@@ -595,7 +598,7 @@
         <image name="Watering Can" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d2X-dc-XHo"/>
+        <segue reference="QjQ-l2-1Md"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

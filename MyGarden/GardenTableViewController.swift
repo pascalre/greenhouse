@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import DZNEmptyDataSet
+import Charts
 
 class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate  {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -43,6 +44,27 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         let name: String = String(UTF8String: (garden[indexPath.row].pflanze?.name!)!)!
         cell.nameLabel!.text = name
         cell.plantImageView!.image = UIImage(named: name)
+        
+        let months = ["Progress"]
+        let unitsSold = [20.0]
+        
+        var dataEntries: [BarChartDataEntry] = []
+        
+        for i in 0..<months.count {
+            let dataEntry = BarChartDataEntry(value: unitsSold[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "")
+        chartDataSet.drawValuesEnabled = false
+        let chartData = BarChartData(xVals: months, dataSet: chartDataSet)
+        chartData.setDrawValues(false)
+        cell.barChartView.legend.enabled = false
+        cell.barChartView.xAxis.drawLabelsEnabled = false
+        cell.barChartView.leftAxis.enabled = false
+        cell.barChartView.descriptionText = ""
+        cell.barChartView.data = chartData
+        
         return cell
     }
     
