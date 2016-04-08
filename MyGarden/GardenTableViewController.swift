@@ -64,24 +64,6 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
             let dataEntry = BarChartDataEntry(value: unitsSold[i], xIndex: i)
             dataEntries.append(dataEntry)
         }
-        
-        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Fortschritt")
-        chartDataSet.drawValuesEnabled = false
-        chartDataSet.colors = [UIColor.brownColor()]
-        let chartData = BarChartData(xVals: months, dataSet: chartDataSet)
-        chartData.setDrawValues(false)
-        cell.barChartView.legend.enabled = false
-        cell.barChartView.xAxis.drawLabelsEnabled = false
-        cell.barChartView.leftAxis.enabled = false
-        cell.barChartView.rightAxis.enabled = false
-        cell.barChartView.descriptionText = "Fortschritt"
-        cell.barChartView.drawGridBackgroundEnabled = false
-        cell.barChartView.data = chartData
-        
-        cell.barChartView.leftAxis.axisMinValue = 0.0
-        cell.barChartView.leftAxis.axisMaxValue = 25.0
-        cell.barChartView.animate(xAxisDuration: 0, yAxisDuration: 0.8, easingOption: .EaseInOutSine)
-        
         return cell
     }
     
@@ -115,7 +97,9 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
             } catch {
                 print("error \(error)")
             }
-            editButton.title = ""
+            if (garden.count == 0) {
+                editButton.title = ""
+            }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             tableView.reloadData()
         } 
