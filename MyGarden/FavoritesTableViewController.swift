@@ -44,6 +44,7 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
             editButton.title = "Bearbeiten"
         }
         
+        tableView.setEditing(false, animated: false)
         tableView.reloadData()
     }
     

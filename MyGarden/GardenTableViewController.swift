@@ -55,8 +55,8 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         cell.nameLabel!.text = name
         cell.plantImageView!.image = UIImage(named: name)
         
-        let months = ["Start","Aktuell", "Ende"]
-        let unitsSold = [0, 2.0, 20.0]
+        let months = ["Aktuell"]
+        let unitsSold = [23.0]
         
         var dataEntries: [BarChartDataEntry] = []
         
@@ -75,7 +75,11 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         cell.barChartView.leftAxis.enabled = false
         cell.barChartView.rightAxis.enabled = false
         cell.barChartView.descriptionText = "Fortschritt"
+        cell.barChartView.drawGridBackgroundEnabled = false
         cell.barChartView.data = chartData
+        
+        cell.barChartView.leftAxis.axisMinValue = 0.0
+        cell.barChartView.leftAxis.axisMaxValue = 25.0
         cell.barChartView.animate(xAxisDuration: 0, yAxisDuration: 0.8, easingOption: .EaseInOutSine)
         
         return cell
