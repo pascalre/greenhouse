@@ -32,13 +32,56 @@ class MySowTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let months = ["Keimen", "Wachsen", "Ernte", ""]
+        let progress = getProgress(sow!)
         
-        var days = (sow?.gesaetAm!.timeIntervalSinceNow)! / 60.0 / 60.0 / 24.0 * -1
+        var units = ["Keimen"]
+        if progress[1] == 0.0 {
+            units.append("")
+            units.append("")
+            units.append("")
+        } else {
+            units.append("Wachsen")
+            if progress[2] == 0.0 {
+                units.append("")
+                units.append("")
+            } else {
+                units.append("Ernte")
+                units.append("")
+            }
+        }
+        setChart(units, values: progress)
+    }
+    
+    func getProgress(sow: Sowed) -> [Double] {
+        let sowedDate = sow.gesaetAm!
+        var passedDays : Double = NSDate().timeIntervalSinceDate(sowedDate) / 60.0 / 60.0 / 24.0
+        let entireDays : Double = Double(sow.pflanze!.dauerKeimung!) + Double(sow.pflanze!.dauerWachsen!) + 10
         
-        let unitsSold = [14.0, 28.0, 28.0, 7.0]
+        var keimung : Double = passedDays
+        var wachsen : Double = 0.0
+        var ernte : Double = 0.0
+        var rest : Double = entireDays-passedDays
         
-        setChart(months, values: unitsSold)
+        if passedDays >= Double(sow.pflanze!.dauerKeimung!) {
+            keimung = Double(sow.pflanze!.dauerKeimung!)
+            passedDays = passedDays-keimung
+            wachsen = passedDays
+            rest = entireDays - keimung - wachsen
+            
+            if passedDays >= Double(sow.pflanze!.dauerWachsen!) {
+                wachsen = Double(sow.pflanze!.dauerWachsen!)
+                passedDays = passedDays-wachsen
+                ernte = passedDays
+                rest = entireDays - keimung - wachsen - ernte
+            
+                if passedDays >= 10 {
+                    ernte = 10
+                    rest = 0
+                }
+            }
+        }
+        
+        return [keimung, wachsen, ernte, rest]
     }
     
     func setChart(dataPoints: [String], values: [Double]) {
@@ -62,7 +105,7 @@ class MySowTableViewController: UITableViewController {
         colors.append(UIColor.brownColor())
         colors.append(UIColor.orangeColor())
         colors.append(UIColor(red: 67/255.0, green: 205/255.0, blue: 98/255.0, alpha: 1))
-        colors.append(UIColor(red: 67/255.0, green: 205/255.0, blue: 98/255.0, alpha: 0.3))
+        colors.append(UIColor.whiteColor())
         
         pieChartView.animate(xAxisDuration: 0.2, yAxisDuration: 0.7, easingOption: .EaseInOutSine)
         
@@ -84,7 +127,7 @@ class MySowTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return 3
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -111,12 +154,6 @@ class MySowTableViewController: UITableViewController {
             let keimDauer : Double = (sow?.pflanze?.dauerKeimung!)! as Double
             let wuchsDauer : Double = (sow?.pflanze?.dauerWachsen!)! as Double
             cell.attributValue.text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*(keimDauer+wuchsDauer)))
-        case 3 :
-            cell.attributName.text = "Nächste Wässerung"
-            cell.attributValue.text = dateFormatter.stringFromDate(NSDate())
-        case 4 :
-            cell.attributName.text = "Nächste Düngung"
-            cell.attributValue.text = dateFormatter.stringFromDate(NSDate())
         default:
             cell.attributName.text = ""
         }
