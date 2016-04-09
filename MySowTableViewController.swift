@@ -52,6 +52,7 @@ class MySowTableViewController: UITableViewController {
         
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "vergangene Tage")
         let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
+        pieChartData.setDrawValues(false)
         pieChartView.data = pieChartData
         pieChartView.legend.enabled = false
         pieChartView.descriptionText = "Fortschritt Deiner Pflanze"
@@ -115,6 +116,7 @@ class MySowTableViewController: UITableViewController {
             cell.attributValue.text = dateFormatter.stringFromDate(NSDate())
         case 4 :
             cell.attributName.text = "Nächste Düngung"
+            cell.attributValue.text = dateFormatter.stringFromDate(NSDate())
         default:
             cell.attributName.text = ""
         }

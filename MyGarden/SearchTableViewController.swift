@@ -32,7 +32,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
         // Setup the Scope Bar
         searchController.searchBar.sizeToFit()
-        searchController.searchBar.scopeButtonTitles = ["Name", "Saison", "Herkunft"]
         tableView.tableHeaderView = searchController.searchBar
 
         let fetchRequest = NSFetchRequest(entityName: "Plant")
@@ -78,18 +77,15 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         return cell
     }
     
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
+    func filterContentForSearchText(searchText: String) {
         filteredArray = plants.filter({( plant : NSManagedObject) -> Bool in
-            let categoryMatch = (scope == "Name") || (plant.valueForKey("name") as? String == scope)
-            return categoryMatch && (plant.valueForKey("name") as? String)!.lowercaseString.containsString(searchText.lowercaseString)
+            return (plant.valueForKey("name") as? String)!.lowercaseString.containsString(searchText.lowercaseString)
         })
         tableView.reloadData()
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+        filterContentForSearchText(searchController.searchBar.text!)
     }
     
     // MARK: - Segues

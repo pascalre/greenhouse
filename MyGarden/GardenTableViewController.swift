@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import DZNEmptyDataSet
 import Charts
+import Foundation
 
 class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate  {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -54,16 +55,12 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         let name: String = String(UTF8String: (garden[indexPath.row].pflanze?.name!)!)!
         cell.nameLabel!.text = name
         cell.plantImageView!.image = UIImage(named: name)
+        cell.progressLabel.text = String(getProgress(garden[indexPath.row])) + " %"
         
-        let months = ["Aktuell"]
-        let unitsSold = [23.0]
         
-        var dataEntries: [BarChartDataEntry] = []
+        cell.plantImageView!.layer.cornerRadius = cell.plantImageView!.frame.size.width / 2;
+        cell.plantImageView!.clipsToBounds = true;
         
-        for i in 0..<months.count {
-            let dataEntry = BarChartDataEntry(value: unitsSold[i], xIndex: i)
-            dataEntries.append(dataEntry)
-        }
         return cell
     }
     
@@ -119,6 +116,18 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
 
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
         return UIImage(named: "Arrow")
+    }
+    
+    func getProgress(sowed: Sowed) -> Int {
+        let sowedDate = sowed.gesaetAm!
+        let passedDays : Double = NSDate().timeIntervalSinceDate(sowedDate) / 60.0 / 60.0 / 24.0
+        
+        let entireDaysToGrow : Double = Double(sowed.pflanze!.dauerKeimung!) + Double(sowed.pflanze!.dauerWachsen!)
+        
+        if ( Int(100.0 / entireDaysToGrow * passedDays) > 100 ) {
+            return 100
+        }
+        return Int(100.0 / entireDaysToGrow * passedDays)
     }
     
     // MARK: - Segues

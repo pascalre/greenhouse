@@ -56,6 +56,8 @@ class DetailTableViewController: UITableViewController {
             let isFavorite = (detailPlant!.valueForKey("isFavorite") as? Bool)!
             if (isFavorite == true){
                 favoriteButton.image = UIImage(named: "Star Filled")
+            } else {
+                favoriteButton.image = UIImage(named: "Star")
             }
             title = name
             
@@ -91,7 +93,7 @@ class DetailTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 11
+        return 12
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -131,6 +133,8 @@ class DetailTableViewController: UITableViewController {
         case 10:
             cell.attributName.text = "Dünger"
             cell.attributValue.text = detailPlant?.duenger
+        case 11:
+            cell.attributName.text = "Keimbedingung"
         default:
             cell.attributName.text = ""
             cell.attributValue.text = ""
