@@ -47,7 +47,6 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
         
         sowed.setValue(plant, forKey: "pflanze")
         sowed.setValue(gesaetAm, forKey: "gesaetAm")
-        sowed.setValue(1, forKey: "id")
         sowed.comments = commentsTextView.text
 
         do {

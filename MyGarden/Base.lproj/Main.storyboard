@@ -3,8 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -305,7 +303,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LI6-K4-UyI">
                                             <rect key="frame" x="8" y="8" width="53" height="53"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="53" id="JHJ-r4-9Hk"/>
+                                                <constraint firstAttribute="width" constant="53" id="6Xb-rJ-cdG"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e69-k3-KP0">
@@ -314,18 +312,6 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sweetener Filled" translatesAutoresizingMaskIntoConstraints="NO" id="Dt9-nz-e2Y">
-                                            <rect key="frame" x="542" y="37" width="21" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="21" id="Mu3-in-OE2"/>
-                                            </constraints>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Watering Can Filled" translatesAutoresizingMaskIntoConstraints="NO" id="ODW-wr-JY4">
-                                            <rect key="frame" x="571" y="37" width="21" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="21" id="cik-vm-PSn"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fortschritt:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yr9-Xu-xma">
                                             <rect key="frame" x="69" y="37" width="85" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -340,31 +326,22 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="LI6-K4-UyI" firstAttribute="top" secondItem="e69-k3-KP0" secondAttribute="top" id="4ln-Xd-PBT"/>
-                                        <constraint firstItem="Dt9-nz-e2Y" firstAttribute="bottom" secondItem="ODW-wr-JY4" secondAttribute="bottom" id="AKh-No-XN2"/>
-                                        <constraint firstItem="9V5-WR-mTz" firstAttribute="leading" secondItem="yr9-Xu-xma" secondAttribute="trailing" constant="8" symbolic="YES" id="CXq-vP-DEZ"/>
-                                        <constraint firstItem="9V5-WR-mTz" firstAttribute="bottom" secondItem="Dt9-nz-e2Y" secondAttribute="bottom" id="Ccz-du-4gG"/>
-                                        <constraint firstItem="9V5-WR-mTz" firstAttribute="top" secondItem="Dt9-nz-e2Y" secondAttribute="top" id="ESh-3Y-LYO"/>
-                                        <constraint firstItem="LI6-K4-UyI" firstAttribute="leading" secondItem="HnL-Ko-ysL" secondAttribute="leadingMargin" id="IDW-ge-FbG"/>
-                                        <constraint firstItem="e69-k3-KP0" firstAttribute="trailing" secondItem="ODW-wr-JY4" secondAttribute="trailing" id="JXP-wM-s5c"/>
-                                        <constraint firstItem="e69-k3-KP0" firstAttribute="leading" secondItem="LI6-K4-UyI" secondAttribute="trailing" constant="8" symbolic="YES" id="Mve-Qr-JNp"/>
-                                        <constraint firstItem="LI6-K4-UyI" firstAttribute="bottom" secondItem="HnL-Ko-ysL" secondAttribute="bottomMargin" id="dg0-0J-4zp"/>
-                                        <constraint firstItem="e69-k3-KP0" firstAttribute="leading" secondItem="yr9-Xu-xma" secondAttribute="leading" id="efG-j2-Tuy"/>
-                                        <constraint firstItem="Dt9-nz-e2Y" firstAttribute="top" secondItem="ODW-wr-JY4" secondAttribute="top" id="npD-qX-Pm1"/>
-                                        <constraint firstItem="yr9-Xu-xma" firstAttribute="baseline" secondItem="9V5-WR-mTz" secondAttribute="baseline" id="oDE-SA-ZiB"/>
-                                        <constraint firstItem="e69-k3-KP0" firstAttribute="trailing" secondItem="HnL-Ko-ysL" secondAttribute="trailingMargin" id="pdZ-gQ-CVU"/>
-                                        <constraint firstItem="ODW-wr-JY4" firstAttribute="leading" secondItem="Dt9-nz-e2Y" secondAttribute="trailing" constant="8" symbolic="YES" id="qRZ-5k-BHK"/>
-                                        <constraint firstItem="LI6-K4-UyI" firstAttribute="top" secondItem="HnL-Ko-ysL" secondAttribute="topMargin" id="sZa-k8-OIA"/>
-                                        <constraint firstItem="yr9-Xu-xma" firstAttribute="baseline" secondItem="9V5-WR-mTz" secondAttribute="firstBaseline" id="t73-1q-FDc"/>
-                                        <constraint firstItem="yr9-Xu-xma" firstAttribute="top" secondItem="e69-k3-KP0" secondAttribute="bottom" constant="8" symbolic="YES" id="y1e-pd-yMP"/>
+                                        <constraint firstItem="LI6-K4-UyI" firstAttribute="leading" secondItem="HnL-Ko-ysL" secondAttribute="leadingMargin" id="6HT-BH-0hG"/>
+                                        <constraint firstItem="e69-k3-KP0" firstAttribute="leading" secondItem="LI6-K4-UyI" secondAttribute="trailing" constant="8" symbolic="YES" id="9GR-zz-BT4"/>
+                                        <constraint firstItem="9V5-WR-mTz" firstAttribute="leading" secondItem="yr9-Xu-xma" secondAttribute="trailing" constant="8" symbolic="YES" id="Aky-u5-6mc"/>
+                                        <constraint firstItem="e69-k3-KP0" firstAttribute="leading" secondItem="yr9-Xu-xma" secondAttribute="leading" id="Dmh-oh-Emp"/>
+                                        <constraint firstItem="LI6-K4-UyI" firstAttribute="bottom" secondItem="HnL-Ko-ysL" secondAttribute="bottomMargin" id="QeK-fq-h11"/>
+                                        <constraint firstItem="yr9-Xu-xma" firstAttribute="top" secondItem="e69-k3-KP0" secondAttribute="bottom" constant="8" symbolic="YES" id="XzK-4g-wew"/>
+                                        <constraint firstItem="LI6-K4-UyI" firstAttribute="top" secondItem="HnL-Ko-ysL" secondAttribute="topMargin" id="c2G-N9-usg"/>
+                                        <constraint firstItem="e69-k3-KP0" firstAttribute="trailing" secondItem="HnL-Ko-ysL" secondAttribute="trailingMargin" id="f31-kX-OHM"/>
+                                        <constraint firstItem="yr9-Xu-xma" firstAttribute="baseline" secondItem="9V5-WR-mTz" secondAttribute="baseline" id="mO2-ee-5DC"/>
+                                        <constraint firstItem="LI6-K4-UyI" firstAttribute="top" secondItem="e69-k3-KP0" secondAttribute="top" id="qAI-fD-rZy"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="fertilizeIcon" destination="Dt9-nz-e2Y" id="nly-Wg-YqV"/>
                                     <outlet property="nameLabel" destination="e69-k3-KP0" id="aYT-oT-Ue2"/>
                                     <outlet property="plantImageView" destination="LI6-K4-UyI" id="b8N-3t-rFq"/>
                                     <outlet property="progressLabel" destination="9V5-WR-mTz" id="ESE-ak-H6o"/>
-                                    <outlet property="waterIcon" destination="ODW-wr-JY4" id="K1P-wf-X2z"/>
                                     <segue destination="7O0-3L-EXN" kind="show" identifier="showSow" id="u4J-7P-L0i"/>
                                 </connections>
                             </tableViewCell>
@@ -624,8 +601,6 @@
         <image name="Calendar" width="25" height="25"/>
         <image name="Carot" width="25" height="25"/>
         <image name="Star" width="25" height="25"/>
-        <image name="Sweetener Filled" width="25" height="25"/>
-        <image name="Watering Can Filled" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="d2X-dc-XHo"/>

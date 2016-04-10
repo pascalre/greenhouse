@@ -93,7 +93,7 @@ class DetailTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 12
+        return 11
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -122,19 +122,17 @@ class DetailTableViewController: UITableViewController {
             cell.attributName.text = "Aussaat im Garten"
             cell.attributValue.text = "ab " + (detailPlant?.aussatAbFrei)!
         case 7:
+            cell.attributName.text = "Keimbedingung"
+            cell.attributValue.text = detailPlant?.artKeimung
+        case 8:
             cell.attributName.text = "Keimdauer"
             cell.attributValue.text = String((detailPlant?.dauerKeimung)!) + " Tage"
-        case 8:
+        case 9:
             cell.attributName.text = "Erste Ernte"
             cell.attributValue.text = String((detailPlant?.dauerWachsen)!) + " Tage"
-        case 9:
+        case 10:
             cell.attributName.text = "Standort"
             cell.attributValue.text = detailPlant?.standort
-        case 10:
-            cell.attributName.text = "Dünger"
-            cell.attributValue.text = detailPlant?.duenger
-        case 11:
-            cell.attributName.text = "Keimbedingung"
         default:
             cell.attributName.text = ""
             cell.attributValue.text = ""

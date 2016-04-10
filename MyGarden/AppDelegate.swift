@@ -21,15 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.candyGreen()
         
         if !(defaults.boolForKey("databaseIsFilled")) {
-            savePlant("Basilikum", isFavorite: false, latinName: "Ocimum basilicum", anzahlArten: "ca. 60", artKeimung: "Lichtkeimer", aussatAbFrei: "März", aussatAbTopf: "Januar", aussatBisTopf: "Dezember", blaetter: "saftgrün, kelchförmig", dauerErnte: 24, dauerKeimung: 7, dauerWachsen: 24, duenger: "Bio-Kräuterdünger", familie: "Lippenblüter", infosSaat: "", infosSchaedlinge: "", standort: "warm, sonnig", wuchshoehe: "15 - 60 cm", herkunftName: "Nordwest-Indien", latitude: 26.135583, longitude: 75.910403)
-            savePlant("Petersilie", isFavorite: false, latinName: "Petroselinum crispum", anzahlArten: "4", artKeimung: "Dunkelkeimer", aussatAbFrei: "März", aussatAbTopf: "Februar", aussatBisTopf: "August", blaetter: "dunkelgrün, fiedrig", dauerErnte: 24, dauerKeimung: 7, dauerWachsen: 24, duenger: "Bio-Kräuterdünger", familie: "Doldenblütler", infosSaat: "", infosSchaedlinge: "", standort: "halbschatten", wuchshoehe: "30 - 80 cm", herkunftName: "Mittelmeerraum", latitude: 39.486973, longitude: 13.552005)
+            savePlant("Basilikum", isFavorite: false, latinName: "Ocimum basilicum", anzahlArten: "ca. 60", artKeimung: "Lichtkeimer", aussatAbFrei: "März", aussatAbTopf: "Januar", aussatBisTopf: "Dezember", blaetter: "saftgrün, kelchförmig", dauerKeimung: 7, dauerWachsen: 24, duenger: "Bio-Kräuterdünger", familie: "Lippenblüter", infos: "", standort: "warm, sonnig", wuchshoehe: "15 - 60 cm", herkunftName: "Nordwest-Indien", latitude: 26.135583, longitude: 75.910403)
+            savePlant("Petersilie", isFavorite: false, latinName: "Petroselinum crispum", anzahlArten: "4", artKeimung: "Dunkelkeimer", aussatAbFrei: "März", aussatAbTopf: "Februar", aussatBisTopf: "August", blaetter: "dunkelgrün, fiedrig", dauerKeimung: 7, dauerWachsen: 24, duenger: "Bio-Kräuterdünger", familie: "Doldenblütler", infos: "", standort: "halbschatten", wuchshoehe: "30 - 80 cm", herkunftName: "Mittelmeerraum", latitude: 39.486973, longitude: 13.552005)
             defaults.setBool(true, forKey: "databaseIsFilled")
         }
+        defaults.synchronize()
         
         return true
     }
     
-    func savePlant(name: String, isFavorite: Bool, latinName: String, anzahlArten: String, artKeimung: String, aussatAbFrei: String,aussatAbTopf: String, aussatBisTopf: String, blaetter: String, dauerErnte: Int, dauerKeimung: Int, dauerWachsen: Int, duenger: String, familie: String, infosSaat: String, infosSchaedlinge: String, standort: String, wuchshoehe: String, herkunftName: String, latitude: Double, longitude: Double) {
+    func savePlant(name: String, isFavorite: Bool, latinName: String, anzahlArten: String, artKeimung: String, aussatAbFrei: String,aussatAbTopf: String, aussatBisTopf: String, blaetter: String, dauerKeimung: Int, dauerWachsen: Int, duenger: String, familie: String, infos: String, standort: String, wuchshoehe: String, herkunftName: String, latitude: Double, longitude: Double) {
         let managedContext = self.managedObjectContext
         let entity =  NSEntityDescription.entityForName("Plant", inManagedObjectContext:managedContext)
         let plant = Plant(entity: entity!, insertIntoManagedObjectContext: managedContext)
@@ -40,13 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         plant.aussatAbTopf = aussatAbTopf
         plant.aussatBisTopf = aussatBisTopf
         plant.blaetter = blaetter
-        plant.dauerErnte = dauerErnte
         plant.dauerKeimung = dauerKeimung
         plant.dauerWachsen = dauerWachsen
         plant.duenger = duenger
         plant.familie = familie
-        plant.infosSaat = infosSaat
-        plant.infosSchaedlinge = infosSchaedlinge
+        plant.infos = infos
         plant.isFavorite = isFavorite
         plant.latinName = latinName
         plant.name = name

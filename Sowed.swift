@@ -1,9 +1,9 @@
 //
 //  Sowed.swift
-//  MyGarden
+//  
 //
-//  Created by Pascal Reitermann on 03.04.16.
-//  Copyright © 2016 Pascal Reitermann. All rights reserved.
+//  Created by Pascal Reitermann on 10.04.16.
+//
 //
 
 import Foundation

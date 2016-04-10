@@ -7,17 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D15C03D1CAE794500A62B4A /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D15C0361CAE792900A62B4A /* Charts.framework */; };
-		2D15C03E1CAE794500A62B4A /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D15C0361CAE792900A62B4A /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2D1EC8B51CA5D65200CCE76B /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1EC8B41CA5D65200CCE76B /* FavoritesTableViewController.swift */; };
-		2D3E9DBB1CAC052900353E61 /* Cultivation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3E9DB31CAC052900353E61 /* Cultivation+CoreDataProperties.swift */; };
-		2D3E9DBC1CAC052900353E61 /* Cultivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3E9DB41CAC052900353E61 /* Cultivation.swift */; };
-		2D6FA1C91CB165B600E852F2 /* Sowed+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6FA1C71CB165B600E852F2 /* Sowed+CoreDataProperties.swift */; };
-		2D6FA1CA1CB165B600E852F2 /* Sowed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6FA1C81CB165B600E852F2 /* Sowed.swift */; };
-		2D6FA1DB1CB26F6600E852F2 /* Origin+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6FA1D71CB26F6600E852F2 /* Origin+CoreDataProperties.swift */; };
-		2D6FA1DC1CB26F6600E852F2 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6FA1D81CB26F6600E852F2 /* Origin.swift */; };
-		2D6FA1DD1CB26F6600E852F2 /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6FA1D91CB26F6600E852F2 /* Plant+CoreDataProperties.swift */; };
-		2D6FA1DE1CB26F6600E852F2 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6FA1DA1CB26F6600E852F2 /* Plant.swift */; };
 		2D7562E81CA877DF00487F60 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7562E71CA877DF00487F60 /* DetailTableViewCell.swift */; };
 		2D7C93771CAC54920047AE7C /* MySowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C93761CAC54920047AE7C /* MySowTableViewController.swift */; };
 		2DBE76171CABBC6100C6EF6D /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE76161CABBC6100C6EF6D /* DetailTableViewController.swift */; };
@@ -32,45 +22,16 @@
 		2DDDF2A51CA164D30075674B /* MyGardenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2A41CA164D30075674B /* MyGardenTests.swift */; };
 		2DDDF2B01CA164D30075674B /* MyGardenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2AF1CA164D30075674B /* MyGardenUITests.swift */; };
 		2DDDF2CA1CA16A800075674B /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */; };
+		2DE48B1B1CBA9EEB00D51199 /* Origin+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE48B151CBA9EEB00D51199 /* Origin+CoreDataProperties.swift */; };
+		2DE48B1C1CBA9EEB00D51199 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE48B161CBA9EEB00D51199 /* Origin.swift */; };
+		2DE48B1D1CBA9EEB00D51199 /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE48B171CBA9EEB00D51199 /* Plant+CoreDataProperties.swift */; };
+		2DE48B1E1CBA9EEB00D51199 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE48B181CBA9EEB00D51199 /* Plant.swift */; };
+		2DE48B1F1CBA9EEB00D51199 /* Sowed+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE48B191CBA9EEB00D51199 /* Sowed+CoreDataProperties.swift */; };
+		2DE48B201CBA9EEB00D51199 /* Sowed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE48B1A1CBA9EEB00D51199 /* Sowed.swift */; };
 		7AD080D09319A53F1C6972A6 /* Pods_MyGarden.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FE9768C3378DFD22252DE7 /* Pods_MyGarden.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2D15C0351CAE792900A62B4A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
-			remoteInfo = "Charts-iOS";
-		};
-		2D15C0371CAE792900A62B4A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
-			remoteInfo = "Charts-TV";
-		};
-		2D15C0391CAE792900A62B4A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
-			remoteInfo = "Charts-OSX";
-		};
-		2D15C03B1CAE792900A62B4A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
-			remoteInfo = ChartsTests;
-		};
-		2D15C03F1CAE794500A62B4A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
-			remoteInfo = "Charts-iOS";
-		};
 		2DDDF2A11CA164D30075674B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2DDDF2811CA164D30075674B /* Project object */;
@@ -94,7 +55,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2D15C03E1CAE794500A62B4A /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,16 +62,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		2D1EC8B41CA5D65200CCE76B /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
-		2D3E9DB31CAC052900353E61 /* Cultivation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cultivation+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2D3E9DB41CAC052900353E61 /* Cultivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cultivation.swift; sourceTree = "<group>"; };
-		2D6FA1C71CB165B600E852F2 /* Sowed+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sowed+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2D6FA1C81CB165B600E852F2 /* Sowed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sowed.swift; sourceTree = "<group>"; };
-		2D6FA1D71CB26F6600E852F2 /* Origin+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Origin+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2D6FA1D81CB26F6600E852F2 /* Origin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
-		2D6FA1D91CB26F6600E852F2 /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2D6FA1DA1CB26F6600E852F2 /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		2D7562E71CA877DF00487F60 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailTableViewCell.swift; path = ../DetailTableViewCell.swift; sourceTree = "<group>"; };
 		2D7C93761CAC54920047AE7C /* MySowTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MySowTableViewController.swift; path = ../MySowTableViewController.swift; sourceTree = "<group>"; };
 		2DBE76161CABBC6100C6EF6D /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +83,12 @@
 		2DDDF2AF1CA164D30075674B /* MyGardenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenUITests.swift; sourceTree = "<group>"; };
 		2DDDF2B11CA164D30075674B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DDDF2C91CA16A800075674B /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		2DE48B151CBA9EEB00D51199 /* Origin+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Origin+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2DE48B161CBA9EEB00D51199 /* Origin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
+		2DE48B171CBA9EEB00D51199 /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2DE48B181CBA9EEB00D51199 /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		2DE48B191CBA9EEB00D51199 /* Sowed+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sowed+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2DE48B1A1CBA9EEB00D51199 /* Sowed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sowed.swift; sourceTree = "<group>"; };
 		43EEF064B663F49467BE10B2 /* Pods-MyGarden.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGarden.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyGarden/Pods-MyGarden.release.xcconfig"; sourceTree = "<group>"; };
 		81FE9768C3378DFD22252DE7 /* Pods_MyGarden.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyGarden.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DB313CBC709FE554B5D882 /* Pods-MyGarden.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGarden.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyGarden/Pods-MyGarden.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,7 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D15C03D1CAE794500A62B4A /* Charts.framework in Frameworks */,
 				7AD080D09319A53F1C6972A6 /* Pods_MyGarden.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,17 +127,6 @@
 				43EEF064B663F49467BE10B2 /* Pods-MyGarden.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		2D15C02F1CAE792900A62B4A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2D15C0361CAE792900A62B4A /* Charts.framework */,
-				2D15C0381CAE792900A62B4A /* Charts.framework */,
-				2D15C03A1CAE792900A62B4A /* Charts.framework */,
-				2D15C03C1CAE792900A62B4A /* ChartsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		2D1EC89E1CA5B93200CCE76B /* Suche */ = {
@@ -223,15 +168,12 @@
 		2DDDF2801CA164D30075674B = {
 			isa = PBXGroup;
 			children = (
-				2D6FA1D71CB26F6600E852F2 /* Origin+CoreDataProperties.swift */,
-				2D6FA1D81CB26F6600E852F2 /* Origin.swift */,
-				2D6FA1D91CB26F6600E852F2 /* Plant+CoreDataProperties.swift */,
-				2D6FA1DA1CB26F6600E852F2 /* Plant.swift */,
-				2D6FA1C71CB165B600E852F2 /* Sowed+CoreDataProperties.swift */,
-				2D6FA1C81CB165B600E852F2 /* Sowed.swift */,
-				2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */,
-				2D3E9DB31CAC052900353E61 /* Cultivation+CoreDataProperties.swift */,
-				2D3E9DB41CAC052900353E61 /* Cultivation.swift */,
+				2DE48B151CBA9EEB00D51199 /* Origin+CoreDataProperties.swift */,
+				2DE48B161CBA9EEB00D51199 /* Origin.swift */,
+				2DE48B171CBA9EEB00D51199 /* Plant+CoreDataProperties.swift */,
+				2DE48B181CBA9EEB00D51199 /* Plant.swift */,
+				2DE48B191CBA9EEB00D51199 /* Sowed+CoreDataProperties.swift */,
+				2DE48B1A1CBA9EEB00D51199 /* Sowed.swift */,
 				2DDDF28B1CA164D30075674B /* MyGarden */,
 				2DDDF2A31CA164D30075674B /* MyGardenTests */,
 				2DDDF2AE1CA164D30075674B /* MyGardenUITests */,
@@ -312,7 +254,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2D15C0401CAE794500A62B4A /* PBXTargetDependency */,
 			);
 			name = MyGarden;
 			productName = MyGarden;
@@ -389,12 +330,6 @@
 			mainGroup = 2DDDF2801CA164D30075674B;
 			productRefGroup = 2DDDF28A1CA164D30075674B /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 2D15C02F1CAE792900A62B4A /* Products */;
-					ProjectRef = 2D15C02E1CAE792900A62B4A /* Charts.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				2DDDF2881CA164D30075674B /* MyGarden */,
@@ -403,37 +338,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		2D15C0361CAE792900A62B4A /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = 2D15C0351CAE792900A62B4A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2D15C0381CAE792900A62B4A /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = 2D15C0371CAE792900A62B4A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2D15C03A1CAE792900A62B4A /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = 2D15C0391CAE792900A62B4A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2D15C03C1CAE792900A62B4A /* ChartsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ChartsTests.xctest;
-			remoteRef = 2D15C03B1CAE792900A62B4A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2DDDF2871CA164D30075674B /* Resources */ = {
@@ -515,24 +419,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D6FA1DB1CB26F6600E852F2 /* Origin+CoreDataProperties.swift in Sources */,
-				2D6FA1DE1CB26F6600E852F2 /* Plant.swift in Sources */,
-				2D6FA1CA1CB165B600E852F2 /* Sowed.swift in Sources */,
-				2D3E9DBB1CAC052900353E61 /* Cultivation+CoreDataProperties.swift in Sources */,
 				2DBE76291CABD00C00C6EF6D /* GardenTableViewCell.swift in Sources */,
-				2D6FA1DD1CB26F6600E852F2 /* Plant+CoreDataProperties.swift in Sources */,
-				2D3E9DBC1CAC052900353E61 /* Cultivation.swift in Sources */,
+				2DE48B1F1CBA9EEB00D51199 /* Sowed+CoreDataProperties.swift in Sources */,
 				2DBE76191CABC28A00C6EF6D /* SowTableViewController.swift in Sources */,
 				2DBE76271CABCFFA00C6EF6D /* GardenTableViewController.swift in Sources */,
+				2DE48B1D1CBA9EEB00D51199 /* Plant+CoreDataProperties.swift in Sources */,
 				2D7562E81CA877DF00487F60 /* DetailTableViewCell.swift in Sources */,
 				2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */,
-				2D6FA1C91CB165B600E852F2 /* Sowed+CoreDataProperties.swift in Sources */,
+				2DE48B1B1CBA9EEB00D51199 /* Origin+CoreDataProperties.swift in Sources */,
+				2DE48B201CBA9EEB00D51199 /* Sowed.swift in Sources */,
 				2DDDF28D1CA164D30075674B /* AppDelegate.swift in Sources */,
 				2DBE76171CABBC6100C6EF6D /* DetailTableViewController.swift in Sources */,
 				2D7C93771CAC54920047AE7C /* MySowTableViewController.swift in Sources */,
 				2D1EC8B51CA5D65200CCE76B /* FavoritesTableViewController.swift in Sources */,
+				2DE48B1E1CBA9EEB00D51199 /* Plant.swift in Sources */,
 				2DDDF2CA1CA16A800075674B /* SearchTableViewController.swift in Sources */,
-				2D6FA1DC1CB26F6600E852F2 /* Origin.swift in Sources */,
+				2DE48B1C1CBA9EEB00D51199 /* Origin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,11 +457,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2D15C0401CAE794500A62B4A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Charts-iOS";
-			targetProxy = 2D15C03F1CAE794500A62B4A /* PBXContainerItemProxy */;
-		};
 		2DDDF2A21CA164D30075674B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2DDDF2881CA164D30075674B /* MyGarden */;

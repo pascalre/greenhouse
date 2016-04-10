@@ -156,6 +156,7 @@ class MySowTableViewController: UITableViewController {
             cell.attributValue.text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*(keimDauer+wuchsDauer)))
         default:
             cell.attributName.text = ""
+            cell.attributValue.text = ""
         }
         return cell
     }
