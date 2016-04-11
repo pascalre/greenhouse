@@ -11,29 +11,36 @@ import MapKit
 import CoreData
 
 class DetailTableViewController: UITableViewController {
+    // MARK: Properties
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var plantImageView: UIImageView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)!.managedObjectContext
+    var detailPlant: Plant? {
+        didSet {
+            updateView()
+        }
+    }
 
+    // MARK: Functions
     @IBAction func markAsFavorite(sender: AnyObject) {
         let isFavorite = (detailPlant!.valueForKey("isFavorite") as? Bool)!
         let batchRequest = NSBatchUpdateRequest(entityName: "Plant")
         batchRequest.predicate = NSPredicate(format: "name == %@", (detailPlant?.name)! as String)
         batchRequest.resultType = .UpdatedObjectsCountResultType
-        
-        if (isFavorite == false){
+
+        if isFavorite == false {
             batchRequest.propertiesToUpdate = ["isFavorite": true]
-            detailPlant?.isFavorite = true;
+            detailPlant?.isFavorite = true
             favoriteButton.image = UIImage(named: "Star Filled")
             print("Updated %@ 's attribute 'isFavorite' to true.", detailPlant?.name!)
         } else {
             batchRequest.propertiesToUpdate = ["isFavorite": false]
-            detailPlant?.isFavorite = false;
+            detailPlant?.isFavorite = false
             favoriteButton.image = UIImage(named: "Star")
             print("Updated %@ 's attribute 'isFavorite' to false.", detailPlant?.name!)
         }
-        
+
         do {
             // Execute Batch Request
             try managedObjectContext.executeRequest(batchRequest)
@@ -42,35 +49,33 @@ class DetailTableViewController: UITableViewController {
             print("\(updateError), \(updateError.userInfo)")
         }
     }
-    
-    var detailPlant: Plant? {
-        didSet {
-            updateView()
-        }
-    }
-    
+
+    // MARK: View Setup
     func updateView() {
         if isViewLoaded() {
             let name = (detailPlant!.valueForKey("name") as? String)!
             plantImageView.image = UIImage(named: name)
-            let isFavorite = (detailPlant!.valueForKey("isFavorite") as? Bool)!
-            if (isFavorite == true){
+            title = name
+            // Favoriten Icon setzen
+            if (detailPlant!.valueForKey("isFavorite") as? Bool)! == true {
                 favoriteButton.image = UIImage(named: "Star Filled")
             } else {
                 favoriteButton.image = UIImage(named: "Star")
             }
-            title = name
-            
+
+            // Punkt auf MapView setzen
             let origin: Origin = (detailPlant?.herkunft!)! as Origin
             let point = MKPointAnnotation()
-            point.coordinate = CLLocationCoordinate2D.init(latitude: origin.latitude as! Double, longitude: origin.longitude as! Double)
+            let latitude = origin.latitude as? Double
+            let longitude = origin.longitude as? Double
+            point.coordinate = CLLocationCoordinate2D.init(latitude: latitude!, longitude: longitude!)
             point.title = origin.name
             point.subtitle = "Herkunft"
             mapView.addAnnotation(point)
             mapView.setCenterCoordinate(point.coordinate, animated: false)
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -78,27 +83,24 @@ class DetailTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         updateView()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
+    // MARK: TableView
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 11
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! DetailTableViewCell
-        
+        let cell = (tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? DetailTableViewCell)!
+
         switch indexPath.row {
         case 0:
             cell.attributName.text = "Lat. Name"
@@ -137,13 +139,10 @@ class DetailTableViewController: UITableViewController {
             cell.attributName.text = ""
             cell.attributValue.text = ""
         }
-        
         return cell
     }
-    
-    // Delegate
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
     }
 
     /*
@@ -162,7 +161,7 @@ class DetailTableViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
@@ -190,5 +189,4 @@ class DetailTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

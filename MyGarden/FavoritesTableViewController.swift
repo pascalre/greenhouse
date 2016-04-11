@@ -11,11 +11,11 @@ import CoreData
 import DZNEmptyDataSet
 
 class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-    
+
     // MARK: Properties
     @IBOutlet weak var editButton: UIBarButtonItem!
-    
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)!.managedObjectContext
     @IBAction func editTable(sender: AnyObject) {
         if tableView.editing == false {
             tableView.setEditing(true, animated: true)
@@ -23,110 +23,105 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
             tableView.setEditing(false, animated: true)
         }
     }
-    
+
     // Array where the Favorite Plants are stored
     var favorites = [Plant]()
-    
+
     override func viewWillAppear(animated: Bool) {
         let fetchRequest = NSFetchRequest(entityName: "Plant")
         fetchRequest.predicate = NSPredicate(format: "isFavorite == %@", true)
-        
+
         do {
             let results = try managedObjectContext.executeFetchRequest(fetchRequest)
-            favorites = results as! [Plant]
+            favorites = (results as? [Plant])!
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
-        
-        if (favorites.count == 0) {
+
+        if favorites.count == 0 {
             editButton.title = ""
         } else {
             editButton.title = "Bearbeiten"
         }
-        
+
         tableView.setEditing(false, animated: false)
         tableView.reloadData()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
     }
-    
+
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let str = "Keine Favoriten vorhanden"
         let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
-    
+
     func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let str = "Über den Stern auf einer Infoseite kannst Du Pflanzen zu Deinen Favoriten hinzufügen."
         let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleBody)]
         return NSAttributedString(string: str, attributes: attrs)
     }
-    
+
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
         return UIImage(named: "BigStar")
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     // MARK: - Table view data source
-    
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favorites.count
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        
+
         let favorite = favorites[indexPath.row]
         cell.textLabel!.text = String(favorite.name!)
         return cell
     }
-    
+
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let batchRequest = NSBatchUpdateRequest(entityName: "Plant")
             batchRequest.predicate = NSPredicate(format: "name == %@", (favorites[indexPath.row].name)! as String)
             batchRequest.resultType = .UpdatedObjectsCountResultType
-            
             batchRequest.propertiesToUpdate = ["isFavorite": true]
             favorites[indexPath.row].isFavorite = false
             print("Updated %@ 's attribute 'isFavorite' to true.", favorites[indexPath.row].name!)
-            
             favorites.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             editButton.title = ""
             tableView.reloadData()
         }
     }
-    
+
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-            let cell = sender as! UITableViewCell
-            let indexPath = self.tableView.indexPathForCell(cell)!
+            let cell = sender as? UITableViewCell
+            let indexPath = self.tableView.indexPathForCell(cell!)!
 
             let plant: Plant
             plant = favorites[indexPath.row]
-            
-            let controller = segue.destinationViewController as! DetailTableViewController
-            controller.detailPlant = plant
+            let controller = segue.destinationViewController as? DetailTableViewController
+            controller!.detailPlant = plant
         }
     }
-    
-    
+
     /*
      // Override to support conditional editing of the table view.
      override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -134,7 +129,7 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
      return true
      }
      */
-    
+
     /*
      // Override to support editing the table view.
      override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -146,14 +141,13 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
      }
      }
      */
-    
+
     /*
      // Override to support rearranging the table view.
      override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-     
      }
      */
-    
+
     /*
      // Override to support conditional rearranging of the table view.
      override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -161,15 +155,15 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
      return true
      }
      */
-    
+
     /*
      // MARK: - Navigation
-     
+
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
      }
      */
-    
+
 }

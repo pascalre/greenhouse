@@ -12,9 +12,10 @@ import DZNEmptyDataSet
 import Charts
 import Foundation
 
-class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate  {
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-
+class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    // MARK: Properties
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)!.managedObjectContext
+    var garden = [Sowed]?()
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBAction func editTable(sender: AnyObject) {
         if tableView.editing == false {
@@ -22,11 +23,9 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         } else {
             tableView.setEditing(false, animated: true)
         }
-        
     }
-    
-    var garden = [Sowed]()
-    
+
+    // MARK: View Setup
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.emptyDataSetSource = self
@@ -39,75 +38,70 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
+    // MARK: TableView
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return garden.count
+        if let garden = garden {
+            return garden.count
+        }
+        return 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! GardenTableViewCell
-        let name: String = String(UTF8String: (garden[indexPath.row].pflanze?.name!)!)!
-        cell.nameLabel!.text = name
-        cell.plantImageView!.image = UIImage(named: name)
-        cell.progressLabel.text = String(getProgress(garden[indexPath.row])) + " %"
-        
-        
-        cell.plantImageView!.layer.cornerRadius = cell.plantImageView!.frame.size.width / 2;
-        cell.plantImageView!.clipsToBounds = true;
-        
-        return cell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? GardenTableViewCell
+        let name: String = String(UTF8String: (garden![indexPath.row].pflanze?.name!)!)!
+        cell!.nameLabel!.text = name
+        cell!.plantImageView!.image = UIImage(named: name)
+        cell!.progressLabel.text = String(getProgress(garden![indexPath.row])) + " %"
+        cell!.plantImageView!.layer.cornerRadius = cell!.plantImageView!.frame.size.width / 2
+        cell!.plantImageView!.clipsToBounds = true
+        return cell!
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         let fetchRequest = NSFetchRequest(entityName: "Sowed")
 
         do {
             let results = try managedObjectContext.executeFetchRequest(fetchRequest)
-            garden = results as! [Sowed]
+            garden = results as? [Sowed]
         } catch {
             print("error \(error)")
         }
         tableView.setEditing(false, animated: false)
-        
-        
-        if (garden.count == 0) {
+
+        editButton.title = "Bearbeiten"
+        if garden!.count == 0 {
             editButton.title = ""
-        } else {
-            editButton.title = "Bearbeiten"
         }
-        
         tableView.reloadData()
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            managedObjectContext.deleteObject(garden[indexPath.row] as NSManagedObject)
-            garden.removeAtIndex(indexPath.row)
+            managedObjectContext.deleteObject(garden![indexPath.row] as NSManagedObject)
+            garden!.removeAtIndex(indexPath.row)
             do {
                 try managedObjectContext.save()
             } catch {
                 print("error \(error)")
             }
-            if (garden.count == 0) {
+            if garden!.count == 0 {
                 editButton.title = ""
             }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             tableView.reloadData()
-        } 
+        }
     }
-    
+
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let str = "Dein Garten ist leer"
         let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
-    
+
     func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let str = "Am besten Du fängst gleich an und legst eine neue Saat an."
         let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleBody)]
@@ -117,33 +111,29 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
         return UIImage(named: "Arrow")
     }
-    
+
     func getProgress(sowed: Sowed) -> Int {
         let sowedDate = sowed.gesaetAm!
-        let passedDays : Double = NSDate().timeIntervalSinceDate(sowedDate) / 60.0 / 60.0 / 24.0
-        
-        let entireDaysToGrow : Double = Double(sowed.pflanze!.dauerKeimung!) + Double(sowed.pflanze!.dauerWachsen!)
-        
-        if ( Int(100.0 / entireDaysToGrow * passedDays) > 100 ) {
+        let passedDays: Double = NSDate().timeIntervalSinceDate(sowedDate) / 60.0 / 60.0 / 24.0
+        let entireDaysToGrow: Double = Double(sowed.pflanze!.dauerKeimung!) + Double(sowed.pflanze!.dauerWachsen!)
+        if Int(100.0 / entireDaysToGrow * passedDays) > 100 {
             return 100
         }
         return Int(100.0 / entireDaysToGrow * passedDays)
     }
-    
+
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showSow" {
-            let cell = sender as! UITableViewCell
-            let indexPath = self.tableView.indexPathForCell(cell)!
-            
-            let sow = garden[indexPath.row]
-            
-            let controller = segue.destinationViewController as! MySowTableViewController
-            controller.sow = sow
+            let cell = sender as? UITableViewCell
+            let indexPath = self.tableView.indexPathForCell(cell!)!
+            let sow = garden![indexPath.row]
+
+            let controller = segue.destinationViewController as? MySowTableViewController
+            controller!.sow = sow
         }
     }
 
-    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -160,7 +150,7 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
@@ -188,5 +178,4 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         // Pass the selected object to the new view controller.
     }
     */
-
 }

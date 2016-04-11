@@ -10,22 +10,20 @@ import UIKit
 import Charts
 
 class GardenTableViewCell: UITableViewCell {
-
+    // MARK: Properties
     @IBOutlet weak var plantImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var fertilizeIcon: UIImageView!
     @IBOutlet weak var waterIcon: UIImageView!
     @IBOutlet weak var progressLabel: UILabel!
-    
+
+    // MARK: Functions
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

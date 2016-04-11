@@ -9,19 +9,16 @@
 import UIKit
 
 class DetailTableViewCell: UITableViewCell {
-
+    // MARK: Properties
     @IBOutlet weak var attributName: UILabel!
     @IBOutlet weak var attributValue: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
