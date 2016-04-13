@@ -17,9 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        UISearchBar.appearance().barTintColor = UIColor.candyGreen()
+        UISearchBar.appearance().barTintColor = UIColor.candyGreenWithoutOpacity()
         UISearchBar.appearance().tintColor = UIColor.whiteColor()
-        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.candyGreen()
+        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.candyGreenWithoutOpacity()
 
         if !(defaults.boolForKey("databaseIsFilled")) {
             let filePath = NSBundle.mainBundle().pathForResource("garden", ofType:"json")
@@ -157,5 +157,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension UIColor {
     static func candyGreen() -> UIColor {
         return UIColor(red: 67.0/255.0, green: 205.0/255.0, blue: 98.0/255.0, alpha: 1.0)
+    }
+    static func candyGreenWithoutOpacity() -> UIColor {
+        return UIColor(red: 94.0/255.0, green: 211.0/255.0, blue: 120.0/255.0, alpha: 1.0)
     }
 }

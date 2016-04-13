@@ -130,12 +130,12 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
 
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showSow" {
+        if segue.identifier == "showDetailSow" {
             let cell = sender as? UITableViewCell
             let indexPath = self.tableView.indexPathForCell(cell!)!
             let sow = garden![indexPath.row]
 
-            let controller = segue.destinationViewController as? MySowTableViewController
+            let controller = segue.destinationViewController as? DetailSowTableViewController
             controller!.sow = sow
         }
     }

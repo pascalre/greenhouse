@@ -33,12 +33,12 @@ class DetailTableViewController: UITableViewController {
             batchRequest.propertiesToUpdate = ["isFavorite": true]
             detailPlant?.isFavorite = true
             favoriteButton.image = UIImage(named: "Star Filled")
-            print("Updated %@ 's attribute 'isFavorite' to true.", detailPlant?.name!)
+            print("Updated \((detailPlant?.name!)!)'s attribute 'isFavorite' to true.")
         } else {
             batchRequest.propertiesToUpdate = ["isFavorite": false]
             detailPlant?.isFavorite = false
             favoriteButton.image = UIImage(named: "Star")
-            print("Updated %@ 's attribute 'isFavorite' to false.", detailPlant?.name!)
+            print("Updated \((detailPlant?.name!)!)'s attribute 'isFavorite' to false.")
         }
 
         do {

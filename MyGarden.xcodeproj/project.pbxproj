@@ -15,6 +15,7 @@
 		2D93261D1CBE8FD400B1F4FA /* Sowed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9326191CBE8FD400B1F4FA /* Sowed.swift */; };
 		2D9326201CBE90E300B1F4FA /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93261E1CBE90E300B1F4FA /* Plant+CoreDataProperties.swift */; };
 		2D9326211CBE90E300B1F4FA /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93261F1CBE90E300B1F4FA /* Plant.swift */; };
+		2D9326231CBE976200B1F4FA /* DetailSowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9326221CBE976200B1F4FA /* DetailSowTableViewController.swift */; };
 		2D9C63AC1CBE4AE4000DD080 /* CalendarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C63AB1CBE4AE4000DD080 /* CalendarTableViewController.swift */; };
 		2DBE76171CABBC6100C6EF6D /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE76161CABBC6100C6EF6D /* DetailTableViewController.swift */; };
 		2DBE76191CABC28A00C6EF6D /* SowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE76181CABC28A00C6EF6D /* SowTableViewController.swift */; };
@@ -70,6 +71,7 @@
 		2D9326191CBE8FD400B1F4FA /* Sowed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sowed.swift; sourceTree = "<group>"; };
 		2D93261E1CBE90E300B1F4FA /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2D93261F1CBE90E300B1F4FA /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		2D9326221CBE976200B1F4FA /* DetailSowTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailSowTableViewController.swift; sourceTree = "<group>"; };
 		2D9C63AB1CBE4AE4000DD080 /* CalendarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewController.swift; sourceTree = "<group>"; };
 		2DA1A10A1CBE59C7007E8981 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		2DBE76161CABBC6100C6EF6D /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				2DBE76261CABCFFA00C6EF6D /* GardenTableViewController.swift */,
 				2D7C93761CAC54920047AE7C /* MySowTableViewController.swift */,
 				2DBE76181CABC28A00C6EF6D /* SowTableViewController.swift */,
+				2D9326221CBE976200B1F4FA /* DetailSowTableViewController.swift */,
 			);
 			name = Garten;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D9326231CBE976200B1F4FA /* DetailSowTableViewController.swift in Sources */,
 				2DBE76291CABD00C00C6EF6D /* GardenTableViewCell.swift in Sources */,
 				2D9C63AC1CBE4AE4000DD080 /* CalendarTableViewController.swift in Sources */,
 				2D93261C1CBE8FD400B1F4FA /* Sowed+CoreDataProperties.swift in Sources */,
