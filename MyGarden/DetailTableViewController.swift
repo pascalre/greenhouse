@@ -64,12 +64,11 @@ class DetailTableViewController: UITableViewController {
             }
 
             // Punkt auf MapView setzen
-            let origin: Origin = (detailPlant?.herkunft!)! as Origin
             let point = MKPointAnnotation()
-            let latitude = origin.latitude as? Double
-            let longitude = origin.longitude as? Double
+            let latitude = detailPlant?.latitude as? Double
+            let longitude = detailPlant?.longitude as? Double
             point.coordinate = CLLocationCoordinate2D.init(latitude: latitude!, longitude: longitude!)
-            point.title = origin.name
+            point.title = detailPlant?.herkunft
             point.subtitle = "Herkunft"
             mapView.addAnnotation(point)
             mapView.setCenterCoordinate(point.coordinate, animated: false)

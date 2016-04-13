@@ -1,46 +1,54 @@
-[
-  {
-  "name": "Basilikum",
-  "isFavorite" : false,
-  "latinName" : "Ocimum basilicum",
-  "anzahlArten" : "ca. 60",
-  "artKeimung" : "Lichtkeimer",
-  "aussatAbFrei" : "März",
-  "aussatBisFrei" : "",
-  "aussatAbTopf" : "Januar",
-  "aussatBisTopf" : "Dezember", 
-  "blaetter" : "saftgrün, kelchförmig",
-  "dauerKeimung" : 7, 
-  "dauerWachsen" : 24,
-  "familie" : "Lippenblüter", 
-  "infos" : "", 
-  "infosErnte" : "", 
-  "standort" : "warm, sonnig", 
-  "wuchshoehe" : "15 - 60 cm", 
-  "herkunft" : "Nordwest-Indien", 
-  "latitude" : 26.135583, 
-  "longitude" : 75.910403
-  },
-  {
-  "name": "Petersilie",
-  "isFavorite" : false,
-  "latinName" : "Petroselinum crispum",
-  "anzahlArten" : "4",
-  "artKeimung" : "Dunkelkeimer",
-  "aussatAbFrei" : "März",
-  "aussatBisFrei" : "",
-  "aussatAbTopf" : "Februar",
-  "aussatBisTopf" : "August", 
-  "blaetter" : "dunkelgrün, fiedrig",
-  "dauerKeimung" : 7, 
-  "dauerWachsen" : 24,
-  "familie" : "Doldenblüter", 
-  "infos" : "", 
-  "infosErnte" : "", 
-  "standort" : "halbschatten", 
-  "wuchshoehe" : "30 - 80 cm", 
-  "herkunft" : "Mittelmeerraum", 
-  "latitude" : 39.486973, 
-  "longitude" : 13.552005
-  }
-]
+{
+    "metadata": {
+        "responseInfo": {
+            "status": 200,
+            "developerMessage": "OK"
+        }
+    },
+    "results": [
+                {
+                "name": "Basilikum",
+                "isFavorite": false,
+                "latinName": "Ocimum basilicum",
+                "anzahlArten": "ca. 60",
+                "artKeimung": "Lichtkeimer",
+                "aussatAbFrei": "März",
+                "aussatBisFrei": "",
+                "aussatAbTopf": "Januar",
+                "aussatBisTopf": "Dezember",
+                "blaetter": "saftgrün, kelchförmig",
+                "dauerKeimung": 7,
+                "dauerWachsen": 24,
+                "familie": "Lippenblüter",
+                "infos": "",
+                "infosErnte": "",
+                "standort": "warm, sonnig",
+                "wuchshoehe": "15 - 60 cm",
+                "herkunft": "Nordwest-Indien",
+                "latitude": 26.135583,
+                "longitude": 75.910403
+                },
+                {
+                "name": "Petersilie",
+                "isFavorite": false,
+                "latinName": "Petroselinum crispum",
+                "anzahlArten": "4",
+                "artKeimung": "Dunkelkeimer",
+                "aussatAbFrei": "März",
+                "aussatBisFrei": "",
+                "aussatAbTopf": "Februar",
+                "aussatBisTopf": "August",
+                "blaetter": "dunkelgrün, fiedrig",
+                "dauerKeimung": 7,
+                "dauerWachsen": 24,
+                "familie": "Doldenblüter",
+                "infos": "",
+                "infosErnte": "",
+                "standort": "halbschatten",
+                "wuchshoehe": "30 - 80 cm",
+                "herkunft": "Mittelmeerraum",
+                "latitude": 39.486973,
+                "longitude": 13.552005
+                }
+                ]
+}

@@ -468,20 +468,13 @@
             <objects>
                 <tableViewController id="Vvw-f9-Dv1" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="abl-2Y-APm">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XME-lN-Jr4">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="130"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <textView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" id="U8Z-T0-qtG">
-                            <rect key="frame" x="0.0" y="731" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
                         <sections>
                             <tableViewSection id="B9U-F6-aP9">
                                 <cells>
@@ -507,6 +500,31 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Ge-2Q-TAZ" id="Sea-k5-b9A">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLN-0l-5Vi">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="43"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9j5-oL-kAL">
+                                                            <rect key="frame" x="0.0" y="0.0" width="542" height="43"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.26274511218070984" green="0.80392158031463623" blue="0.38431373238563538" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QO-iI-L84">
+                                                            <rect key="frame" x="542" y="0.0" width="42" height="43"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="cLN-0l-5Vi" secondAttribute="trailing" id="B1J-tf-BYC"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="cLN-0l-5Vi" secondAttribute="bottom" constant="-8" id="BSu-00-atW"/>
+                                                <constraint firstItem="cLN-0l-5Vi" firstAttribute="top" secondItem="Sea-k5-b9A" secondAttribute="topMargin" constant="-8" id="LDP-dG-Ler"/>
+                                                <constraint firstItem="cLN-0l-5Vi" firstAttribute="leading" secondItem="Sea-k5-b9A" secondAttribute="leadingMargin" id="mF2-3t-qLJ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -535,6 +553,66 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Infos" id="rXY-xe-BYs">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="Zgq-Pg-OgR">
+                                        <rect key="frame" x="0.0" y="764" width="600" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zgq-Pg-OgR" id="DeB-Yg-DRr">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rSu-4u-ELg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="rSu-4u-ELg" secondAttribute="bottom" id="Cj0-6J-hrC"/>
+                                                <constraint firstItem="rSu-4u-ELg" firstAttribute="leading" secondItem="DeB-Yg-DRr" secondAttribute="leading" id="KBg-74-8cY"/>
+                                                <constraint firstAttribute="trailing" secondItem="rSu-4u-ELg" secondAttribute="trailing" id="P3H-4z-Cd4"/>
+                                                <constraint firstItem="rSu-4u-ELg" firstAttribute="top" secondItem="DeB-Yg-DRr" secondAttribute="top" id="ShV-Ma-PLz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Ernte" id="uHE-jK-oP9">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="I35-Hv-Y7e">
+                                        <rect key="frame" x="0.0" y="915" width="600" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I35-Hv-Y7e" id="m5U-yM-20m">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Y9-KX-FJ9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="399"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2QJ-iy-xAd">
+                                                            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0Y9-KX-FJ9" firstAttribute="leading" secondItem="m5U-yM-20m" secondAttribute="leading" id="1kt-Ms-27p"/>
+                                                <constraint firstAttribute="trailing" secondItem="0Y9-KX-FJ9" secondAttribute="trailing" id="Sdb-ut-m6K"/>
+                                                <constraint firstAttribute="bottom" secondItem="0Y9-KX-FJ9" secondAttribute="bottom" id="ZZm-Fy-VLm"/>
+                                                <constraint firstItem="0Y9-KX-FJ9" firstAttribute="top" secondItem="m5U-yM-20m" secondAttribute="top" id="o2A-jw-mrc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="Vvw-f9-Dv1" id="74D-4a-sQ6"/>
@@ -542,7 +620,7 @@
                         </connections>
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="1000"/>
+                    <size key="freeformSize" width="600" height="1300"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxT-Io-TIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

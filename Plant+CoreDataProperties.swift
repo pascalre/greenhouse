@@ -15,7 +15,6 @@ import CoreData
 extension Plant {
 
     @NSManaged var anzahlArten: String?
-    @NSManaged var art: String?
     @NSManaged var artKeimung: String?
     @NSManaged var aussatAbFrei: String?
     @NSManaged var aussatAbTopf: String?
@@ -23,16 +22,18 @@ extension Plant {
     @NSManaged var blaetter: String?
     @NSManaged var dauerKeimung: NSNumber?
     @NSManaged var dauerWachsen: NSNumber?
-    @NSManaged var duenger: String?
     @NSManaged var familie: String?
     @NSManaged var infos: String?
+    @NSManaged var infosErnte: String?
     @NSManaged var isFavorite: NSNumber?
     @NSManaged var latinName: String?
     @NSManaged var name: String?
     @NSManaged var standort: String?
     @NSManaged var wuchshoehe: String?
-    @NSManaged var infosErnte: String?
+    @NSManaged var aussatBisFrei: String?
+    @NSManaged var latitude: NSNumber?
+    @NSManaged var longitude: NSNumber?
+    @NSManaged var herkunft: String?
     @NSManaged var ausgesaet: NSSet?
-    @NSManaged var herkunft: Origin?
 
 }

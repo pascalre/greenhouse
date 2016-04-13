@@ -11,12 +11,10 @@
 		2D3EE7E11CBE6BDF00C3E24B /* garden.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D3EE7E01CBE6BDF00C3E24B /* garden.json */; };
 		2D7562E81CA877DF00487F60 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7562E71CA877DF00487F60 /* DetailTableViewCell.swift */; };
 		2D7C93771CAC54920047AE7C /* MySowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C93761CAC54920047AE7C /* MySowTableViewController.swift */; };
-		2D9C63A41CBE3A9C000DD080 /* Origin+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C639E1CBE3A9C000DD080 /* Origin+CoreDataProperties.swift */; };
-		2D9C63A51CBE3A9C000DD080 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C639F1CBE3A9C000DD080 /* Origin.swift */; };
-		2D9C63A61CBE3A9C000DD080 /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C63A01CBE3A9C000DD080 /* Plant+CoreDataProperties.swift */; };
-		2D9C63A71CBE3A9C000DD080 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C63A11CBE3A9C000DD080 /* Plant.swift */; };
-		2D9C63A81CBE3A9C000DD080 /* Sowed+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C63A21CBE3A9C000DD080 /* Sowed+CoreDataProperties.swift */; };
-		2D9C63A91CBE3A9C000DD080 /* Sowed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C63A31CBE3A9C000DD080 /* Sowed.swift */; };
+		2D93261C1CBE8FD400B1F4FA /* Sowed+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9326181CBE8FD400B1F4FA /* Sowed+CoreDataProperties.swift */; };
+		2D93261D1CBE8FD400B1F4FA /* Sowed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9326191CBE8FD400B1F4FA /* Sowed.swift */; };
+		2D9326201CBE90E300B1F4FA /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93261E1CBE90E300B1F4FA /* Plant+CoreDataProperties.swift */; };
+		2D9326211CBE90E300B1F4FA /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93261F1CBE90E300B1F4FA /* Plant.swift */; };
 		2D9C63AC1CBE4AE4000DD080 /* CalendarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C63AB1CBE4AE4000DD080 /* CalendarTableViewController.swift */; };
 		2DBE76171CABBC6100C6EF6D /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE76161CABBC6100C6EF6D /* DetailTableViewController.swift */; };
 		2DBE76191CABC28A00C6EF6D /* SowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE76181CABC28A00C6EF6D /* SowTableViewController.swift */; };
@@ -68,12 +66,10 @@
 		2D3EE7E01CBE6BDF00C3E24B /* garden.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = garden.json; sourceTree = "<group>"; };
 		2D7562E71CA877DF00487F60 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailTableViewCell.swift; path = ../DetailTableViewCell.swift; sourceTree = "<group>"; };
 		2D7C93761CAC54920047AE7C /* MySowTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MySowTableViewController.swift; path = ../MySowTableViewController.swift; sourceTree = "<group>"; };
-		2D9C639E1CBE3A9C000DD080 /* Origin+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Origin+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2D9C639F1CBE3A9C000DD080 /* Origin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
-		2D9C63A01CBE3A9C000DD080 /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2D9C63A11CBE3A9C000DD080 /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
-		2D9C63A21CBE3A9C000DD080 /* Sowed+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sowed+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2D9C63A31CBE3A9C000DD080 /* Sowed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sowed.swift; sourceTree = "<group>"; };
+		2D9326181CBE8FD400B1F4FA /* Sowed+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sowed+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2D9326191CBE8FD400B1F4FA /* Sowed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sowed.swift; sourceTree = "<group>"; };
+		2D93261E1CBE90E300B1F4FA /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2D93261F1CBE90E300B1F4FA /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		2D9C63AB1CBE4AE4000DD080 /* CalendarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewController.swift; sourceTree = "<group>"; };
 		2DA1A10A1CBE59C7007E8981 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		2DBE76161CABBC6100C6EF6D /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
@@ -181,12 +177,10 @@
 		2DDDF2801CA164D30075674B = {
 			isa = PBXGroup;
 			children = (
-				2D9C639E1CBE3A9C000DD080 /* Origin+CoreDataProperties.swift */,
-				2D9C639F1CBE3A9C000DD080 /* Origin.swift */,
-				2D9C63A01CBE3A9C000DD080 /* Plant+CoreDataProperties.swift */,
-				2D9C63A11CBE3A9C000DD080 /* Plant.swift */,
-				2D9C63A21CBE3A9C000DD080 /* Sowed+CoreDataProperties.swift */,
-				2D9C63A31CBE3A9C000DD080 /* Sowed.swift */,
+				2D93261E1CBE90E300B1F4FA /* Plant+CoreDataProperties.swift */,
+				2D93261F1CBE90E300B1F4FA /* Plant.swift */,
+				2D9326181CBE8FD400B1F4FA /* Sowed+CoreDataProperties.swift */,
+				2D9326191CBE8FD400B1F4FA /* Sowed.swift */,
 				2DDDF28B1CA164D30075674B /* MyGarden */,
 				2DDDF2A31CA164D30075674B /* MyGardenTests */,
 				2DDDF2AE1CA164D30075674B /* MyGardenUITests */,
@@ -452,21 +446,19 @@
 			files = (
 				2DBE76291CABD00C00C6EF6D /* GardenTableViewCell.swift in Sources */,
 				2D9C63AC1CBE4AE4000DD080 /* CalendarTableViewController.swift in Sources */,
-				2D9C63A81CBE3A9C000DD080 /* Sowed+CoreDataProperties.swift in Sources */,
+				2D93261C1CBE8FD400B1F4FA /* Sowed+CoreDataProperties.swift in Sources */,
 				2DBE76191CABC28A00C6EF6D /* SowTableViewController.swift in Sources */,
 				2DBE76271CABCFFA00C6EF6D /* GardenTableViewController.swift in Sources */,
-				2D9C63A61CBE3A9C000DD080 /* Plant+CoreDataProperties.swift in Sources */,
+				2D93261D1CBE8FD400B1F4FA /* Sowed.swift in Sources */,
 				2D7562E81CA877DF00487F60 /* DetailTableViewCell.swift in Sources */,
+				2D9326211CBE90E300B1F4FA /* Plant.swift in Sources */,
 				2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */,
-				2D9C63A41CBE3A9C000DD080 /* Origin+CoreDataProperties.swift in Sources */,
-				2D9C63A91CBE3A9C000DD080 /* Sowed.swift in Sources */,
 				2DDDF28D1CA164D30075674B /* AppDelegate.swift in Sources */,
 				2DBE76171CABBC6100C6EF6D /* DetailTableViewController.swift in Sources */,
 				2D7C93771CAC54920047AE7C /* MySowTableViewController.swift in Sources */,
 				2D1EC8B51CA5D65200CCE76B /* FavoritesTableViewController.swift in Sources */,
-				2D9C63A71CBE3A9C000DD080 /* Plant.swift in Sources */,
 				2DDDF2CA1CA16A800075674B /* SearchTableViewController.swift in Sources */,
-				2D9C63A51CBE3A9C000DD080 /* Origin.swift in Sources */,
+				2D9326201CBE90E300B1F4FA /* Plant+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

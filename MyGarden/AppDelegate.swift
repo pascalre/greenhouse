@@ -25,51 +25,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let filePath = NSBundle.mainBundle().pathForResource("garden", ofType:"json")
             let jsonData     = NSData(contentsOfFile:filePath!)
             let json = JSON(data: jsonData!)
-            
-            savePlant("Basilikum", isFavorite: false, latinName: "Ocimum basilicum", anzahlArten: "ca. 60", artKeimung: "Lichtkeimer", aussatAbFrei: "März", aussatAbTopf: "Januar", aussatBisTopf: "Dezember", blaetter: "saftgrün, kelchförmig", dauerKeimung: 7, dauerWachsen: 24, duenger: "Bio-Kräuterdünger", familie: "Lippenblüter", infos: "", infosErnte: "", standort: "warm, sonnig", wuchshoehe: "15 - 60 cm", herkunftName: "Nordwest-Indien", latitude: 26.135583, longitude: 75.910403)
-            savePlant("Petersilie", isFavorite: false, latinName: "Petroselinum crispum", anzahlArten: "4", artKeimung: "Dunkelkeimer", aussatAbFrei: "März", aussatAbTopf: "Februar", aussatBisTopf: "August", blaetter: "dunkelgrün, fiedrig", dauerKeimung: 7, dauerWachsen: 24, duenger: "Bio-Kräuterdünger", familie: "Doldenblütler", infos: "", infosErnte: "", standort: "halbschatten", wuchshoehe: "30 - 80 cm", herkunftName: "Mittelmeerraum", latitude: 39.486973, longitude: 13.552005)
+
+            print("JSON: \(json)")
+
+            if json["metadata"]["responseInfo"]["status"].intValue == 200 {
+                let managedContext = self.managedObjectContext
+                for result in json["results"].arrayValue {
+                    let entity =  NSEntityDescription.entityForName("Plant", inManagedObjectContext:managedContext)
+                    let plant = Plant(entity: entity!, insertIntoManagedObjectContext: managedContext)
+
+                    plant.name = result["name"].stringValue
+                    plant.isFavorite = result["isFavorite"].intValue
+                    plant.latinName = result["latinName"].stringValue
+                    plant.anzahlArten = result["anzahlArten"].stringValue
+                    plant.artKeimung = result["artKeimung"].stringValue
+                    plant.aussatAbFrei = result["aussatAbFrei"].stringValue
+                    plant.aussatBisFrei = result["aussatBisFrei"].stringValue
+                    plant.aussatAbTopf = result["aussatAbTopf"].stringValue
+                    plant.aussatBisTopf = result["aussatBisTopf"].stringValue
+                    plant.blaetter = result["blaetter"].stringValue
+                    plant.dauerKeimung = result["dauerKeimung"].intValue
+                    plant.dauerWachsen = result["dauerWachsen"].intValue
+                    plant.familie = result["familie"].stringValue
+                    plant.infos = result["infos"].stringValue
+                    plant.infosErnte = result["infosErnte"].stringValue
+                    plant.standort = result["standort"].stringValue
+                    plant.wuchshoehe = result["wuchshoehe"].stringValue
+                    plant.herkunft = result["herkunft"].stringValue
+                    plant.latitude = result["latitude"].doubleValue
+                    plant.longitude = result["longitude"].doubleValue
+
+                    do {
+                        try managedContext.save()
+                    } catch let error as NSError {
+                        print("Could not save \(error), \(error.userInfo)")
+                    }
+                }}
             defaults.setBool(true, forKey: "databaseIsFilled")
         }
         defaults.synchronize()
         return true
-    }
-
-    func savePlant(name: String, isFavorite: Bool, latinName: String, anzahlArten: String, artKeimung: String, aussatAbFrei: String, aussatAbTopf: String, aussatBisTopf: String, blaetter: String, dauerKeimung: Int, dauerWachsen: Int, duenger: String, familie: String, infos: String, infosErnte: String, standort: String, wuchshoehe: String, herkunftName: String, latitude: Double, longitude: Double) {
-        let managedContext = self.managedObjectContext
-        let entity =  NSEntityDescription.entityForName("Plant", inManagedObjectContext:managedContext)
-        let plant = Plant(entity: entity!, insertIntoManagedObjectContext: managedContext)
-
-        plant.anzahlArten = anzahlArten
-        plant.artKeimung = artKeimung
-        plant.aussatAbFrei = aussatAbFrei
-        plant.aussatAbTopf = aussatAbTopf
-        plant.aussatBisTopf = aussatBisTopf
-        plant.blaetter = blaetter
-        plant.dauerKeimung = dauerKeimung
-        plant.dauerWachsen = dauerWachsen
-        plant.duenger = duenger
-        plant.familie = familie
-        plant.infos = infos
-        plant.infosErnte = infosErnte
-        plant.isFavorite = isFavorite
-        plant.latinName = latinName
-        plant.name = name
-        plant.standort = standort
-        plant.wuchshoehe = wuchshoehe
-
-        let originEntity = NSEntityDescription.entityForName("Origin", inManagedObjectContext: managedContext)
-        let origin = Origin(entity: originEntity!, insertIntoManagedObjectContext: managedContext)
-
-        origin.name = herkunftName
-        origin.latitude = latitude
-        origin.longitude = longitude
-        origin.pflanze = plant
-
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save \(error), \(error.userInfo)")
-        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
