@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,15 +22,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.candyGreen()
 
         if !(defaults.boolForKey("databaseIsFilled")) {
-            savePlant("Basilikum", isFavorite: false, latinName: "Ocimum basilicum", anzahlArten: "ca. 60", artKeimung: "Lichtkeimer", aussatAbFrei: "März", aussatAbTopf: "Januar", aussatBisTopf: "Dezember", blaetter: "saftgrün, kelchförmig", dauerKeimung: 7, dauerWachsen: 24, duenger: "Bio-Kräuterdünger", familie: "Lippenblüter", infos: "", standort: "warm, sonnig", wuchshoehe: "15 - 60 cm", herkunftName: "Nordwest-Indien", latitude: 26.135583, longitude: 75.910403)
-            savePlant("Petersilie", isFavorite: false, latinName: "Petroselinum crispum", anzahlArten: "4", artKeimung: "Dunkelkeimer", aussatAbFrei: "März", aussatAbTopf: "Februar", aussatBisTopf: "August", blaetter: "dunkelgrün, fiedrig", dauerKeimung: 7, dauerWachsen: 24, duenger: "Bio-Kräuterdünger", familie: "Doldenblütler", infos: "", standort: "halbschatten", wuchshoehe: "30 - 80 cm", herkunftName: "Mittelmeerraum", latitude: 39.486973, longitude: 13.552005)
+            let filePath = NSBundle.mainBundle().pathForResource("garden", ofType:"json")
+            let jsonData     = NSData(contentsOfFile:filePath!)
+            let json = JSON(data: jsonData!)
+            
+            savePlant("Basilikum", isFavorite: false, latinName: "Ocimum basilicum", anzahlArten: "ca. 60", artKeimung: "Lichtkeimer", aussatAbFrei: "März", aussatAbTopf: "Januar", aussatBisTopf: "Dezember", blaetter: "saftgrün, kelchförmig", dauerKeimung: 7, dauerWachsen: 24, duenger: "Bio-Kräuterdünger", familie: "Lippenblüter", infos: "", infosErnte: "", standort: "warm, sonnig", wuchshoehe: "15 - 60 cm", herkunftName: "Nordwest-Indien", latitude: 26.135583, longitude: 75.910403)
+            savePlant("Petersilie", isFavorite: false, latinName: "Petroselinum crispum", anzahlArten: "4", artKeimung: "Dunkelkeimer", aussatAbFrei: "März", aussatAbTopf: "Februar", aussatBisTopf: "August", blaetter: "dunkelgrün, fiedrig", dauerKeimung: 7, dauerWachsen: 24, duenger: "Bio-Kräuterdünger", familie: "Doldenblütler", infos: "", infosErnte: "", standort: "halbschatten", wuchshoehe: "30 - 80 cm", herkunftName: "Mittelmeerraum", latitude: 39.486973, longitude: 13.552005)
             defaults.setBool(true, forKey: "databaseIsFilled")
         }
         defaults.synchronize()
         return true
     }
 
-    func savePlant(name: String, isFavorite: Bool, latinName: String, anzahlArten: String, artKeimung: String, aussatAbFrei: String, aussatAbTopf: String, aussatBisTopf: String, blaetter: String, dauerKeimung: Int, dauerWachsen: Int, duenger: String, familie: String, infos: String, standort: String, wuchshoehe: String, herkunftName: String, latitude: Double, longitude: Double) {
+    func savePlant(name: String, isFavorite: Bool, latinName: String, anzahlArten: String, artKeimung: String, aussatAbFrei: String, aussatAbTopf: String, aussatBisTopf: String, blaetter: String, dauerKeimung: Int, dauerWachsen: Int, duenger: String, familie: String, infos: String, infosErnte: String, standort: String, wuchshoehe: String, herkunftName: String, latitude: Double, longitude: Double) {
         let managedContext = self.managedObjectContext
         let entity =  NSEntityDescription.entityForName("Plant", inManagedObjectContext:managedContext)
         let plant = Plant(entity: entity!, insertIntoManagedObjectContext: managedContext)
@@ -45,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         plant.duenger = duenger
         plant.familie = familie
         plant.infos = infos
+        plant.infosErnte = infosErnte
         plant.isFavorite = isFavorite
         plant.latinName = latinName
         plant.name = name

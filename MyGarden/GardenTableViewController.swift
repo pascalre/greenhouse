@@ -38,6 +38,28 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        let fetchRequest = NSFetchRequest(entityName: "Sowed")
+
+        do {
+            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
+            garden = results as? [Sowed]
+        } catch {
+            print("error \(error)")
+        }
+        tableView.setEditing(false, animated: false)
+
+        editButton.title = "Bearbeiten"
+        if garden!.count == 0 {
+            editButton.title = ""
+        }
+        tableView.reloadData()
+    }
+
+    override func viewWillDisappear(animated: Bool) {
+        self.tabBarItem.image = UIImage(named: "Carrot")
+    }
+
     // MARK: TableView
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -59,24 +81,6 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         cell!.plantImageView!.layer.cornerRadius = cell!.plantImageView!.frame.size.width / 2
         cell!.plantImageView!.clipsToBounds = true
         return cell!
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        let fetchRequest = NSFetchRequest(entityName: "Sowed")
-
-        do {
-            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
-            garden = results as? [Sowed]
-        } catch {
-            print("error \(error)")
-        }
-        tableView.setEditing(false, animated: false)
-
-        editButton.title = "Bearbeiten"
-        if garden!.count == 0 {
-            editButton.title = ""
-        }
-        tableView.reloadData()
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -116,10 +120,12 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         let sowedDate = sowed.gesaetAm!
         let passedDays: Double = NSDate().timeIntervalSinceDate(sowedDate) / 60.0 / 60.0 / 24.0
         let entireDaysToGrow: Double = Double(sowed.pflanze!.dauerKeimung!) + Double(sowed.pflanze!.dauerWachsen!)
-        if Int(100.0 / entireDaysToGrow * passedDays) > 100 {
+
+        let progress = Int(100.0 / entireDaysToGrow * passedDays)
+        if  progress > 100  || progress < 0 {
             return 100
         }
-        return Int(100.0 / entireDaysToGrow * passedDays)
+        return progress
     }
 
     // MARK: - Segues

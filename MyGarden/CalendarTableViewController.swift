@@ -1,39 +1,23 @@
 //
-//  SowTableViewController.swift
+//  CalendarTableViewController.swift
 //  MyGarden
 //
-//  Created by Pascal Reitermann on 30.03.16.
+//  Created by Pascal Reitermann on 13.04.16.
 //  Copyright © 2016 Pascal Reitermann. All rights reserved.
 //
 
 import UIKit
-import CoreData
 
-class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CalendarTableViewController: UITableViewController {
 
-    // MARK: Properties
-    @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var commentsTextView: UITextView!
-    var plants = [Plant]?()
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)!.managedObjectContext
-
-    // MARK: View Setup
     override func viewDidLoad() {
         super.viewDidLoad()
-        datePicker.maximumDate = NSDate()
 
-        // Connect data:
-        self.pickerView.delegate = self
-        self.pickerView.dataSource = self
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
 
-        let fetchRequest = NSFetchRequest(entityName: "Plant")
-        do {
-            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
-            plants = results as? [Plant]
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,50 +25,16 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: Functions
-    @IBAction func sowPlant(sender: AnyObject) {
-        let sowed = NSEntityDescription.insertNewObjectForEntityForName("Sowed", inManagedObjectContext: self.managedObjectContext) as? Sowed
+    // MARK: - Table view data source
 
-        let plant = plants![pickerView.selectedRowInComponent(0)]
-        let gesaetAm = datePicker.date
-
-        sowed!.setValue(plant, forKey: "pflanze")
-        sowed!.setValue(gesaetAm, forKey: "gesaetAm")
-        sowed!.comments = commentsTextView.text
-
-        do {
-            try managedObjectContext.save()
-            self.navigationController?.popViewControllerAnimated(true)
-            NSLog("New Entry in 'Sowed': %@", plant.name!)
-        } catch let error as NSError {
-            print("Could not save \(error), \(error.userInfo)")
-        }
-    }
-
-    // MARK: TableView
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
-    }
-
-    // The number of columns of data
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    // The number of rows of data
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return plants!.count
-    }
-
-    // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return plants![row].valueForKey("name") as? String
+        return 0
     }
 
     /*
@@ -113,7 +63,7 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
+        }    
     }
     */
 

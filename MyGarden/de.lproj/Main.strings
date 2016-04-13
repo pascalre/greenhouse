@@ -1,0 +1,90 @@
+
+/* Class = "UINavigationItem"; title = "Info"; ObjectID = "39f-My-m7h"; */
+"39f-My-m7h.title" = "Info";
+
+/* Class = "UINavigationItem"; title = "Kalender"; ObjectID = "8fq-c5-TN9"; */
+"8fq-c5-TN9.title" = "Kalender";
+
+/* Class = "UILabel"; text = "0 %"; ObjectID = "9V5-WR-mTz"; */
+"9V5-WR-mTz.text" = "0 %";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "JtW-Lz-jNn"; */
+"JtW-Lz-jNn.text" = "Label";
+
+/* Class = "UILabel"; text = "Aussat im Freien"; ObjectID = "Lxg-7q-Db2"; */
+"Lxg-7q-Db2.text" = "Aussat im Freien";
+
+/* Class = "UITabBarItem"; title = "Garten"; ObjectID = "MQH-sI-scN"; */
+"MQH-sI-scN.title" = "Garten";
+
+/* Class = "UINavigationItem"; title = "Aussäen"; ObjectID = "Mzz-vP-cgx"; */
+"Mzz-vP-cgx.title" = "Aussäen";
+
+/* Class = "UINavigationItem"; title = "Garten"; ObjectID = "NDb-gU-aHx"; */
+"NDb-gU-aHx.title" = "Garten";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "QaS-Be-gJz"; */
+"QaS-Be-gJz.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Suchen"; ObjectID = "SGU-WQ-GBA"; */
+"SGU-WQ-GBA.title" = "Suchen";
+
+/* Class = "UIBarButtonItem"; title = "Bearbeiten"; ObjectID = "SQ3-Jg-Tz8"; */
+"SQ3-Jg-Tz8.title" = "Bearbeiten";
+
+/* Class = "UITableViewController"; title = "Aussähen"; ObjectID = "WOS-Z4-bsE"; */
+"WOS-Z4-bsE.title" = "Aussähen";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Yas-EP-W5x"; */
+"Yas-EP-W5x.text" = "Label";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "c3D-V0-4Yw"; */
+"c3D-V0-4Yw.text" = "Title";
+
+/* Class = "UIBarButtonItem"; title = "Bearbeiten"; ObjectID = "drM-Sq-dQd"; */
+"drM-Sq-dQd.title" = "Bearbeiten";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "e69-k3-KP0"; */
+"e69-k3-KP0.text" = "Label";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "jzO-iv-vYO"; */
+"jzO-iv-vYO.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "MySow"; ObjectID = "oRe-Wy-0tT"; */
+"oRe-Wy-0tT.title" = "MySow";
+
+/* Class = "UITableViewSection"; footerTitle = "Wann hast Du gesät?"; ObjectID = "pNY-sY-d3D"; */
+"pNY-sY-d3D.footerTitle" = "Wann hast Du gesät?";
+
+/* Class = "UITableViewSection"; headerTitle = "Datum der Aussaat"; ObjectID = "pNY-sY-d3D"; */
+"pNY-sY-d3D.headerTitle" = "Datum der Aussaat";
+
+/* Class = "UITabBarItem"; title = "Kalender"; ObjectID = "q6w-d1-ZRP"; */
+"q6w-d1-ZRP.title" = "Kalender";
+
+/* Class = "UITableViewSection"; footerTitle = "Was hast Du gesät?"; ObjectID = "qFP-63-Pfi"; */
+"qFP-63-Pfi.footerTitle" = "Was hast Du gesät?";
+
+/* Class = "UITableViewSection"; headerTitle = "Art des Saatguts"; ObjectID = "qFP-63-Pfi"; */
+"qFP-63-Pfi.headerTitle" = "Art des Saatguts";
+
+/* Class = "UITableViewSection"; headerTitle = "Fortschritt"; ObjectID = "riO-vE-L8W"; */
+"riO-vE-L8W.headerTitle" = "Fortschritt";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "sOs-UV-Kcg"; */
+"sOs-UV-Kcg.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Favoriten"; ObjectID = "tYc-O9-YpK"; */
+"tYc-O9-YpK.title" = "Favoriten";
+
+/* Class = "UITableViewSection"; footerTitle = "Trage hier Informationen zu Deiner Saat ein."; ObjectID = "yI3-sj-gdl"; */
+"yI3-sj-gdl.footerTitle" = "Trage hier Informationen zu Deiner Saat ein.";
+
+/* Class = "UITableViewSection"; headerTitle = "Kommentare"; ObjectID = "yI3-sj-gdl"; */
+"yI3-sj-gdl.headerTitle" = "Kommentare";
+
+/* Class = "UILabel"; text = "Aussat im Topf"; ObjectID = "yl6-PQ-G5B"; */
+"yl6-PQ-G5B.text" = "Aussat im Topf";
+
+/* Class = "UILabel"; text = "Fortschritt:"; ObjectID = "yr9-Xu-xma"; */
+"yr9-Xu-xma.text" = "Fortschritt:";

@@ -4,7 +4,6 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="plantID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="pflanze" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plant" inverseName="herkunft" inverseEntity="Plant" syncable="YES"/>
     </entity>
     <entity name="Plant" representedClassName=".Plant" syncable="YES">
@@ -20,6 +19,7 @@
         <attribute name="duenger" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="familie" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="infos" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="infosErnte" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="latinName" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
@@ -34,8 +34,8 @@
         <relationship name="pflanze" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plant" inverseName="ausgesaet" inverseEntity="Plant" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Origin" positionX="-146" positionY="162" width="128" height="120"/>
-        <element name="Plant" positionX="-387" positionY="-79" width="128" height="330"/>
+        <element name="Origin" positionX="-146" positionY="162" width="128" height="105"/>
+        <element name="Plant" positionX="-387" positionY="-79" width="128" height="345"/>
         <element name="Sowed" positionX="-155" positionY="-82" width="128" height="90"/>
     </elements>
 </model>

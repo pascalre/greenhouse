@@ -50,7 +50,7 @@ class MySowTableViewController: UITableViewController {
                 units.append("Ernte")
             }
         }
-        units.append("verbleibend")
+        units.append("")
         setChart(units, values: progress)
     }
 

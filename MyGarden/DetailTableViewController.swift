@@ -121,7 +121,7 @@ class DetailTableViewController: UITableViewController {
             cell.attributName.text = "Aussaat im Topf"
             cell.attributValue.text = (detailPlant?.aussatAbTopf)! + " - " + (detailPlant?.aussatBisTopf)!
         case 6:
-            cell.attributName.text = "Aussaat im Garten"
+            cell.attributName.text = "Aussaat im Freien"
             cell.attributValue.text = "ab " + (detailPlant?.aussatAbFrei)!
         case 7:
             cell.attributName.text = "Keimbedingung"
