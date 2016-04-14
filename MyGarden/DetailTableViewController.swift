@@ -12,9 +12,11 @@ import CoreData
 
 class DetailTableViewController: UITableViewController {
     // MARK: Properties
-    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var plantImageView: UIImageView!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet var label: [UILabel]!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
+
     let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)!.managedObjectContext
     var detailPlant: Plant? {
         didSet {
@@ -53,8 +55,8 @@ class DetailTableViewController: UITableViewController {
     // MARK: View Setup
     func updateView() {
         if isViewLoaded() {
-            let name = (detailPlant!.valueForKey("name") as? String)!
-            plantImageView.image = UIImage(named: name)
+            let name = detailPlant?.name!
+            plantImageView.image = UIImage(named: name!)
             title = name
             // Favoriten Icon setzen
             if (detailPlant!.valueForKey("isFavorite") as? Bool)! == true {
@@ -62,6 +64,19 @@ class DetailTableViewController: UITableViewController {
             } else {
                 favoriteButton.image = UIImage(named: "Star")
             }
+            let firstHarvest: Int = Int((detailPlant?.dauerKeimung!)!) + Int((detailPlant?.dauerWachsen!)!)
+
+            label[0].text = detailPlant?.latinName!
+            label[1].text = detailPlant?.familie!
+            label[2].text = detailPlant?.anzahlArten!
+            label[3].text = detailPlant?.blaetter!
+            label[4].text = detailPlant?.wuchshoehe!
+            label[5].text = (detailPlant?.aussatAbTopf!)! + " - " + (detailPlant?.aussatBisTopf!)!
+            label[6].text = (detailPlant?.aussatAbFrei!)! + " - " + (detailPlant?.aussatBisFrei!)!
+            label[7].text = detailPlant?.artKeimung!
+            label[8].text = "\((detailPlant?.dauerKeimung!)!) Tage"
+            label[9].text = "\(firstHarvest) Tage"
+            label[10].text = detailPlant?.standort!
 
             // Punkt auf MapView setzen
             let point = MKPointAnnotation()
@@ -89,15 +104,7 @@ class DetailTableViewController: UITableViewController {
     }
 
     // MARK: TableView
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 11
-    }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  /*  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? DetailTableViewCell)!
 
         switch indexPath.row {
@@ -139,7 +146,7 @@ class DetailTableViewController: UITableViewController {
             cell.attributValue.text = ""
         }
         return cell
-    }
+    }*/
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     }

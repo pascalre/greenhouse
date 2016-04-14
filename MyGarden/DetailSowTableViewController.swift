@@ -13,12 +13,7 @@ class DetailSowTableViewController: UITableViewController {
     // MARK: Properties
     @IBOutlet weak var plantImageView: UIImageView!
     @IBOutlet weak var pieChartView: PieChartView!
-    @IBOutlet weak var sowedAtLabel: UILabel!
-    @IBOutlet weak var growingAtLabel: UILabel!
-    @IBOutlet weak var harvestAtLabel: UILabel!
-    @IBOutlet weak var infoTextView: UITextView!
-    @IBOutlet weak var harvestTextView: UITextView!
-
+    @IBOutlet var label: [UILabel]!
     var sow: Sowed?
 
     // MARK: View Setup
@@ -31,22 +26,19 @@ class DetailSowTableViewController: UITableViewController {
         super.viewDidLoad()
 
         let name = sow?.pflanze?.name!
-        plantImageView.image = UIImage(named: name!)
-        title = name
-
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         let gesaet: NSDate = (sow?.gesaetAm)!
-
-        sowedAtLabel.text = dateFormatter.stringFromDate(gesaet)
         let keimDauer: Double = (sow?.pflanze?.dauerKeimung!)! as Double
-        growingAtLabel.text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*keimDauer))
-
         let wuchsDauer: Double = (sow?.pflanze?.dauerWachsen!)! as Double
-        harvestAtLabel.text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*(keimDauer+wuchsDauer)))
 
-        infoTextView.text = sow?.pflanze?.infos
-        harvestTextView.text = sow?.pflanze?.infosErnte
+        plantImageView.image = UIImage(named: name!)
+        title = name
+        label[0].text = dateFormatter.stringFromDate(gesaet)
+        label[1].text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*keimDauer))
+        label[2].text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*(keimDauer+wuchsDauer)))
+        label[3].text = sow?.pflanze?.infos
+        label[4].text = sow?.pflanze?.infosErnte
 
         let progress = getProgress(sow!)
 
