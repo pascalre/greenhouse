@@ -1,6 +1,6 @@
 //
 //  Calendar+CoreDataProperties.swift
-//  
+//
 //
 //  Created by Pascal Reitermann on 15.04.16.
 //
