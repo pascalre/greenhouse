@@ -24,6 +24,8 @@ class DetailSowTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 160.0
 
         let name = sow?.pflanze?.name!
         let dateFormatter = NSDateFormatter()

@@ -104,7 +104,11 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
             print("Updated %@ 's attribute 'isFavorite' to true.", favorites[indexPath.row].name!)
             favorites.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            editButton.title = ""
+            if favorites.count == 0 {
+                editButton.title = ""
+            } else {
+                editButton.title = "Bearbeiten"
+            }
             tableView.reloadData()
         }
     }

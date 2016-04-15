@@ -1,6 +1,6 @@
 //
 //  Plant+CoreDataProperties.swift
-//  
+//
 //
 //  Created by Pascal Reitermann on 13.04.16.
 //

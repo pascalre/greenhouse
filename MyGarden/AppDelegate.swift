@@ -10,10 +10,90 @@ import UIKit
 import CoreData
 import SwiftyJSON
 
+enum Month: Int {
+    case January = 0
+    case February
+    case March
+    case April
+    case May
+    case June
+    case July
+    case August
+    case September
+    case October
+    case November
+    case December
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let defaults = NSUserDefaults.standardUserDefaults()
+
+    var months: [Month] = [
+        Month.January,
+        Month.February,
+        Month.March,
+        Month.April,
+        Month.May,
+        Month.June,
+        Month.July,
+        Month.August,
+        Month.September,
+        Month.October,
+        Month.November,
+        Month.December
+    ]
+
+    var calendarArray = [
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""],
+        ["", ""]
+    ]
+
+    func addPlantToCalendar(name: String, place: String, mon1: Month, mon2: Month) {
+        for m in months {
+            if m.rawValue >= mon1.rawValue && m.rawValue <= mon2.rawValue {
+
+                var help = 0
+                if place == "out" {
+                    help = 1
+                }
+
+                if calendarArray[m.rawValue][help].characters.count != 0 {
+                    calendarArray[m.rawValue][help] += ", "
+                }
+                calendarArray[m.rawValue][help] += name
+            }
+        }
+    }
+
+    func getMonthFromString(month: String) -> Month {
+        switch month {
+        case "Januar": return Month.January
+        case "Februar": return Month.February
+        case "März": return Month.March
+        case "April": return Month.April
+        case "Mai": return Month.May
+        case "Juni": return Month.June
+        case "Juli": return Month.July
+        case "August": return Month.August
+        case "September": return Month.September
+        case "Oktober": return Month.October
+        case "November": return Month.November
+        default:
+            return Month.December
+        }
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -30,6 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             if json["metadata"]["responseInfo"]["status"].intValue == 200 {
                 let managedContext = self.managedObjectContext
+
                 for result in json["results"].arrayValue {
                     let entity =  NSEntityDescription.entityForName("Plant", inManagedObjectContext:managedContext)
                     let plant = Plant(entity: entity!, insertIntoManagedObjectContext: managedContext)
@@ -55,13 +136,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     plant.latitude = result["latitude"].doubleValue
                     plant.longitude = result["longitude"].doubleValue
 
-                    do {
-                        try managedContext.save()
-                    } catch let error as NSError {
-                        print("Could not save \(error), \(error.userInfo)")
-                    }
-                }}
-            defaults.setBool(true, forKey: "databaseIsFilled")
+                    addPlantToCalendar(plant.name!, place: "in", mon1: getMonthFromString(plant.aussatAbTopf!), mon2: getMonthFromString(plant.aussatBisTopf!))
+                    addPlantToCalendar(plant.name!, place: "out", mon1: getMonthFromString(plant.aussatAbFrei!), mon2: getMonthFromString(plant.aussatBisFrei!))
+                }
+
+                let calEntity =  NSEntityDescription.entityForName("Calendar", inManagedObjectContext:managedContext)
+                let cal = Calendar(entity: calEntity!, insertIntoManagedObjectContext: managedContext)
+
+                cal.januarIn = calendarArray[0][0]
+                cal.januarOut = calendarArray[0][1]
+                cal.februarIn = calendarArray[1][0]
+                cal.februarOut = calendarArray[1][1]
+                cal.maerzIn = calendarArray[2][0]
+                cal.maerzOut = calendarArray[2][1]
+                cal.aprilIn = calendarArray[3][0]
+                cal.aprilOut = calendarArray[3][1]
+                cal.maiIn = calendarArray[4][0]
+                cal.maiOut = calendarArray[4][1]
+                cal.juniIn = calendarArray[5][0]
+                cal.juniOut = calendarArray[5][1]
+                cal.juliIn = calendarArray[6][0]
+                cal.juliOut = calendarArray[6][1]
+                cal.augustIn = calendarArray[7][0]
+                cal.augustOut = calendarArray[7][1]
+                cal.septemberIn = calendarArray[8][0]
+                cal.septemberOut = calendarArray[8][1]
+                cal.oktoberIn = calendarArray[9][0]
+                cal.oktoberOut = calendarArray[9][1]
+                cal.novemberIn = calendarArray[10][0]
+                cal.novemberOut = calendarArray[10][1]
+                cal.dezemberIn = calendarArray[11][0]
+                cal.dezemberOut = calendarArray[11][1]
+
+                do {
+                    try managedContext.save()
+                } catch let error as NSError {
+                    print("Could not save \(error), \(error.userInfo)")
+                }
+
+                defaults.setBool(true, forKey: "databaseIsFilled")
+            }
         }
         defaults.synchronize()
         return true

@@ -87,6 +87,7 @@ class DetailTableViewController: UITableViewController {
             point.subtitle = "Herkunft"
             mapView.addAnnotation(point)
             mapView.setCenterCoordinate(point.coordinate, animated: false)
+            self.mapView.selectAnnotation(point, animated: false)
         }
     }
 
