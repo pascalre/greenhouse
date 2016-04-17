@@ -53,11 +53,11 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
 
         do {
             try managedObjectContext.save()
-            self.navigationController?.popViewControllerAnimated(true)
             NSLog("New Entry in 'Sowed': %@", plant.name!)
         } catch let error as NSError {
             print("Could not save \(error), \(error.userInfo)")
         }
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
     // MARK: TableView
