@@ -14,7 +14,6 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
     // MARK: Properties
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var datePicker: UIDatePicker!
-
     var plants = [Plant]?()
     let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)!.managedObjectContext
 
@@ -22,7 +21,6 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.maximumDate = NSDate()
-
         // Connect data:
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
@@ -62,12 +60,10 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
 
     // MARK: TableView
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 1
     }
 
