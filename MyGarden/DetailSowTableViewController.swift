@@ -31,15 +31,15 @@ class DetailSowTableViewController: UITableViewController {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         let gesaet: NSDate = (sow?.gesaetAm)!
-        let keimDauer: Double = (sow?.pflanze?.dauerKeimung!)! as Double
-        let wuchsDauer: Double = (sow?.pflanze?.dauerWachsen!)! as Double
+        let keimDauer: Double = (sow?.pflanze?.keimdauer!)! as Double
+        let wuchsDauer: Double = (sow?.pflanze?.wuchsdauer!)! as Double
 
         plantImageView.image = UIImage(named: name!)
         title = name
         label[0].text = dateFormatter.stringFromDate(gesaet)
         label[1].text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*keimDauer))
         label[2].text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*(keimDauer+wuchsDauer)))
-        label[3].text = sow?.pflanze?.infos
+        label[3].text = sow?.pflanze?.infosPflege
         label[4].text = sow?.pflanze?.infosErnte
 
         let progress = getProgress(sow!)
@@ -64,20 +64,20 @@ class DetailSowTableViewController: UITableViewController {
     func getProgress(sow: Sowed) -> [Double] {
         let sowedDate = sow.gesaetAm!
         var passedDays: Double = NSDate().timeIntervalSinceDate(sowedDate) / 60.0 / 60.0 / 24.0
-        let entireDays: Double = Double(sow.pflanze!.dauerKeimung!) + Double(sow.pflanze!.dauerWachsen!) + 10
+        let entireDays: Double = Double(sow.pflanze!.keimdauer!) + Double(sow.pflanze!.wuchsdauer!) + 10
         var keimung: Double = passedDays
         var wachsen: Double = 0.0
         var ernte: Double = 0.0
         var rest: Double = entireDays-passedDays
 
-        if passedDays >= Double(sow.pflanze!.dauerKeimung!) {
-            keimung = Double(sow.pflanze!.dauerKeimung!)
+        if passedDays >= Double(sow.pflanze!.keimdauer!) {
+            keimung = Double(sow.pflanze!.keimdauer!)
             passedDays = passedDays-keimung
             wachsen = passedDays
             rest = entireDays - keimung - wachsen
 
-            if passedDays >= Double(sow.pflanze!.dauerWachsen!) {
-                wachsen = Double(sow.pflanze!.dauerWachsen!)
+            if passedDays >= Double(sow.pflanze!.wuchsdauer!) {
+                wachsen = Double(sow.pflanze!.wuchsdauer!)
                 passedDays = passedDays-wachsen
                 ernte = passedDays
                 rest = entireDays - keimung - wachsen - ernte

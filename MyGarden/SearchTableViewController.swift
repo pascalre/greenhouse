@@ -76,6 +76,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             plant = plants![indexPath.row]
         }
         cell.textLabel!.text = plant.valueForKey("name") as? String
+        cell.detailTextLabel!.text = plant.valueForKey("sorte") as? String
 
         return cell
     }

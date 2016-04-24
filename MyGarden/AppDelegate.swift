@@ -116,30 +116,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let plant = Plant(entity: entity!, insertIntoManagedObjectContext: managedContext)
 
                     plant.name = result["name"].stringValue
-                    plant.isFavorite = result["isFavorite"].intValue
-                    plant.latinName = result["latinName"].stringValue
-                    plant.anzahlArten = result["anzahlArten"].stringValue
-                    plant.artKeimung = result["artKeimung"].stringValue
-                    plant.aussatAbFrei = result["aussatAbFrei"].stringValue
-                    plant.aussatBisFrei = result["aussatBisFrei"].stringValue
-                    plant.aussatAbTopf = result["aussatAbTopf"].stringValue
-                    plant.aussatBisTopf = result["aussatBisTopf"].stringValue
-                    plant.blaetter = result["blaetter"].stringValue
-                    plant.dauerKeimung = result["dauerKeimung"].intValue
-                    plant.dauerWachsen = result["dauerWachsen"].intValue
+                    plant.sorte = result["sorte"].stringValue
+                    plant.auspflanzungAb = result[""].stringValue
+                    plant.auspflanzungBis = result[""].stringValue
+                    plant.boden = result[""].stringValue
+                    plant.direktsaatAb = result[""].stringValue
+                    plant.direktsaatBis = result[""].stringValue
+                    plant.ernteAb = result[""].stringValue
+                    plant.ernteBis = result[""].stringValue
                     plant.familie = result["familie"].stringValue
-                    plant.infos = result["infos"].stringValue
-                    plant.infosErnte = result["infosErnte"].stringValue
-                    plant.standort = result["standort"].stringValue
-                    plant.wuchshoehe = result["wuchshoehe"].stringValue
                     plant.herkunft = result["herkunft"].stringValue
-                    plant.latitude = result["latitude"].doubleValue
-                    plant.longitude = result["longitude"].doubleValue
+                    plant.lat = result["latitude"].doubleValue
+                    plant.long = result["longitude"].doubleValue
+                    plant.infosErnte = result[""].stringValue
+                    plant.infosPflege  = result[""].stringValue
+                    plant.isFavorite = result["isFavorite"].intValue
+                    plant.keimdauer = result[""].intValue
+                    plant.saattiefe = result[""].stringValue
+                    plant.standort = result[""].stringValue
+                    plant.vorkulturAb = result[""].stringValue
+                    plant.vorkulturBis = result[""].stringValue
+                    plant.wissName = result[""].stringValue
+                    plant.wuchsdauer = result[""].intValue
+                    plant.wuchshoehe = result[""].stringValue
 
-                    addPlantToCalendar(plant.name!, place: "in", mon1: getMonthFromString(plant.aussatAbTopf!), mon2: getMonthFromString(plant.aussatBisTopf!))
-                    addPlantToCalendar(plant.name!, place: "out", mon1: getMonthFromString(plant.aussatAbFrei!), mon2: getMonthFromString(plant.aussatBisFrei!))
+                    //addPlantToCalendar(plant.name!, place: "in", mon1: getMonthFromString(plant.aussatAbTopf!), mon2: getMonthFromString(plant.aussatBisTopf!))
+                    //addPlantToCalendar(plant.name!, place: "out", mon1: getMonthFromString(plant.aussatAbFrei!), mon2: getMonthFromString(plant.aussatBisFrei!))
                 }
-
+/*
                 let calEntity =  NSEntityDescription.entityForName("Calendar", inManagedObjectContext:managedContext)
                 let cal = Calendar(entity: calEntity!, insertIntoManagedObjectContext: managedContext)
 
@@ -167,7 +171,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 cal.novemberOut = calendarArray[10][1]
                 cal.dezemberIn = calendarArray[11][0]
                 cal.dezemberOut = calendarArray[11][1]
-
+*/
                 do {
                     try managedContext.save()
                 } catch let error as NSError {

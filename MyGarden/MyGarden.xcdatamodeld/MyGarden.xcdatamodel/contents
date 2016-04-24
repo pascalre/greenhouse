@@ -1,51 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
-    <entity name="Calendar" representedClassName=".Calendar" syncable="YES">
-        <attribute name="aprilIn" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="aprilOut" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="augustIn" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="augustOut" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dezemberIn" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dezemberOut" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="februarIn" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="februarOut" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="januarIn" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="januarOut" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="juliIn" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="juliOut" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="juniIn" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="juniOut" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="maerzIn" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="maerzOut" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="maiIn" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="maiOut" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="novemberIn" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="novemberOut" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="oktoberIn" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="oktoberOut" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="septemberIn" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="septemberOut" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <entity name="Plant" representedClassName=".Plant" syncable="YES">
-        <attribute name="anzahlArten" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="artKeimung" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="aussatAbFrei" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="aussatAbTopf" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="aussatBisFrei" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="aussatBisTopf" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="blaetter" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dauerKeimung" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="dauerWachsen" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="auspflanzungAb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="auspflanzungBis" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="boden" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="direktsaatAb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="direktsaatBis" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ernteAb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ernteBis" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="familie" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="herkunft" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="infos" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="infosErnte" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="infosPflege" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="latinName" attributeType="String" syncable="YES"/>
-        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="keimdauer" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="long" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="saattiefe" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sorte" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="standort" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vorkulturAb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vorkulturBis" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wissName" attributeType="String" syncable="YES"/>
+        <attribute name="wuchsdauer" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="wuchshoehe" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="ausgesaet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sowed" inverseName="pflanze" inverseEntity="Sowed" syncable="YES"/>
     </entity>
@@ -55,8 +33,7 @@
         <relationship name="pflanze" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plant" inverseName="ausgesaet" inverseEntity="Plant" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Plant" positionX="-387" positionY="-79" width="128" height="360"/>
+        <element name="Plant" positionX="-576" positionY="-99" width="128" height="420"/>
         <element name="Sowed" positionX="-155" positionY="-82" width="128" height="90"/>
-        <element name="Calendar" positionX="-270" positionY="72" width="128" height="405"/>
     </elements>
 </model>

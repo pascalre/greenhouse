@@ -119,13 +119,13 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
     func getProgress(sowed: Sowed) -> Int {
         let sowedDate = sowed.gesaetAm!
         let passedDays: Double = NSDate().timeIntervalSinceDate(sowedDate) / 60.0 / 60.0 / 24.0
-        let entireDaysToGrow: Double = Double(sowed.pflanze!.dauerKeimung!) + Double(sowed.pflanze!.dauerWachsen!)
+        let entireDaysToGrow: Double = Double(sowed.pflanze!.keimdauer!) + Double(sowed.pflanze!.wuchsdauer!)
 
-        let progress = Int(100.0 / entireDaysToGrow * passedDays)
+        let progress = 100.0 / entireDaysToGrow * passedDays
         if  progress > 100  || progress < 0 {
             return 100
         }
-        return progress
+        return Int(progress)
     }
 
     // MARK: - Segues
