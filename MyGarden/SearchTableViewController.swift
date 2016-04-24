@@ -83,7 +83,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
     func filterContentForSearchText(searchText: String) {
         filteredArray = plants!.filter({( plant: NSManagedObject) -> Bool in
-            return (plant.valueForKey("name") as? String)!.lowercaseString.containsString(searchText.lowercaseString)
+            return ((plant.valueForKey("name") as? String)!.lowercaseString.containsString(searchText.lowercaseString) || (plant.valueForKey("sorte") as? String)!.lowercaseString.containsString(searchText.lowercaseString))
         })
         tableView.reloadData()
     }

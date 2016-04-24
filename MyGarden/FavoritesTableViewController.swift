@@ -91,6 +91,7 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
 
         let favorite = favorites[indexPath.row]
         cell.textLabel!.text = String(favorite.name!)
+        cell.detailTextLabel!.text = String(favorite.sorte!)
         return cell
     }
 
