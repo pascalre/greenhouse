@@ -16,10 +16,12 @@ class DetailTableViewController: UITableViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
 
+    var cells: [[String]] = []
     let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)!.managedObjectContext
     var detailPlant: Plant? {
         didSet {
             updateView()
+            makeCellArray()
         }
     }
 
@@ -103,7 +105,7 @@ class DetailTableViewController: UITableViewController {
             } else {
                 favoriteButton.image = UIImage(named: "Star")
             }
-            let firstHarvest: Int = Int((detailPlant?.keimdauer!)!) + Int((detailPlant?.wuchsdauer!)!)
+
 /*
             label[0].text = detailPlant?.wissName!
             label[1].text = detailPlant?.familie!
@@ -128,6 +130,24 @@ class DetailTableViewController: UITableViewController {
             mapView.setCenterCoordinate(point.coordinate, animated: false)
             self.mapView.selectAnnotation(point, animated: false)
         }
+    }
+
+    func makeCellArray() {
+        cells = [["wiss. Name", detailPlant!.wissName!], ["Familie", detailPlant!.familie!], ["Wuchshöhe", detailPlant!.wuchshoehe!], ["Standort", detailPlant!.standort!]]
+        if let vorkulturAb = detailPlant!.vorkulturAb {
+            cells.append(["Vorkultur", vorkulturAb + " - " + detailPlant!.vorkulturBis!])
+        }
+        if let auspflanzungAb = detailPlant!.auspflanzungAb {
+            cells.append(["Auspflanzung", auspflanzungAb + " - " + detailPlant!.auspflanzungBis!])
+        }
+        if let direktsaatAb = detailPlant!.direktsaatAb {
+            cells.append(["Vorkultur", direktsaatAb + " - " + detailPlant!.direktsaatBis!])
+        }
+        cells.append(["Ernte", detailPlant!.ernteAb! + " - " + detailPlant!.ernteBis!])
+        cells.append(["Keimdauer", "\(detailPlant!.keimdauer!)"])
+
+        let firstHarvest: Int = Int(detailPlant!.keimdauer!) + Int(detailPlant!.wuchsdauer!)
+        cells.append(["Erste Ernte", "\(firstHarvest)"])
     }
 
     override func viewDidLoad() {
@@ -163,12 +183,15 @@ class DetailTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
-            return 3
+            return cells.count
         }
         return 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        cell.textLabel!.text = cells[indexPath.row][0]
+        cell.detailTextLabel!.text = cells[indexPath.row][1]
+        return cell
     }
 }
