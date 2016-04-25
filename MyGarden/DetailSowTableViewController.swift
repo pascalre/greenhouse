@@ -13,7 +13,8 @@ class DetailSowTableViewController: UITableViewController {
     // MARK: Properties
     @IBOutlet weak var plantImageView: UIImageView!
     @IBOutlet weak var pieChartView: PieChartView!
-    @IBOutlet var label: [UILabel]!
+    @IBOutlet var cells: [UITableViewCell]!
+    @IBOutlet var labels: [UILabel]!
     var sow: Sowed?
 
     // MARK: View Setup
@@ -75,11 +76,11 @@ class DetailSowTableViewController: UITableViewController {
         title = ""
         self.navigationItem.titleView = setTitle(name!, subtitle: (sow?.pflanze!.sorte!)!)
 
-        label[0].text = dateFormatter.stringFromDate(gesaet)
-        label[1].text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*keimDauer))
-        label[2].text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*(keimDauer+wuchsDauer)))
-        label[3].text = sow?.pflanze?.infosPflege
-        label[4].text = sow?.pflanze?.infosErnte
+        cells[0].detailTextLabel!.text = dateFormatter.stringFromDate(gesaet)
+        cells[1].detailTextLabel!.text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*keimDauer))
+        cells[2].detailTextLabel!.text = dateFormatter.stringFromDate(gesaet.dateByAddingTimeInterval(60.0*60.0*24.0*(keimDauer+wuchsDauer)))
+        labels[0].text = sow?.pflanze?.infosPflege
+        labels[1].text = sow?.pflanze?.infosErnte
 
         let progress = getProgress(sow!)
 
@@ -131,9 +132,7 @@ class DetailSowTableViewController: UITableViewController {
     }
 
     func setChart(dataPoints: [String], values: [Double]) {
-
         var dataEntries: [ChartDataEntry] = []
-
         for i in 0..<dataPoints.count {
             let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
             dataEntries.append(dataEntry)

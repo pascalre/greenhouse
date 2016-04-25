@@ -117,28 +117,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
                     plant.name = result["name"].stringValue
                     plant.sorte = result["sorte"].stringValue
-                    plant.auspflanzungAb = result[""].stringValue
-                    plant.auspflanzungBis = result[""].stringValue
-                    plant.boden = result[""].stringValue
-                    plant.direktsaatAb = result[""].stringValue
-                    plant.direktsaatBis = result[""].stringValue
-                    plant.ernteAb = result[""].stringValue
-                    plant.ernteBis = result[""].stringValue
+                    plant.auspflanzungAb = result["auspflanzungAb"].stringValue
+                    plant.auspflanzungBis = result["auspflanzungBis"].stringValue
+                    plant.boden = result["boden"].stringValue
+                    plant.direktsaatAb = result["direktsaatAb"].stringValue
+                    plant.direktsaatBis = result["direktsaatBis"].stringValue
+                    plant.ernteAb = result["ernteAb"].stringValue
+                    plant.ernteBis = result["ernteBis"].stringValue
                     plant.familie = result["familie"].stringValue
                     plant.herkunft = result["herkunft"].stringValue
-                    plant.lat = result["latitude"].doubleValue
-                    plant.long = result["longitude"].doubleValue
-                    plant.infosErnte = result[""].stringValue
-                    plant.infosPflege  = result[""].stringValue
-                    plant.isFavorite = result["isFavorite"].intValue
-                    plant.keimdauer = result[""].intValue
-                    plant.saattiefe = result[""].stringValue
-                    plant.standort = result[""].stringValue
-                    plant.vorkulturAb = result[""].stringValue
-                    plant.vorkulturBis = result[""].stringValue
-                    plant.wissName = result[""].stringValue
-                    plant.wuchsdauer = result[""].intValue
-                    plant.wuchshoehe = result[""].stringValue
+                    plant.lat = result["lat"].doubleValue
+                    plant.long = result["long"].doubleValue
+                    plant.infosErnte = result["infosErnte"].stringValue
+                    plant.infosPflege  = result["infosPflege"].stringValue
+                    plant.isFavorite = false
+                    plant.keimdauer = result["keimdauer"].intValue
+                    plant.saattiefe = result["saattiefe"].stringValue
+                    plant.standort = result["standort"].stringValue
+                    plant.vorkulturAb = result["vorkulturAb"].stringValue
+                    plant.vorkulturBis = result["vorkulturBis"].stringValue
+                    plant.wissName = result["wissName"].stringValue
+                    plant.wuchsdauer = result["wuchsdauer"].intValue
+                    plant.wuchshoehe = result["wuchshoehe"].stringValue
 
                     //addPlantToCalendar(plant.name!, place: "in", mon1: getMonthFromString(plant.aussatAbTopf!), mon2: getMonthFromString(plant.aussatBisTopf!))
                     //addPlantToCalendar(plant.name!, place: "out", mon1: getMonthFromString(plant.aussatAbFrei!), mon2: getMonthFromString(plant.aussatBisFrei!))
