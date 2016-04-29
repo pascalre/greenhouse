@@ -20,7 +20,6 @@
 		2D987B6E1CCF78D800C63871 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D987B6D1CCF78D800C63871 /* CalendarTableViewCell.swift */; };
 		2DB6A44A1CCE1C4A0061B3B5 /* SowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6A4491CCE1C4A0061B3B5 /* SowTableViewController.swift */; };
 		2DB6A44C1CCE1CFF0061B3B5 /* DetailSowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6A44B1CCE1CFF0061B3B5 /* DetailSowTableViewController.swift */; };
-		2DB6A4521CCE96860061B3B5 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6A4511CCE96860061B3B5 /* CalendarView.swift */; };
 		2DBE76171CABBC6100C6EF6D /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE76161CABBC6100C6EF6D /* DetailTableViewController.swift */; };
 		2DDDF28D1CA164D30075674B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDDF28C1CA164D30075674B /* AppDelegate.swift */; };
 		2DDDF2921CA164D30075674B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DDDF2901CA164D30075674B /* Main.storyboard */; };
@@ -78,7 +77,6 @@
 		2DA1A10A1CBE59C7007E8981 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		2DB6A4491CCE1C4A0061B3B5 /* SowTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SowTableViewController.swift; sourceTree = "<group>"; };
 		2DB6A44B1CCE1CFF0061B3B5 /* DetailSowTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailSowTableViewController.swift; sourceTree = "<group>"; };
-		2DB6A4511CCE96860061B3B5 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		2DBE76161CABBC6100C6EF6D /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		2DDDF2891CA164D30075674B /* Greenhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Greenhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DDDF28C1CA164D30075674B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 		2D9C63AA1CBE4ACA000DD080 /* Kalender */ = {
 			isa = PBXGroup;
 			children = (
-				2DB6A4511CCE96860061B3B5 /* CalendarView.swift */,
 				2D987B6B1CCF71E500C63871 /* CalendarTableViewController.swift */,
 				2D987B6D1CCF78D800C63871 /* CalendarTableViewCell.swift */,
 			);
@@ -471,7 +468,6 @@
 				2D0769FC1CCBC47D00E5D207 /* Plant.swift in Sources */,
 				2D7562E81CA877DF00487F60 /* DetailTableViewCell.swift in Sources */,
 				2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */,
-				2DB6A4521CCE96860061B3B5 /* CalendarView.swift in Sources */,
 				2D31B65A1CCD5CF8003F4AD5 /* GardenTableViewCell.swift in Sources */,
 				2D987B6C1CCF71E500C63871 /* CalendarTableViewController.swift in Sources */,
 				2DDDF28D1CA164D30075674B /* AppDelegate.swift in Sources */,

@@ -26,7 +26,7 @@ class CalendarTableViewController: UITableViewController {
             print("Could not fetch \(error), \(error.userInfo)")
         }
     }
-    
+
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
     }
@@ -53,23 +53,15 @@ class CalendarTableViewController: UITableViewController {
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       
-
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CalendarTableViewCell
-            cell!.title.text = ""
-            cell!.subtitle.text = ""
-            for subview in cell!.calendarView.subviews {
-                subview.removeFromSuperview()
-            }
-            cell!.calendarView.addSubview(makeHeader(cell!))
-            return cell!
+            let cell = tableView.dequeueReusableCellWithIdentifier("Header", forIndexPath: indexPath)
+            return cell
         }
         if indexPath.row == (plants?.count)! + 1 {
             let cell = tableView.dequeueReusableCellWithIdentifier("Legend", forIndexPath: indexPath) as UITableViewCell
             return cell
         }
-        
+
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CalendarTableViewCell
         cell!.title.text = plants![indexPath.row-1].name
         cell!.subtitle.text = plants![indexPath.row-1].sorte

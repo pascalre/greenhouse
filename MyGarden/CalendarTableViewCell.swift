@@ -10,15 +10,18 @@ import UIKit
 
 class CalendarTableViewCell: UITableViewCell {
     // MARK: Properties
-
     @IBOutlet weak var title: UILabel!
-
     @IBOutlet weak var subtitle: UILabel!
+
     @IBOutlet weak var calendarView: UIView!
+    @IBOutlet weak var vorkulturView: UIView!
+    @IBOutlet weak var auspflanzungView: UIView!
+    @IBOutlet weak var direktsaatView: UIView!
+    @IBOutlet weak var ernteView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+       // vorkulturView.layer.cornerRadius = 5
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

@@ -105,20 +105,6 @@ class DetailTableViewController: UITableViewController {
             } else {
                 favoriteButton.image = UIImage(named: "Star")
             }
-
-/*
-            label[0].text = detailPlant?.wissName!
-            label[1].text = detailPlant?.familie!
-            label[2].text = detailPlant?.sorte!
-            label[3].text = detailPlant?.boden!
-            label[4].text = detailPlant?.wuchshoehe!
-            label[5].text = (detailPlant?.vorkulturAb!)! + " - " + (detailPlant?.vorkulturBis!)!
-            label[6].text = (detailPlant?.direktsaatAb!)! + " - " + (detailPlant?.direktsaatBis!)!
-            label[7].text = detailPlant?.saattiefe!
-            label[8].text = "\((detailPlant?.keimdauer!)!) Tage"
-            label[9].text = "\(firstHarvest) Tage"
-            label[10].text = detailPlant?.standort!
-*/
             // Punkt auf MapView setzen
             let point = MKPointAnnotation()
             let latitude = detailPlant?.lat as? Double
@@ -141,7 +127,7 @@ class DetailTableViewController: UITableViewController {
             cells.append(["Auspflanzung", auspflanzungAb + " - " + detailPlant!.auspflanzungBis!])
         }
         if let direktsaatAb = detailPlant!.direktsaatAb {
-            cells.append(["Vorkultur", direktsaatAb + " - " + detailPlant!.direktsaatBis!])
+            cells.append(["Direktsaat", direktsaatAb + " - " + detailPlant!.direktsaatBis!])
         }
         cells.append(["Ernte", detailPlant!.ernteAb! + " - " + detailPlant!.ernteBis!])
         cells.append(["Keimdauer", "\(detailPlant!.keimdauer!) Tage"])

@@ -60,10 +60,18 @@ class DetailSowTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 1 {
+            return 400.0
+        }
+        return UITableViewAutomaticDimension
+    }
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 160.0
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 160.0
 
         let name = sow?.pflanze?.name!
         let dateFormatter = NSDateFormatter()
