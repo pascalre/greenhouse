@@ -25,6 +25,9 @@ class CalendarTableViewController: UITableViewController {
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
     }
 
@@ -42,21 +45,52 @@ class CalendarTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return (plants?.count)! + 1
+        if let plantsCount = self.plants?.count {
+            return plantsCount + 2
+        }
+        return 2
     }
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CalendarTableViewCell
+       
 
         if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CalendarTableViewCell
             cell!.title.text = ""
             cell!.subtitle.text = ""
+            for subview in cell!.calendarView.subviews {
+                subview.removeFromSuperview()
+            }
+            cell!.calendarView.addSubview(makeHeader(cell!))
             return cell!
         }
+        if indexPath.row == (plants?.count)! + 1 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("Legend", forIndexPath: indexPath) as UITableViewCell
+            return cell
+        }
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CalendarTableViewCell
         cell!.title.text = plants![indexPath.row-1].name
         cell!.subtitle.text = plants![indexPath.row-1].sorte
         return cell!
+    }
+
+    func makeHeader(cell: CalendarTableViewCell) -> UIView {
+        let titleView = UIView(frame: CGRectMake(0, 0, cell.calendarView.frame.width, cell.calendarView.frame.height))
+        let x: Int = Int(cell.calendarView.frame.width/12)
+     
+        for (i, month) in ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"].enumerate() {
+            let titleLabel = UILabel(frame: CGRectMake(CGFloat(2+x*i), 10, 20, 20)) //x, y, width, height where y is to offset from the view center
+            titleLabel.backgroundColor = UIColor.clearColor()
+            titleLabel.textColor = UIColor.blackColor()
+            titleLabel.font = UIFont.systemFontOfSize(13)
+            titleLabel.text = month
+            titleLabel.textAlignment = .Center
+            //titleLabel.sizeToFit()
+            titleView.addSubview(titleLabel)
+        }
+        return titleView
     }
 
     /*
@@ -75,7 +109,7 @@ class CalendarTableViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 

@@ -144,10 +144,10 @@ class DetailTableViewController: UITableViewController {
             cells.append(["Vorkultur", direktsaatAb + " - " + detailPlant!.direktsaatBis!])
         }
         cells.append(["Ernte", detailPlant!.ernteAb! + " - " + detailPlant!.ernteBis!])
-        cells.append(["Keimdauer", "\(detailPlant!.keimdauer!)"])
+        cells.append(["Keimdauer", "\(detailPlant!.keimdauer!) Tage"])
 
         let firstHarvest: Int = Int(detailPlant!.keimdauer!) + Int(detailPlant!.wuchsdauer!)
-        cells.append(["Erste Ernte", "\(firstHarvest)"])
+        cells.append(["Erste Ernte", "\(firstHarvest) Tage"])
     }
 
     override func viewDidLoad() {

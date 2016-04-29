@@ -10,7 +10,9 @@ import UIKit
 
 class CalendarTableViewCell: UITableViewCell {
     // MARK: Properties
+
     @IBOutlet weak var title: UILabel!
+
     @IBOutlet weak var subtitle: UILabel!
     @IBOutlet weak var calendarView: UIView!
 

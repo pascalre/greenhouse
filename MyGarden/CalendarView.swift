@@ -34,7 +34,6 @@ class CalendarView: UIView {
         titleView.addSubview(titleLabel)
         titleView.addSubview(subtitleLabel)
         addSubview(titleView)
-        
     }
 
     func makeHeader() -> UIView {
@@ -51,7 +50,7 @@ class CalendarView: UIView {
         }
         return titleView
     }
-    
+
     override func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
         CGContextSetLineWidth(context, 1.0)
