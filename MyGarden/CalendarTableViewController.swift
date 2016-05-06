@@ -65,13 +65,27 @@ class CalendarTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CalendarTableViewCell
         cell!.title.text = plants![indexPath.row-1].name
         cell!.subtitle.text = plants![indexPath.row-1].sorte
+        cell!.setCorrectBounds(plants![indexPath.row-1].vorkulturAb!, until: plants![indexPath.row-1].vorkulturBis!)
         return cell!
     }
 
+    // MARK: - Segues
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            print("Test..")
+            let cell = sender as? CalendarTableViewCell
+            let indexPath = self.tableView.indexPathForCell(cell!)!
+
+            let controller = segue.destinationViewController as? DetailTableViewController
+            controller!.detailPlant = plants![indexPath.row-1]
+        }
+    }
+
+/*
     func makeHeader(cell: CalendarTableViewCell) -> UIView {
         let titleView = UIView(frame: CGRectMake(0, 0, cell.calendarView.frame.width, cell.calendarView.frame.height))
         let x: Int = Int(cell.calendarView.frame.width/12)
-     
+
         for (i, month) in ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"].enumerate() {
             let titleLabel = UILabel(frame: CGRectMake(CGFloat(2+x*i), 10, 20, 20)) //x, y, width, height where y is to offset from the view center
             titleLabel.backgroundColor = UIColor.clearColor()
@@ -84,7 +98,7 @@ class CalendarTableViewController: UITableViewController {
         }
         return titleView
     }
-
+*/
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

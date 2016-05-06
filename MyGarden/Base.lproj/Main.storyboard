@@ -260,7 +260,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vjm-Ka-B9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3556" y="1432"/>
+            <point key="canvasLocation" x="3556" y="1496"/>
         </scene>
         <!--Garten-->
         <scene sceneID="h75-i3-jIc">
@@ -639,7 +639,7 @@
         <scene sceneID="Ze0-wn-z32">
             <objects>
                 <tableViewController id="q16-mP-SAL" customClass="CalendarTableViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Bl-el-VQj">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Bl-el-VQj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -752,7 +752,7 @@
                                     <outlet property="calendarView" destination="bx2-Ui-SmF" id="4r7-Td-P0P"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="yeg-Qo-nvc" customClass="CalendarTableViewCell" customModule="Greenhouse" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" focusStyle="custom" id="yeg-Qo-nvc" customClass="CalendarTableViewCell" customModule="Greenhouse" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yeg-Qo-nvc" id="55D-M6-Xhe">
@@ -862,16 +862,17 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="auspflanzungView" destination="aH9-9R-hC2" id="35T-vD-2Ze"/>
                                     <outlet property="calendarView" destination="ENx-Y6-HQ8" id="ee5-Vl-yEi"/>
-                                    <outlet property="direktsaatView" destination="Xhc-fF-6yU" id="gfg-ks-b3O"/>
-                                    <outlet property="ernteView" destination="fx0-ou-ShP" id="z65-UB-QLG"/>
                                     <outlet property="subtitle" destination="AC8-Zb-J0t" id="vpk-0l-Sfi"/>
                                     <outlet property="title" destination="ZyC-Xg-1ks" id="6W5-xV-LbF"/>
-                                    <outlet property="vorkulturView" destination="rjD-40-kr6" id="LW9-W3-rgm"/>
+                                    <outletCollection property="viewCollection" destination="rjD-40-kr6" collectionClass="NSMutableArray" id="0oW-Yt-b2O"/>
+                                    <outletCollection property="viewCollection" destination="aH9-9R-hC2" collectionClass="NSMutableArray" id="4VN-bd-z0p"/>
+                                    <outletCollection property="viewCollection" destination="Xhc-fF-6yU" collectionClass="NSMutableArray" id="fmd-VF-gBa"/>
+                                    <outletCollection property="viewCollection" destination="fx0-ou-ShP" collectionClass="NSMutableArray" id="um0-PF-hPp"/>
+                                    <segue destination="S5f-CE-zcb" kind="show" identifier="showDetail" id="Z0o-08-dEI"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Legend" id="gCJ-QL-Oke">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Legend" id="gCJ-QL-Oke">
                                 <rect key="frame" x="0.0" y="180" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gCJ-QL-Oke" id="8Cv-ld-IQE">
@@ -979,7 +980,7 @@
         <image name="Star" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cvP-EB-LRL"/>
+        <segue reference="Z0o-08-dEI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

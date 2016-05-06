@@ -190,8 +190,8 @@
 		2D9C63AA1CBE4ACA000DD080 /* Kalender */ = {
 			isa = PBXGroup;
 			children = (
-				2D987B6B1CCF71E500C63871 /* CalendarTableViewController.swift */,
 				2D987B6D1CCF78D800C63871 /* CalendarTableViewCell.swift */,
+				2D987B6B1CCF71E500C63871 /* CalendarTableViewController.swift */,
 			);
 			name = Kalender;
 			sourceTree = "<group>";
