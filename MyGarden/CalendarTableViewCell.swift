@@ -12,9 +12,9 @@ class CalendarTableViewCell: UITableViewCell {
     // MARK: Properties
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subtitle: UILabel!
-
     @IBOutlet weak var calendarView: UIView!
     @IBOutlet var viewCollection: [UIView]!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,13 +33,13 @@ class CalendarTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setCorrectBounds(from: String, until: String) {
+    func setCorrectBounds(view: Int, from: String, until: String) {
+        contentView.layoutIfNeeded()
         let bounds = calendarView.bounds.width
-        NSLog("calendarView.bounds.width: %d", bounds)
-        let x: Int = Int(bounds/12)
+        let x: Int = Int(bounds/11)
 
         let constrains = ([
-            "Januar": x*0,
+            "Januar": 5,
             "Februar": x*1,
             "März": x*2,
             "April": x*3,
@@ -50,26 +50,13 @@ class CalendarTableViewCell: UITableViewCell {
             "September": x*8,
             "Oktober": x*9,
             "November": x*10,
-            "Dezember": x*11,
+            "Dezember": x*11-5,
             "": 0])
 
         let fromX = constrains[from]!
         let untilX = constrains[until]!
 
-        NSLog("x: %d", x)
-        NSLog("Januar : %d", constrains["Januar"]!)
-        NSLog("Februar: %d", constrains["Februar"]!)
-        NSLog("Dezember: %d", constrains["Dezember"]!)
-        NSLog("fromX: %d", fromX)
-        NSLog("untilX: %d", untilX)
-
-/*
-        var f = viewCollection[0].frame
-        f.origin.x = fromX
-        f.origin.y = untilX
-*/
-        viewCollection[0].frame = CGRectMake(CGFloat(fromX), CGFloat(7), CGFloat(untilX), CGFloat(6))
-       // viewCollection[0].frame = CGRectMake(CGFloat(12), CGFloat(7), CGFloat(200), CGFloat(6))
+        viewCollection[view].frame = CGRectMake(CGFloat(fromX), CGFloat(7+view*8), CGFloat(untilX-fromX), CGFloat(6))
     }
 
 }

@@ -94,7 +94,6 @@ class DetailTableViewController: UITableViewController {
     func updateView() {
         if isViewLoaded() {
             let name = detailPlant?.name!
-            plantImageView.image = UIImage(named: name!)
 
             //title = name
             self.navigationItem.titleView = setTitle(name!, subtitle: detailPlant!.sorte!)

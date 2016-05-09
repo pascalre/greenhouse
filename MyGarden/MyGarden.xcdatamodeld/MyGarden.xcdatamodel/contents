@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Automatic">
     <entity name="Plant" representedClassName=".Plant" syncable="YES">
         <attribute name="auspflanzungAb" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="auspflanzungBis" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="boden" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="color" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="direktsaatAb" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="direktsaatBis" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ernteAb" optional="YES" attributeType="String" syncable="YES"/>
@@ -33,7 +34,7 @@
         <relationship name="pflanze" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plant" inverseName="ausgesaet" inverseEntity="Plant" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Plant" positionX="-576" positionY="-99" width="128" height="420"/>
+        <element name="Plant" positionX="-576" positionY="-99" width="128" height="435"/>
         <element name="Sowed" positionX="-155" positionY="-82" width="128" height="90"/>
     </elements>
 </model>

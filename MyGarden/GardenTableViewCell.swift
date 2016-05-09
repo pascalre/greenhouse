@@ -10,7 +10,8 @@ import UIKit
 
 class GardenTableViewCell: UITableViewCell {
     // MARK: Outlets
-    @IBOutlet weak var plantImageView: UIImageView!
+    @IBOutlet weak var icon: UIView!
+    @IBOutlet weak var iconChar: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
 

@@ -130,6 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     plant.long = result["long"].doubleValue
                     plant.infosErnte = result["infosErnte"].stringValue
                     plant.infosPflege  = result["infosPflege"].stringValue
+                    plant.color = result["color"].doubleValue
                     plant.isFavorite = false
                     plant.keimdauer = result["keimdauer"].intValue
                     plant.saattiefe = result["saattiefe"].stringValue
@@ -139,39 +140,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     plant.wissName = result["wissName"].stringValue
                     plant.wuchsdauer = result["wuchsdauer"].intValue
                     plant.wuchshoehe = result["wuchshoehe"].stringValue
-
-                    //addPlantToCalendar(plant.name!, place: "in", mon1: getMonthFromString(plant.aussatAbTopf!), mon2: getMonthFromString(plant.aussatBisTopf!))
-                    //addPlantToCalendar(plant.name!, place: "out", mon1: getMonthFromString(plant.aussatAbFrei!), mon2: getMonthFromString(plant.aussatBisFrei!))
                 }
-/*
-                let calEntity =  NSEntityDescription.entityForName("Calendar", inManagedObjectContext:managedContext)
-                let cal = Calendar(entity: calEntity!, insertIntoManagedObjectContext: managedContext)
 
-                cal.januarIn = calendarArray[0][0]
-                cal.januarOut = calendarArray[0][1]
-                cal.februarIn = calendarArray[1][0]
-                cal.februarOut = calendarArray[1][1]
-                cal.maerzIn = calendarArray[2][0]
-                cal.maerzOut = calendarArray[2][1]
-                cal.aprilIn = calendarArray[3][0]
-                cal.aprilOut = calendarArray[3][1]
-                cal.maiIn = calendarArray[4][0]
-                cal.maiOut = calendarArray[4][1]
-                cal.juniIn = calendarArray[5][0]
-                cal.juniOut = calendarArray[5][1]
-                cal.juliIn = calendarArray[6][0]
-                cal.juliOut = calendarArray[6][1]
-                cal.augustIn = calendarArray[7][0]
-                cal.augustOut = calendarArray[7][1]
-                cal.septemberIn = calendarArray[8][0]
-                cal.septemberOut = calendarArray[8][1]
-                cal.oktoberIn = calendarArray[9][0]
-                cal.oktoberOut = calendarArray[9][1]
-                cal.novemberIn = calendarArray[10][0]
-                cal.novemberOut = calendarArray[10][1]
-                cal.dezemberIn = calendarArray[11][0]
-                cal.dezemberOut = calendarArray[11][1]
-*/
                 do {
                     try managedContext.save()
                 } catch let error as NSError {
@@ -192,7 +162,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Core Data stack
-
     lazy var applicationDocumentsDirectory: NSURL = {
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.count-1]

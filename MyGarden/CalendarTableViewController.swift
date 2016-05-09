@@ -27,9 +27,13 @@ class CalendarTableViewController: UITableViewController {
         }
     }
 
-    override func viewDidAppear(animated: Bool) {
+   /* override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
     }
+
+    override func viewDidLayoutSubviews() {
+        tableView.reloadData()
+    }*/
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,7 +55,6 @@ class CalendarTableViewController: UITableViewController {
         return 2
     }
 
-
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("Header", forIndexPath: indexPath)
@@ -65,7 +68,10 @@ class CalendarTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CalendarTableViewCell
         cell!.title.text = plants![indexPath.row-1].name
         cell!.subtitle.text = plants![indexPath.row-1].sorte
-        cell!.setCorrectBounds(plants![indexPath.row-1].vorkulturAb!, until: plants![indexPath.row-1].vorkulturBis!)
+        cell!.setCorrectBounds(0, from: plants![indexPath.row-1].vorkulturAb!, until: plants![indexPath.row-1].vorkulturBis!)
+        cell!.setCorrectBounds(1, from: plants![indexPath.row-1].auspflanzungAb!, until: plants![indexPath.row-1].auspflanzungBis!)
+        cell!.setCorrectBounds(2, from: plants![indexPath.row-1].direktsaatAb!, until: plants![indexPath.row-1].direktsaatBis!)
+        cell!.setCorrectBounds(3, from: plants![indexPath.row-1].ernteAb!, until: plants![indexPath.row-1].ernteBis!)
         return cell!
     }
 

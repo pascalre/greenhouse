@@ -80,7 +80,6 @@ class DetailSowTableViewController: UITableViewController {
         let keimDauer: Double = (sow?.pflanze?.keimdauer!)! as Double
         let wuchsDauer: Double = (sow?.pflanze?.wuchsdauer!)! as Double
 
-        plantImageView.image = UIImage(named: name!)
         title = ""
         self.navigationItem.titleView = setTitle(name!, subtitle: (sow?.pflanze!.sorte!)!)
 
