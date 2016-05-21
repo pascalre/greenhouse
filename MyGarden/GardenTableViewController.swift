@@ -77,7 +77,11 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? GardenTableViewCell
         let name: String = String(UTF8String: (garden![indexPath.row].pflanze?.name!)!)!
         cell!.nameLabel!.text = name
-     //   cell!.icon!.backgroundColor = UIColorFromRGB(garden![indexPath.row].pflanze!.color)
+   //     cell!.icon!.backgroundColor = UIColorFromRGB(garden![indexPath.row].pflanze!.color)
+     
+        print("############################")
+        print(garden![indexPath.row].pflanze!.color!)
+        
         cell!.icon!.layer.cornerRadius = cell!.icon!.frame.size.width / 2
         cell!.icon!.clipsToBounds = true
 

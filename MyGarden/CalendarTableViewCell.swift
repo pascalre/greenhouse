@@ -14,7 +14,6 @@ class CalendarTableViewCell: UITableViewCell {
     @IBOutlet weak var subtitle: UILabel!
     @IBOutlet weak var calendarView: UIView!
     @IBOutlet var viewCollection: [UIView]!
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()

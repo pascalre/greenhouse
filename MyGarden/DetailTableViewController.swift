@@ -119,7 +119,7 @@ class DetailTableViewController: UITableViewController {
 
     func makeCellArray() {
         cells = [["wiss. Name", detailPlant!.wissName!], ["Familie", detailPlant!.familie!], ["Wuchshöhe", detailPlant!.wuchshoehe!], ["Standort", detailPlant!.standort!]]
-        if let vorkulturAb = detailPlant!.vorkulturAb {
+      /*  if let vorkulturAb = detailPlant!.vorkulturAb {
             cells.append(["Vorkultur", vorkulturAb + " - " + detailPlant!.vorkulturBis!])
         }
         if let auspflanzungAb = detailPlant!.auspflanzungAb {
@@ -128,7 +128,7 @@ class DetailTableViewController: UITableViewController {
         if let direktsaatAb = detailPlant!.direktsaatAb {
             cells.append(["Direktsaat", direktsaatAb + " - " + detailPlant!.direktsaatBis!])
         }
-        cells.append(["Ernte", detailPlant!.ernteAb! + " - " + detailPlant!.ernteBis!])
+        cells.append(["Ernte", detailPlant!.ernteAb! + " - " + detailPlant!.ernteBis!])*/
         cells.append(["Keimdauer", "\(detailPlant!.keimdauer!) Tage"])
 
         let firstHarvest: Int = Int(detailPlant!.keimdauer!) + Int(detailPlant!.wuchsdauer!)

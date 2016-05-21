@@ -13,6 +13,7 @@
 		2D1EC8B51CA5D65200CCE76B /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1EC8B41CA5D65200CCE76B /* FavoritesTableViewController.swift */; };
 		2D31B65A1CCD5CF8003F4AD5 /* GardenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D31B6591CCD5CF8003F4AD5 /* GardenTableViewCell.swift */; };
 		2D3EE7E11CBE6BDF00C3E24B /* garden.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D3EE7E01CBE6BDF00C3E24B /* garden.json */; };
+		2D62E5031CE86EFB002837F0 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62E5021CE86EFB002837F0 /* CalendarView.swift */; };
 		2D74BCE51CE11B6100969220 /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D74BCE41CE11B6100969220 /* Plant+CoreDataProperties.swift */; };
 		2D74BCE71CE11B7B00969220 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D74BCE61CE11B7B00969220 /* Plant.swift */; };
 		2D7562E81CA877DF00487F60 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7562E71CA877DF00487F60 /* DetailTableViewCell.swift */; };
@@ -69,6 +70,7 @@
 		2D1EC8B41CA5D65200CCE76B /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		2D31B6591CCD5CF8003F4AD5 /* GardenTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenTableViewCell.swift; sourceTree = "<group>"; };
 		2D3EE7E01CBE6BDF00C3E24B /* garden.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = garden.json; sourceTree = "<group>"; };
+		2D62E5021CE86EFB002837F0 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		2D74BCE41CE11B6100969220 /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2D74BCE61CE11B7B00969220 /* Plant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		2D7562E71CA877DF00487F60 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailTableViewCell.swift; path = ../DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				2D987B6D1CCF78D800C63871 /* CalendarTableViewCell.swift */,
+				2D62E5021CE86EFB002837F0 /* CalendarView.swift */,
 				2D987B6B1CCF71E500C63871 /* CalendarTableViewController.swift */,
 			);
 			name = Kalender;
@@ -466,6 +469,7 @@
 				2D74BCE51CE11B6100969220 /* Plant+CoreDataProperties.swift in Sources */,
 				2DB6A44C1CCE1CFF0061B3B5 /* DetailSowTableViewController.swift in Sources */,
 				2D7562E81CA877DF00487F60 /* DetailTableViewCell.swift in Sources */,
+				2D62E5031CE86EFB002837F0 /* CalendarView.swift in Sources */,
 				2DDDF2951CA164D30075674B /* MyGarden.xcdatamodeld in Sources */,
 				2D31B65A1CCD5CF8003F4AD5 /* GardenTableViewCell.swift in Sources */,
 				2D74BCE71CE11B7B00969220 /* Plant.swift in Sources */,
