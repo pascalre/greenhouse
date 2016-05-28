@@ -130,7 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     plant.long = result["long"].doubleValue
                     plant.infosErnte = result["infosErnte"].stringValue
                     plant.infosPflege  = result["infosPflege"].stringValue
-                    plant.color = result["color"].doubleValue
+                    plant.color = result["color"].stringValue
                     plant.isFavorite = false
                     plant.keimdauer = result["keimdauer"].intValue
                     plant.saattiefe = result["saattiefe"].stringValue
@@ -214,14 +214,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 abort()
             }
         }
-    }
-}
-
-extension UIColor {
-    static func candyGreen() -> UIColor {
-        return UIColor(red: 67.0/255.0, green: 205.0/255.0, blue: 98.0/255.0, alpha: 1.0)
-    }
-    static func candyGreenWithoutOpacity() -> UIColor {
-        return UIColor(red: 94.0/255.0, green: 211.0/255.0, blue: 120.0/255.0, alpha: 1.0)
     }
 }

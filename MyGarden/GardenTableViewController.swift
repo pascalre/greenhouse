@@ -77,11 +77,7 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? GardenTableViewCell
         let name: String = String(UTF8String: (garden![indexPath.row].pflanze?.name!)!)!
         cell!.nameLabel!.text = name
-   //     cell!.icon!.backgroundColor = UIColorFromRGB(garden![indexPath.row].pflanze!.color)
-     
-        print("############################")
-        print(garden![indexPath.row].pflanze!.color!)
-        
+        cell!.icon!.backgroundColor = UIColor.init(hexString: garden![indexPath.row].pflanze!.color!)
         cell!.icon!.layer.cornerRadius = cell!.icon!.frame.size.width / 2
         cell!.icon!.clipsToBounds = true
 
@@ -90,15 +86,6 @@ class GardenTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         return cell!
     }
 
-    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
-    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             managedObjectContext.deleteObject(garden![indexPath.row] as NSManagedObject)

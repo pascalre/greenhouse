@@ -15,6 +15,7 @@ class DetailTableViewController: UITableViewController {
     @IBOutlet weak var plantImageView: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
+    @IBOutlet weak var calendarView: CalendarView!
 
     var cells: [[String]] = []
     let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)!.managedObjectContext
@@ -94,6 +95,7 @@ class DetailTableViewController: UITableViewController {
     func updateView() {
         if isViewLoaded() {
             let name = detailPlant?.name!
+            print(detailPlant!)
 
             //title = name
             self.navigationItem.titleView = setTitle(name!, subtitle: detailPlant!.sorte!)

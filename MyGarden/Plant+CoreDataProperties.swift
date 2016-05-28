@@ -1,8 +1,8 @@
 //
 //  Plant+CoreDataProperties.swift
-//  
 //
-//  Created by Pascal Reitermann on 09.05.16.
+//
+//  Created by Pascal Reitermann on 26.05.16.
 //
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -17,13 +17,13 @@ extension Plant {
     @NSManaged var auspflanzungAb: String?
     @NSManaged var auspflanzungBis: String?
     @NSManaged var boden: String?
+    @NSManaged var color: String?
     @NSManaged var direktsaatAb: String?
     @NSManaged var direktsaatBis: String?
     @NSManaged var ernteAb: String?
     @NSManaged var ernteBis: String?
     @NSManaged var familie: String?
     @NSManaged var herkunft: String?
-    @NSManaged var color: NSNumber?
     @NSManaged var infosErnte: String?
     @NSManaged var infosPflege: String?
     @NSManaged var isFavorite: NSNumber?

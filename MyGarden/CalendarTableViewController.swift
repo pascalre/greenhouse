@@ -50,21 +50,12 @@ class CalendarTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if let plantsCount = self.plants?.count {
-            return plantsCount + 2
+            return plantsCount
         }
-        return 2
+        return 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("Header", forIndexPath: indexPath)
-            return cell
-        }
-        if indexPath.row == (plants?.count)! + 1 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("Legend", forIndexPath: indexPath) as UITableViewCell
-            return cell
-        }
-
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CalendarTableViewCell
         cell!.title.text = plants![indexPath.row-1].name
         cell!.subtitle.text = plants![indexPath.row-1].sorte
