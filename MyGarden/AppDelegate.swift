@@ -28,7 +28,7 @@ enum Month: Int {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
 
     var months: [Month] = [
         Month.January,
@@ -95,16 +95,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UISearchBar.appearance().barTintColor = UIColor.candyGreenWithoutOpacity()
-        UISearchBar.appearance().tintColor = UIColor.whiteColor()
+        UISearchBar.appearance().tintColor = UIColor.white
         UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.candyGreenWithoutOpacity()
 
-        if !(defaults.boolForKey("databaseIsFilled")) {
-            let filePath = NSBundle.mainBundle().pathForResource("garden", ofType:"json")
+        if !(defaults.bool(forKey: "databaseIsFilled")) {
+            let filePath = Bundle.main.path(forResource: "garden", ofType:"json")
             let jsonData     = NSData(contentsOfFile:filePath!)
-            let json = JSON(data: jsonData!)
+            let json = JSON(data: jsonData! as Data)
 
             print("JSON: \(json)")
 
@@ -112,8 +112,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let managedContext = self.managedObjectContext
 
                 for result in json["results"].arrayValue {
-                    let entity =  NSEntityDescription.entityForName("Plant", inManagedObjectContext:managedContext)
-                    let plant = Plant(entity: entity!, insertIntoManagedObjectContext: managedContext)
+                    let entity =  NSEntityDescription.entity(forEntityName: "Plant", in:managedContext)
+                    let plant = Plant(entity: entity!, insertInto: managedContext)
 
                     plant.name = result["name"].stringValue
                     plant.sorte = result["sorte"].stringValue
@@ -126,19 +126,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     plant.ernteBis = result["ernteBis"].stringValue
                     plant.familie = result["familie"].stringValue
                     plant.herkunft = result["herkunft"].stringValue
-                    plant.lat = result["lat"].doubleValue
-                    plant.long = result["long"].doubleValue
+                    plant.lat = result["lat"].doubleValue as NSNumber
+                    plant.long = result["long"].doubleValue as NSNumber
                     plant.infosErnte = result["infosErnte"].stringValue
                     plant.infosPflege  = result["infosPflege"].stringValue
                     plant.color = result["color"].stringValue
                     plant.isFavorite = false
-                    plant.keimdauer = result["keimdauer"].intValue
+                    plant.keimdauer = result["keimdauer"].intValue as NSNumber
                     plant.saattiefe = result["saattiefe"].stringValue
                     plant.standort = result["standort"].stringValue
                     plant.vorkulturAb = result["vorkulturAb"].stringValue
                     plant.vorkulturBis = result["vorkulturBis"].stringValue
                     plant.wissName = result["wissName"].stringValue
-                    plant.wuchsdauer = result["wuchsdauer"].intValue
+                    plant.wuchsdauer = result["wuchsdauer"].intValue as NSNumber
                     plant.wuchshoehe = result["wuchshoehe"].stringValue
                 }
 
@@ -148,7 +148,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("Could not save \(error), \(error.userInfo)")
                 }
 
-                defaults.setBool(true, forKey: "databaseIsFilled")
+                defaults.set(true, forKey: "databaseIsFilled")
             }
         }
         defaults.synchronize()
@@ -163,27 +163,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data stack
     lazy var applicationDocumentsDirectory: NSURL = {
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1]
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return urls[urls.count-1] as NSURL
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
-        let modelURL = NSBundle.mainBundle().URLForResource("MyGarden", withExtension: "momd")!
-        return NSManagedObjectModel(contentsOfURL: modelURL)!
+        let modelURL = Bundle.main.url(forResource: "MyGarden", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
     }()
 
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         // Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
+        let url = self.applicationDocumentsDirectory.appendingPathComponent("SingleViewCoreData.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
-            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
         } catch {
             // Report any error we got.
             var dict = [String: AnyObject]()
-            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
-            dict[NSLocalizedFailureReasonErrorKey] = failureReason
+            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data" as AnyObject
+            dict[NSLocalizedFailureReasonErrorKey] = failureReason as AnyObject
 
             dict[NSUnderlyingErrorKey] = error as NSError
             let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
@@ -197,7 +197,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var managedObjectContext: NSManagedObjectContext = {
         let coordinator = self.persistentStoreCoordinator
-        var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()

@@ -18,7 +18,7 @@ class DetailTableViewController: UITableViewController {
     @IBOutlet weak var calendarView: CalendarView!
 
     var cells: [[String]] = []
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)!.managedObjectContext
+    let managedObjectContext = (UIApplication.shared.delegate as? AppDelegate)!.managedObjectContext
     var detailPlant: Plant? {
         didSet {
             updateView()
@@ -28,10 +28,10 @@ class DetailTableViewController: UITableViewController {
 
     // MARK: Functions
     @IBAction func markAsFavorite(sender: AnyObject) {
-        let isFavorite = (detailPlant!.valueForKey("isFavorite") as? Bool)!
+        let isFavorite = (detailPlant!.value(forKey: "isFavorite") as? Bool)!
         let batchRequest = NSBatchUpdateRequest(entityName: "Plant")
         batchRequest.predicate = NSPredicate(format: "name == %@", (detailPlant?.name)! as String)
-        batchRequest.resultType = .UpdatedObjectsCountResultType
+        batchRequest.resultType = .updatedObjectsCountResultType
 
         if isFavorite == false {
             batchRequest.propertiesToUpdate = ["isFavorite": true]
@@ -47,7 +47,7 @@ class DetailTableViewController: UITableViewController {
 
         do {
             // Execute Batch Request
-            try managedObjectContext.executeRequest(batchRequest)
+            try managedObjectContext.execute(batchRequest)
         } catch {
             let updateError = error as NSError
             print("\(updateError), \(updateError.userInfo)")
@@ -57,23 +57,23 @@ class DetailTableViewController: UITableViewController {
     // MARK: View Setup
     func setTitle(title: String, subtitle: String) -> UIView {
         //Create a label programmatically and give it its property's
-        let titleLabel = UILabel(frame: CGRectMake(0, 0, 0, 0)) //x, y, width, height where y is to offset from the view center
-        titleLabel.backgroundColor = UIColor.clearColor()
-        titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.font = UIFont.boldSystemFontOfSize(17)
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0)) //x, y, width, height where y is to offset from the view center
+        titleLabel.backgroundColor = UIColor.clear
+        titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.text = title
         titleLabel.sizeToFit()
 
         //Create a label for the Subtitle
-        let subtitleLabel = UILabel(frame: CGRectMake(0, 18, 0, 0))
-        subtitleLabel.backgroundColor = UIColor.clearColor()
-        subtitleLabel.textColor = UIColor.whiteColor()
-        subtitleLabel.font = UIFont.systemFontOfSize(12)
+        let subtitleLabel = UILabel(frame: CGRect(x: 0, y: 18, width: 0, height: 0))
+        subtitleLabel.backgroundColor = UIColor.clear
+        subtitleLabel.textColor = UIColor.white
+        subtitleLabel.font = UIFont.systemFont(ofSize: 12)
         subtitleLabel.text = subtitle
         subtitleLabel.sizeToFit()
 
         // Create a view and add titleLabel and subtitleLabel as subviews setting
-        let titleView = UIView(frame: CGRectMake(0, 0, max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), 30))
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), height: 30))
 
         // Center title or subtitle on screen (depending on which is larger)
         if titleLabel.frame.width >= subtitleLabel.frame.width {
@@ -93,15 +93,15 @@ class DetailTableViewController: UITableViewController {
     }
 
     func updateView() {
-        if isViewLoaded() {
+        if isViewLoaded {
             let name = detailPlant?.name!
             print(detailPlant!)
 
             //title = name
-            self.navigationItem.titleView = setTitle(name!, subtitle: detailPlant!.sorte!)
+            self.navigationItem.titleView = setTitle(title: name!, subtitle: detailPlant!.sorte!)
 
             // Favoriten Icon setzen
-            if (detailPlant!.valueForKey("isFavorite") as? Bool)! == true {
+            if (detailPlant!.value(forKey: "isFavorite") as? Bool)! == true {
                 favoriteButton.image = UIImage(named: "Star Filled")
             } else {
                 favoriteButton.image = UIImage(named: "Star")
@@ -114,7 +114,7 @@ class DetailTableViewController: UITableViewController {
             point.title = detailPlant?.herkunft
             point.subtitle = "Herkunft"
             mapView.addAnnotation(point)
-            mapView.setCenterCoordinate(point.coordinate, animated: false)
+            mapView.setCenter(point.coordinate, animated: false)
             self.mapView.selectAnnotation(point, animated: false)
         }
     }
@@ -133,7 +133,7 @@ class DetailTableViewController: UITableViewController {
         cells.append(["Ernte", detailPlant!.ernteAb! + " - " + detailPlant!.ernteBis!])*/
         cells.append(["Keimdauer", "\(detailPlant!.keimdauer!) Tage"])
 
-        let firstHarvest: Int = Int(detailPlant!.keimdauer!) + Int(detailPlant!.wuchsdauer!)
+        let firstHarvest: Int = Int(truncating: detailPlant!.keimdauer!) + Int(truncating: detailPlant!.wuchsdauer!)
         cells.append(["Erste Ernte", "\(firstHarvest) Tage"])
     }
 
@@ -141,7 +141,7 @@ class DetailTableViewController: UITableViewController {
         super.viewDidLoad()
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         updateView()
     }
 
@@ -151,23 +151,23 @@ class DetailTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2
     }
 
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 1 {
             return "Herkunft"
         }
         return ""
     }
 
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 1.0
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
             return cells.count
@@ -175,8 +175,8 @@ class DetailTableViewController: UITableViewController {
         return 0
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
         cell.textLabel!.text = cells[indexPath.row][0]
         cell.detailTextLabel!.text = cells[indexPath.row][1]
         return cell

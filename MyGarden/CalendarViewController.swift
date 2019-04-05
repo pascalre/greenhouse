@@ -14,7 +14,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableView: UITableView!
 
     var plants = [Plant]?()
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)!.managedObjectContext
+    let managedObjectContext = (UIApplication.shared.delegate as? AppDelegate)!.managedObjectContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +22,10 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
-        let fetchRequest = NSFetchRequest(entityName: "Plant")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Plant")
 
         do {
-            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
+            let results = try managedObjectContext.fetch(fetchRequest)
             plants = results as? [Plant]
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
@@ -51,7 +51,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if let plantsCount = self.plants?.count {
             return plantsCount
@@ -59,26 +59,26 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         return 0
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let i = indexPath.row
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CalendarTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CalendarTableViewCell
         cell!.title.text = plants![i].name
         cell!.subtitle.text = plants![i].sorte
-        cell!.setCorrectBounds(0, from: plants![i].vorkulturAb!, until: plants![i].vorkulturBis!)
-        cell!.setCorrectBounds(1, from: plants![i].auspflanzungAb!, until: plants![i].auspflanzungBis!)
-        cell!.setCorrectBounds(2, from: plants![i].direktsaatAb!, until: plants![i].direktsaatBis!)
-        cell!.setCorrectBounds(3, from: plants![i].ernteAb!, until: plants![i].ernteBis!)
+        cell!.setCorrectBounds(view: 0, from: plants![i].vorkulturAb!, until: plants![i].vorkulturBis!)
+        cell!.setCorrectBounds(view: 1, from: plants![i].auspflanzungAb!, until: plants![i].auspflanzungBis!)
+        cell!.setCorrectBounds(view: 2, from: plants![i].direktsaatAb!, until: plants![i].direktsaatBis!)
+        cell!.setCorrectBounds(view: 3, from: plants![i].ernteAb!, until: plants![i].ernteBis!)
         return cell!
     }
 
     // MARK: - Segues
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             print("Test..")
             let cell = sender as? CalendarTableViewCell
-            let indexPath = self.tableView.indexPathForCell(cell!)!
+            let indexPath = self.tableView.indexPath(for: cell!)!
 
-            let controller = segue.destinationViewController as? DetailTableViewController
+            let controller = segue.destination as? DetailTableViewController
             controller!.detailPlant = plants![indexPath.row-1]
         }
     }

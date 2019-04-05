@@ -1,0 +1,26 @@
+PODS:
+  - Charts (3.2.2):
+    - Charts/Core (= 3.2.2)
+  - Charts/Core (3.2.2)
+  - DZNEmptyDataSet (1.8.1)
+  - SwiftyJSON (4.2.0)
+
+DEPENDENCIES:
+  - Charts
+  - DZNEmptyDataSet
+  - SwiftyJSON (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Charts
+    - DZNEmptyDataSet
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+
+PODFILE CHECKSUM: 030d94d6397fc4dee40e4934fcbc5a368486bc21
+
+COCOAPODS: 1.6.1

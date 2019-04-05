@@ -11,12 +11,13 @@ import CoreData
 
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
 
+
     // MARK: Properties
     var detailViewController: DetailTableViewController? = nil
     var plants = [Plant]?()
     var filteredArray = [Plant]()
     var searchController = UISearchController()
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)!.managedObjectContext
+    let managedObjectContext = (UIApplication.shared.delegate as? AppDelegate)!.managedObjectContext
 
     // MARK: View Setup
     override func viewDidLoad() {
@@ -34,10 +35,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         searchController.searchBar.sizeToFit()
         tableView.tableHeaderView = searchController.searchBar
 
-        let fetchRequest = NSFetchRequest(entityName: "Plant")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Plant")
 
         do {
-            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
+            let results = try managedObjectContext.fetch(fetchRequest)
             plants = results as? [Plant]
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
@@ -52,12 +53,12 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.active && searchController.searchBar.text != "" {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.isActive && searchController.searchBar.text != "" {
             return filteredArray.count
         }
         if let plants = plants {
@@ -66,17 +67,17 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         return 0
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
         let plant: NSManagedObject
 
-        if searchController.active && searchController.searchBar.text != "" {
+        if searchController.isActive && searchController.searchBar.text != "" {
             plant = filteredArray[indexPath.row]
         } else {
             plant = plants![indexPath.row]
         }
-        cell.textLabel!.text = plant.valueForKey("name") as? String
-        cell.detailTextLabel!.text = plant.valueForKey("sorte") as? String
+        cell.textLabel!.text = plant.value(forKey: "name") as? String
+        cell.detailTextLabel!.text = plant.value(forKey: "sorte") as? String
 
         return cell
     }
@@ -89,23 +90,23 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     }
 
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
 
     // MARK: - Segues
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let cell = sender as? UITableViewCell
-            let indexPath = self.tableView.indexPathForCell(cell!)!
+            let indexPath = self.tableView.indexPath(for: cell!)!
 
             let plant: Plant
-            if searchController.active && searchController.searchBar.text != "" {
+            if searchController.isActive && searchController.searchBar.text != "" {
                 plant = filteredArray[indexPath.row]
             } else {
                 plant = plants![indexPath.row]
             }
 
-            let controller = segue.destinationViewController as? DetailTableViewController
+            let controller = segue.destination as? DetailTableViewController
             controller!.detailPlant = plant
         }
     }

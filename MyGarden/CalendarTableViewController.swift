@@ -12,15 +12,15 @@ import CoreData
 class CalendarTableViewController: UITableViewController {
 
     var plants = [Plant]?()
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)!.managedObjectContext
+    let managedObjectContext = (UIApplication.shared.delegate as? AppDelegate)!.managedObjectContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let fetchRequest = NSFetchRequest(entityName: "Plant")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Plant")
 
         do {
-            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
+            let results = try managedObjectContext.fetch(fetchRequest)
             plants = results as? [Plant]
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
@@ -42,12 +42,12 @@ class CalendarTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if let plantsCount = self.plants?.count {
             return plantsCount
@@ -55,25 +55,25 @@ class CalendarTableViewController: UITableViewController {
         return 0
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? CalendarTableViewCell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath) as? CalendarTableViewCell
         cell!.title.text = plants![indexPath.row-1].name
         cell!.subtitle.text = plants![indexPath.row-1].sorte
-        cell!.setCorrectBounds(0, from: plants![indexPath.row-1].vorkulturAb!, until: plants![indexPath.row-1].vorkulturBis!)
-        cell!.setCorrectBounds(1, from: plants![indexPath.row-1].auspflanzungAb!, until: plants![indexPath.row-1].auspflanzungBis!)
-        cell!.setCorrectBounds(2, from: plants![indexPath.row-1].direktsaatAb!, until: plants![indexPath.row-1].direktsaatBis!)
-        cell!.setCorrectBounds(3, from: plants![indexPath.row-1].ernteAb!, until: plants![indexPath.row-1].ernteBis!)
+        cell!.setCorrectBounds(view: 0, from: plants![indexPath.row-1].vorkulturAb!, until: plants![indexPath.row-1].vorkulturBis!)
+        cell!.setCorrectBounds(view: 1, from: plants![indexPath.row-1].auspflanzungAb!, until: plants![indexPath.row-1].auspflanzungBis!)
+        cell!.setCorrectBounds(view: 2, from: plants![indexPath.row-1].direktsaatAb!, until: plants![indexPath.row-1].direktsaatBis!)
+        cell!.setCorrectBounds(view: 3, from: plants![indexPath.row-1].ernteAb!, until: plants![indexPath.row-1].ernteBis!)
         return cell!
     }
 
     // MARK: - Segues
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             print("Test..")
             let cell = sender as? CalendarTableViewCell
-            let indexPath = self.tableView.indexPathForCell(cell!)!
+            let indexPath = self.tableView.indexPath(for: cell!)!
 
-            let controller = segue.destinationViewController as? DetailTableViewController
+            let controller = segue.destination as? DetailTableViewController
             controller!.detailPlant = plants![indexPath.row-1]
         }
     }

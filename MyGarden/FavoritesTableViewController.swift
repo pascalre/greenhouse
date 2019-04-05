@@ -15,9 +15,9 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
     // MARK: Properties
     @IBOutlet weak var editButton: UIBarButtonItem!
 
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)!.managedObjectContext
+    let managedObjectContext = (UIApplication.shared.delegate as? AppDelegate)!.managedObjectContext
     @IBAction func editTable(sender: AnyObject) {
-        if tableView.editing == false {
+        if tableView.isEditing == false {
             tableView.setEditing(true, animated: true)
         } else {
             tableView.setEditing(false, animated: true)
@@ -27,12 +27,12 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
     // Array where the Favorite Plants are stored
     var favorites = [Plant]()
 
-    override func viewWillAppear(animated: Bool) {
-        let fetchRequest = NSFetchRequest(entityName: "Plant")
+    override func viewWillAppear(_ animated: Bool) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Plant")
         fetchRequest.predicate = NSPredicate(format: "isFavorite == %@", true)
 
         do {
-            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
+            let results = try managedObjectContext.fetch(fetchRequest)
             favorites = (results as? [Plant])!
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
@@ -57,13 +57,13 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
 
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let str = "Keine Favoriten vorhanden"
-        let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)]
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
 
     func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let str = "Über den Stern auf einer Infoseite kannst Du Pflanzen zu Deinen Favoriten hinzufügen."
-        let attrs = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleBody)]
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)]
         return NSAttributedString(string: str, attributes: attrs)
     }
 
@@ -78,16 +78,16 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favorites.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
 
         let favorite = favorites[indexPath.row]
         cell.textLabel!.text = String(favorite.name!)
@@ -95,16 +95,16 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
         return cell
     }
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCell.EditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .delete {
             let batchRequest = NSBatchUpdateRequest(entityName: "Plant")
             batchRequest.predicate = NSPredicate(format: "name == %@", (favorites[indexPath.row].name)! as String)
-            batchRequest.resultType = .UpdatedObjectsCountResultType
+            batchRequest.resultType = .updatedObjectsCountResultType
             batchRequest.propertiesToUpdate = ["isFavorite": true]
             favorites[indexPath.row].isFavorite = false
             print("Updated %@ 's attribute 'isFavorite' to true.", favorites[indexPath.row].name!)
-            favorites.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            favorites.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
             if favorites.count == 0 {
                 editButton.title = ""
             } else {
@@ -115,14 +115,14 @@ class FavoritesTableViewController: UITableViewController, DZNEmptyDataSetSource
     }
 
     // MARK: - Segues
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let cell = sender as? UITableViewCell
-            let indexPath = self.tableView.indexPathForCell(cell!)!
+            let indexPath = self.tableView.indexPath(for: cell!)!
 
             let plant: Plant
             plant = favorites[indexPath.row]
-            let controller = segue.destinationViewController as? DetailTableViewController
+            let controller = segue.destination as? DetailTableViewController
             controller!.detailPlant = plant
         }
     }

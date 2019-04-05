@@ -15,19 +15,19 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var datePicker: UIDatePicker!
     var plants = [Plant]?()
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)!.managedObjectContext
+    let managedObjectContext = (UIApplication.shared.delegate as? AppDelegate)!.managedObjectContext
 
     // MARK: View Setup
     override func viewDidLoad() {
         super.viewDidLoad()
-        datePicker.maximumDate = NSDate()
+        datePicker.maximumDate = NSDate() as Date
         // Connect data:
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
 
-        let fetchRequest = NSFetchRequest(entityName: "Plant")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Plant")
         do {
-            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
+            let results = try managedObjectContext.fetch(fetchRequest)
             plants = results as? [Plant]
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
@@ -41,7 +41,7 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
 
     // MARK: Functions
     @IBAction func sowPlant(sender: AnyObject) {
-        let sowed = NSEntityDescription.insertNewObjectForEntityForName("Sowed", inManagedObjectContext: self.managedObjectContext) as? Sowed
+        let sowed = NSEntityDescription.insertNewObject(forEntityName: "Sowed", into: self.managedObjectContext) as? Sowed
 
         let plant = plants![pickerView.selectedRowInComponent(0)]
         let gesaetAm = datePicker.date
@@ -55,15 +55,15 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
         } catch let error as NSError {
             print("Could not save \(error), \(error.userInfo)")
         }
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
     }
 
     // MARK: TableView
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 
@@ -73,7 +73,7 @@ class SowTableViewController: UITableViewController, UIPickerViewDelegate, UIPic
     }
 
     // The number of rows of data
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return plants!.count
     }
 

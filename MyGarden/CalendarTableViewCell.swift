@@ -26,7 +26,7 @@ class CalendarTableViewCell: UITableViewCell {
         }
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
@@ -55,7 +55,7 @@ class CalendarTableViewCell: UITableViewCell {
         let fromX = constrains[from]!
         let untilX = constrains[until]!
 
-        viewCollection[view].frame = CGRectMake(CGFloat(fromX), CGFloat(7+view*8), CGFloat(untilX-fromX), CGFloat(6))
+        viewCollection[view].frame = CGRect(x: CGFloat(fromX), y: CGFloat(7+view*8), width: CGFloat(untilX-fromX), height: CGFloat(6))
     }
 
 }
